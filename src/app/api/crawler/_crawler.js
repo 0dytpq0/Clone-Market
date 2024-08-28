@@ -16,6 +16,7 @@ async function crawlKurly() {
     .build();
 
   try {
+    // 원하는 페이지의 주소를 넣어 해당 데이터를 가져오며 작업 할 때마다 db 업데이트 할 것임.
     await driver.get("https://www.kurly.com/main");
 
     let lastHeight = await driver.executeScript(
