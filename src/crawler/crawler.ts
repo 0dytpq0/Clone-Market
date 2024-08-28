@@ -1,7 +1,6 @@
 import { Builder, By } from "selenium-webdriver";
 import chrome from "selenium-webdriver/chrome";
 
-// Define types for the data you are collecting
 interface CrawledItem {
   images: string[];
   pTexts: string[];
