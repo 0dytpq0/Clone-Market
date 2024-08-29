@@ -2,7 +2,6 @@ const BASE_URL = "http://localhost:3000";
 
 export const apiFetch = async (endpoint: string, options = {}) => {
   const response = await fetch(`${BASE_URL}${endpoint}`, options);
-  console.log("response", response);
   if (!response.ok) {
     throw new Error("네트워크 요청 실패");
   }
