@@ -1,3 +1,4 @@
+import MESSAGE from "@/constants/message";
 import { SignJWT } from "jose";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -15,14 +16,14 @@ export async function POST(req: NextRequest) {
     if (userId === "" || userPassword === "") {
       return NextResponse.json(
         {
-          error: "유저 ID 와 Password가 제대로 입력되지 않았습니다.",
+          error: MESSAGE.ERROR_MESSAGE.invalidData,
         },
         { status: 500 }
       );
     }
     if (!response.ok) {
       return NextResponse.json(
-        { error: "유저 DB에 접근을 실패했습니다." },
+        { error: MESSAGE.ERROR_MESSAGE.invalidData },
         { status: 500 }
       );
     }
@@ -30,7 +31,7 @@ export async function POST(req: NextRequest) {
     const users = await response.json();
     if (users.length === 0) {
       return NextResponse.json(
-        { error: "유저 정보가 없습니다." },
+        { error: MESSAGE.ERROR_MESSAGE.noData },
         { status: 401 }
       );
     }
@@ -46,7 +47,7 @@ export async function POST(req: NextRequest) {
       .sign(REFRESH_SECRET_KEY);
 
     const responseWithCookies = NextResponse.json({
-      message: "로그인 성공",
+      message: "login Success",
     });
 
     responseWithCookies.cookies.set("accessToken", accessToken, {
@@ -65,9 +66,8 @@ export async function POST(req: NextRequest) {
 
     return responseWithCookies;
   } catch (error) {
-    console.error("에러 :", error);
     return NextResponse.json(
-      { error: "예기치 못한 에러 발생" },
+      { error: MESSAGE.ERROR_MESSAGE.unexpected },
       { status: 500 }
     );
   }
