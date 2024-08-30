@@ -1,8 +1,16 @@
-const { Builder, By, until } = require("selenium-webdriver");
-const chrome = require("selenium-webdriver/chrome");
-const path = require("path");
+import { Builder, By } from "selenium-webdriver";
+import chrome from "selenium-webdriver/chrome";
 
-async function crawlKurly() {
+interface CrawledItem {
+  images: string[];
+  pTexts: string[];
+  spanTexts: string[];
+  h1Texts: string[];
+  h2Texts: string[];
+  h3Texts: string[];
+}
+
+async function crawlKurly(): Promise<void> {
   const chromedriverPath = process.env.CHROMEDRIVER_PATH;
 
   const options = new chrome.Options();
@@ -12,11 +20,10 @@ async function crawlKurly() {
   const driver = await new Builder()
     .forBrowser("chrome")
     .setChromeOptions(options)
-    .setChromeService(new chrome.ServiceBuilder(chromedriverPath))
+    .setChromeService(new chrome.ServiceBuilder(chromedriverPath!))
     .build();
 
   try {
-    // 원하는 페이지의 주소를 넣어 해당 데이터를 가져오며 작업 할 때마다 db 업데이트 할 것임.
     await driver.get("https://www.kurly.com/main");
 
     let lastHeight = await driver.executeScript(
@@ -24,46 +31,42 @@ async function crawlKurly() {
     );
 
     while (true) {
-      // 페이지를 끝까지 스크롤
       await driver.executeScript(
         "window.scrollTo(0, document.body.scrollHeight);"
       );
 
-      // 스크롤 후 로딩 대기
       await driver.sleep(2000);
 
-      // 새로운 높이 확인
       let newHeight = await driver.executeScript(
         "return document.body.scrollHeight"
       );
 
       if (newHeight === lastHeight) {
-        // 더 이상 스크롤할 수 없으면 루프 종료
         break;
       }
 
       lastHeight = newHeight;
     }
 
-    const items = new Set();
+    const items = new Set<CrawledItem>();
     const links = await driver.findElements(By.css("a"));
 
     for (let link of links) {
-      const images = [];
+      const images: string[] = [];
       const imageElements = await link.findElements(By.css("img"));
       for (let imageElement of imageElements) {
         const src = await imageElement.getAttribute("src");
-        if (!src.startsWith("data:image/")) {
+        if (src && !src.startsWith("data:image/")) {
           images.push(src);
         }
       }
 
       if (images.length > 0) {
-        const pTexts = [];
-        const spanTexts = [];
-        const h1Texts = [];
-        const h2Texts = [];
-        const h3Texts = [];
+        const pTexts: string[] = [];
+        const spanTexts: string[] = [];
+        const h1Texts: string[] = [];
+        const h2Texts: string[] = [];
+        const h3Texts: string[] = [];
 
         const pTags = await link.findElements(By.css("p"));
         for (let pTag of pTags) {
@@ -106,7 +109,6 @@ async function crawlKurly() {
       }
     }
 
-    // JSON 형식으로 결과 출력
     console.log(JSON.stringify({ main: Array.from(items) }));
   } finally {
     await driver.quit();
