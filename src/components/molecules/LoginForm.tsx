@@ -1,4 +1,6 @@
 import Input from "@/components/atom/Input";
+import MESSAGE from "@/constants/message";
+import { useModal } from "@/contexts/modal.context";
 import { useAuth } from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -7,6 +9,7 @@ function LoginForm() {
   const [userId, setUserId] = useState<string>("");
   const [userPassword, setUserPassword] = useState<string>("");
   const [isUserId, setIsUserId] = useState<boolean>(false);
+  const modal = useModal();
   const router = useRouter();
   const { login } = useAuth();
 
@@ -44,18 +47,12 @@ function LoginForm() {
                 router.push("/");
               },
               onError: (error) => {
-                console.error("로그인 실패", error);
+                modal.open({ title: MESSAGE.ERROR_MESSAGE.login });
               },
             }
           );
         }}
       />
-      {/* <button
-      onClick={() => signup.mutate({ userId, userPassword })}
-      className="w-full h-10 font-medium"
-    >
-      회원가입
-    </button> */}
     </div>
   );
 }

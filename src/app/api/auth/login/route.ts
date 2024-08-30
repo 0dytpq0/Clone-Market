@@ -12,7 +12,14 @@ export async function POST(req: NextRequest) {
     const response = await fetch(
       `http://localhost:5000/user?userId=${userId}&userPassword=${userPassword}`
     );
-
+    if (userId === "" || userPassword === "") {
+      return NextResponse.json(
+        {
+          error: "유저 ID 와 Password가 제대로 입력되지 않았습니다.",
+        },
+        { status: 500 }
+      );
+    }
     if (!response.ok) {
       return NextResponse.json(
         { error: "유저 DB에 접근을 실패했습니다." },
@@ -27,6 +34,7 @@ export async function POST(req: NextRequest) {
         { status: 401 }
       );
     }
+
     const accessToken = await new SignJWT({ user: users[0] })
       .setProtectedHeader({ alg: "HS256" })
       .setExpirationTime("15m")

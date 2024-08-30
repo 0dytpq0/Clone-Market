@@ -33,6 +33,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     const [isSubmit, setIsSubmit] = useState<boolean>(false);
 
     const inputUid = useId();
+
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Enter") {
         setIsSubmit(true);
