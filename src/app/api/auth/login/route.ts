@@ -21,14 +21,12 @@ export async function POST(req: NextRequest) {
     }
 
     const users = await response.json();
-
     if (users.length === 0) {
       return NextResponse.json(
         { error: "유저 정보가 없습니다." },
         { status: 401 }
       );
     }
-
     const accessToken = await new SignJWT({ user: users[0] })
       .setProtectedHeader({ alg: "HS256" })
       .setExpirationTime("15m")

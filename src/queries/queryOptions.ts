@@ -1,4 +1,3 @@
-// src/queries/queryOptions.ts
 import { apiFetch } from "@/utils/apiFetch";
 import { authKeys } from "./queryKeys";
 
@@ -32,16 +31,21 @@ export const authMutationOptions = {
     }: {
       userId: string;
       userPassword: string;
-    }) =>
-      await apiFetch("/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId,
-          userPassword,
-        }),
-      }),
+    }) => {
+      try {
+        await apiFetch("/api/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId,
+            userPassword,
+          }),
+        });
+      } catch (e) {
+        throw new Error("로그인 실패");
+      }
+    },
   }),
 };
