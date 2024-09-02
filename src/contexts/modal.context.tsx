@@ -20,7 +20,6 @@ interface ModalProviderProps {
 
 export function ModalProvider({ children }: ModalProviderProps) {
   const [modalOptions, setModalOptions] = useState<ModalOptions | null>(null);
-  console.log("modalOptions", modalOptions);
   const value = {
     open: (options: ModalOptions) => {
       setModalOptions(options);

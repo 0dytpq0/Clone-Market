@@ -1,5 +1,6 @@
 import { useModal } from "@/contexts/modal.context";
 import Backdrop from "./Backdrop";
+import Button from "./Button";
 
 interface ModalProps {
   title: string;
@@ -11,13 +12,15 @@ function Modal({ title }: ModalProps) {
   return (
     <Backdrop>
       <article className="modal">
-        <h1 className="font-semibol">{title}</h1>
-        <button
-          className="text-[#5F0080] font-bold"
-          onClick={() => modal.close()}
+        <h1 className="font-semibold">{title}</h1>
+        <Button
+          size={"sm"}
+          variant={"outline"}
+          intent="primary"
+          onClick={modal.close}
         >
           확인
-        </button>
+        </Button>
       </article>
     </Backdrop>
   );
