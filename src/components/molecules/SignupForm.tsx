@@ -1,12 +1,16 @@
 "use client";
 
+import { useModal } from "@/contexts/modal.context";
 import { useAuth } from "@/hooks/useAuth";
 import { Validator } from "@/utils/validateSignup";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Input from "../atom/Input";
 
 function SignupForm() {
   const { signup } = useAuth();
+  const router = useRouter();
+  const modal = useModal();
   const [formData, setFormData] = useState({
     userName: "",
     userId: "",
@@ -37,7 +41,14 @@ function SignupForm() {
     data.append("phoneNumber", formData.phoneNumber);
 
     Validator.signup.form(formData);
-    signup.mutate(data);
+    signup.mutate(data, {
+      onSuccess: () => {
+        router.push("/");
+      },
+      onError: () => {
+        modal.open({ title: "회원가입 실패" });
+      },
+    });
   };
   return (
     <div className="max-w-[460px] mx-auto flex flex-col items-center justify-center ">

@@ -2,6 +2,7 @@ import Input from "@/components/atom/Input";
 import MESSAGE from "@/constants/message";
 import { useModal } from "@/contexts/modal.context";
 import { useAuth } from "@/hooks/useAuth";
+import { Validator } from "@/utils/validateSignup";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -21,7 +22,7 @@ function LoginForm() {
 
   const passwordInputRef = useRef<HTMLInputElement>(null);
   return (
-    <div className="w-[480px] min-h-[700px] mx-auto flex flex-col justify-center items-center gap-y-4">
+    <div className="w-[480px] min-h-[700px] mx-auto flex flex-col justify-center gap-y-4">
       <h1 className="font-bold text-2xl">클론 마켓에 지금 로그인하세요!</h1>
       <Input
         formType="login"
@@ -32,6 +33,7 @@ function LoginForm() {
         handleSubmit={() => {
           setIsUserId(true);
         }}
+        validator={Validator.signup.userId}
       />
       <Input
         formType="login"
@@ -54,6 +56,7 @@ function LoginForm() {
             }
           );
         }}
+        validator={Validator.signup.userPassword}
       />
     </div>
   );
