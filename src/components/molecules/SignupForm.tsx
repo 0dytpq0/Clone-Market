@@ -1,6 +1,7 @@
 "use client";
 
 import { useAuth } from "@/hooks/useAuth";
+import { Validator } from "@/utils/validateSignup";
 import { useState } from "react";
 import Input from "../atom/Input";
 
@@ -34,6 +35,8 @@ function SignupForm() {
     data.append("email", formData.email);
     data.append("address", formData.address);
     data.append("phoneNumber", formData.phoneNumber);
+
+    Validator.signup.form(formData);
     signup.mutate(data);
   };
   return (
@@ -55,6 +58,7 @@ function SignupForm() {
           inputValue={formData.userId}
           setInputValue={(value) => handleChange("userId", value)}
           formType="signup"
+          validator={Validator.signup.userId}
           required
         />
 
@@ -64,6 +68,7 @@ function SignupForm() {
           type="password"
           inputValue={formData.userPassword}
           setInputValue={(value) => handleChange("userPassword", value)}
+          validator={Validator.signup.userPassword}
           formType="signup"
           required
         />
@@ -73,6 +78,12 @@ function SignupForm() {
           type="password"
           inputValue={formData.verifyPassword}
           setInputValue={(value) => handleChange("verifyPassword", value)}
+          validator={() =>
+            Validator.signup.verifyPassword(
+              formData.userPassword,
+              formData.verifyPassword
+            )
+          }
           formType="signup"
           required
         />
@@ -82,6 +93,7 @@ function SignupForm() {
           type="text"
           inputValue={formData.userName}
           setInputValue={(value) => handleChange("userName", value)}
+          validator={Validator.signup.userName}
           formType="signup"
           required
         />
@@ -91,6 +103,7 @@ function SignupForm() {
           type="text"
           inputValue={formData.birthDate}
           setInputValue={(value) => handleChange("birthDate", value)}
+          validator={Validator.signup.birthDate}
           formType="signup"
           required
         />
@@ -100,6 +113,7 @@ function SignupForm() {
           type="email"
           inputValue={formData.email}
           setInputValue={(value) => handleChange("email", value)}
+          validator={Validator.signup.email}
           formType="signup"
           required
         />
@@ -109,6 +123,7 @@ function SignupForm() {
           type="text"
           inputValue={formData.address}
           setInputValue={(value) => handleChange("address", value)}
+          validator={Validator.signup.address}
           formType="signup"
           required
         />
@@ -118,10 +133,11 @@ function SignupForm() {
           type="text"
           inputValue={formData.phoneNumber}
           setInputValue={(value) => handleChange("phoneNumber", value)}
+          validator={Validator.signup.phoneNumber}
           formType="signup"
           required
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit">회원가입</button>
       </form>
     </div>
   );
