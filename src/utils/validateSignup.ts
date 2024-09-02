@@ -64,7 +64,7 @@ function verifyPassword(
 }
 
 const address = debounce((address: string): string | null => {
-  const pattern = /^[가-힣0-9\- ]*$/;
+  const pattern = /^[가-힣0-9\-,() ]*$/;
   return pattern.test(address) ? null : MESSAGE.ERROR_MESSAGE.address;
 }, 300);
 

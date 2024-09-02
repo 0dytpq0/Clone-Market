@@ -5,14 +5,27 @@ import { useAuth } from "@/hooks/useAuth";
 import { Validator } from "@/utils/validateSignup";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useDaumPostcodePopup } from "react-daum-postcode";
+import { postcodeScriptUrl } from "react-daum-postcode/lib/loadPostcode";
 import Button from "../atom/Button";
 import Input from "../atom/Input";
 
+type formDataType = {
+  userName: string;
+  userId: string;
+  userPassword: string;
+  verifyPassword: string;
+  phoneNumber: string;
+  birthDate: string;
+  email: string;
+  address: string;
+};
+
 function SignupForm() {
-  const { signup } = useAuth();
+  const { signup, login } = useAuth();
   const router = useRouter();
   const modal = useModal();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<formDataType>({
     userName: "",
     userId: "",
     userPassword: "",
@@ -23,7 +36,26 @@ function SignupForm() {
     address: "",
   });
 
-  const handleChange = (name: string, value: string) => {
+  const open = useDaumPostcodePopup(postcodeScriptUrl);
+
+  const handleComplete = (data: any) => {
+    let fullAddress = data.address;
+    let extraAddress = "";
+
+    if (data.addressType === "R") {
+      if (data.bname !== "") {
+        extraAddress += data.bname;
+      }
+      if (data.buildingName !== "") {
+        extraAddress +=
+          extraAddress !== "" ? `, ${data.buildingName}` : data.buildingName;
+      }
+      fullAddress += extraAddress !== "" ? ` (${extraAddress})` : "";
+    }
+    handleChange("address", fullAddress);
+  };
+
+  const handleChange = (name: keyof formDataType, value: string) => {
     setFormData({
       ...formData,
       [name]: value,
@@ -32,18 +64,18 @@ function SignupForm() {
 
   const handleSubmit = () => {
     const data = new FormData();
-    data.append("userId", formData.userId);
-    data.append("userPassword", formData.userPassword);
-    data.append("verifyPassword", formData.verifyPassword);
-    data.append("userName", formData.userName);
-    data.append("birthDate", formData.birthDate);
-    data.append("email", formData.email);
-    data.append("address", formData.address);
-    data.append("phoneNumber", formData.phoneNumber);
+    Object.keys(formData).forEach((key) => {
+      const typedKey = key as keyof formDataType;
+      data.append(key, typedKey);
+    });
 
     Validator.signup.form(formData);
     signup.mutate(data, {
       onSuccess: () => {
+        login.mutate({
+          userId: formData.userId,
+          userPassword: formData.userPassword,
+        });
         router.push("/");
       },
       onError: () => {
@@ -51,6 +83,11 @@ function SignupForm() {
       },
     });
   };
+
+  const openAddressPopup = () => {
+    open({ onComplete: handleComplete });
+  };
+
   return (
     <div className="max-w-[460px] mx-auto flex flex-col items-center justify-center ">
       <h2 className="text-3xl font-bold pt-8 w-full text-center">
@@ -130,13 +167,16 @@ function SignupForm() {
           required
         />
         <Input
-          label="주소"
+          label="주소 (클릭시 팝업이 노출됩니다.)"
           name="address"
           type="text"
           inputValue={formData.address}
           setInputValue={(value) => handleChange("address", value)}
           validator={Validator.signup.address}
           formType="signup"
+          onClick={() => {
+            formData.address ? null : openAddressPopup();
+          }}
           required
         />
         <Input
