@@ -1,34 +1,30 @@
 "use client";
 
 import ArrowCircleRightIcon from "@/assets/icons/arrow-circle-right.svg";
-import {
-  ComponentProps,
-  Dispatch,
-  SetStateAction,
-  forwardRef,
-  useId,
-  useState,
-} from "react";
+import { ComponentProps, forwardRef, useId, useState } from "react";
 
 type InputProps = {
   inputValue: string;
-  setInputValue: Dispatch<SetStateAction<string>>;
+  setInputValue: (value: string) => void;
   label?: string;
-  handleSubmit: () => void;
+  handleSubmit?: () => void;
   innerClassName?: string;
-  inputRef?: React.Ref<HTMLInputElement>;
+  formType: string;
 } & ComponentProps<"input">;
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({
-    label,
-    setInputValue,
-    inputValue,
-    handleSubmit,
-    inputRef,
-    innerClassName,
-    ...props
-  }) => {
+  (
+    {
+      label,
+      setInputValue,
+      inputValue,
+      handleSubmit,
+      innerClassName,
+      formType,
+      ...props
+    },
+    ref
+  ) => {
     const [isFocused, setIsFocused] = useState<boolean>(false);
     const [isSubmit, setIsSubmit] = useState<boolean>(false);
 
@@ -38,7 +34,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       if (e.key === "Enter") {
         setIsSubmit(true);
         setIsFocused(false);
-        handleSubmit();
+        if (handleSubmit) {
+          handleSubmit();
+        }
       }
     };
 
@@ -46,6 +44,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className={`relative w-full flex items-center ${innerClassName}`}>
         {label && (
           <label
+            htmlFor={inputUid}
             className={`absolute text-[#86868B] left-4 transition-all duration-200 ease-in-out pointer-events-none ${
               isFocused || inputValue ? "text-[10px] top-2" : "text-sm "
             }`}
@@ -56,16 +55,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           id={inputUid}
           {...props}
-          ref={inputRef}
+          ref={ref}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
+          value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={(e) => handleKeyDown(e)}
+          onKeyDown={handleKeyDown}
           className="w-full h-14 pt-[18px] pl-4 pr-[43px] border border-[#86868B] rounded-lg outline-none focus:border-2 focus:border-[#0071e3]"
         />
-        {!isSubmit && (
+        {formType === "login" && !isSubmit && (
           <ArrowCircleRightIcon
-            onClick={() => console.log(123)}
             className={`absolute right-3 transition-all duration-200 ease-in-out hover:cursor-pointer ${
               isFocused || inputValue
                 ? "transform translate-y-[10px]"
@@ -74,6 +73,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             width={30}
             height={30}
             fill={"#86868B"}
+            onClick={handleSubmit}
           />
         )}
       </div>

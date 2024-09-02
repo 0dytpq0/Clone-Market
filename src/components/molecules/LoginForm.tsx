@@ -24,6 +24,7 @@ function LoginForm() {
     <div className="w-[480px] min-h-[700px] mx-auto flex flex-col justify-center items-center gap-y-4">
       <h1 className="font-bold text-2xl">클론 마켓에 지금 로그인하세요!</h1>
       <Input
+        formType="login"
         inputValue={userId}
         setInputValue={setUserId}
         label="아이디"
@@ -33,11 +34,12 @@ function LoginForm() {
         }}
       />
       <Input
+        formType="login"
         inputValue={userPassword}
         setInputValue={setUserPassword}
         label="비밀번호"
         type="password"
-        inputRef={passwordInputRef}
+        ref={passwordInputRef}
         innerClassName={`${isUserId ? "visible" : "invisible"} `}
         handleSubmit={() => {
           login.mutate(
@@ -46,7 +48,7 @@ function LoginForm() {
               onSuccess: () => {
                 router.push("/");
               },
-              onError: (error) => {
+              onError: () => {
                 modal.open({ title: MESSAGE.ERROR_MESSAGE.login });
               },
             }
