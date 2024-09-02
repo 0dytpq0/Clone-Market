@@ -5,6 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Validator } from "@/utils/validateSignup";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import Button from "../atom/Button";
 import Input from "../atom/Input";
 
 function SignupForm() {
@@ -148,7 +149,9 @@ function SignupForm() {
           formType="signup"
           required
         />
-        <button type="submit">회원가입</button>
+        <Button type="submit" size={"lg"}>
+          회원가입
+        </Button>
       </form>
     </div>
   );
