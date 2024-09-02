@@ -65,7 +65,7 @@ function SignupForm() {
   const handleSubmit = () => {
     const data = new FormData();
     Object.keys(formData).forEach((key) => {
-      const typedKey = key as keyof formDataType;
+      const typedKey = formData[key as keyof formDataType];
       data.append(key, typedKey);
     });
 
@@ -110,7 +110,6 @@ function SignupForm() {
           validator={Validator.signup.userId}
           required
         />
-
         <Input
           label="비밀번호"
           name="password"
