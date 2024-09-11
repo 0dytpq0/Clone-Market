@@ -11,11 +11,11 @@ type ButtonType = ButtonVariantProps &
 type ButtonVariantProps = VariantProps<typeof buttonVariant>;
 
 const buttonVariant = cva(
-  "border rounded font-semibold hover:brightness-90 active:brightness-75",
+  "w-full h-full border rounded flex justify-center items-center font-semibold hover:brightness-90 active:brightness-75",
   {
     variants: {
       intent: {
-        primary: "border-purple-500 ",
+        primary: "border-[#BD76FF] ",
         secondary: "border-slate-500 ",
         danger: "border-rose-500 ",
       },
@@ -30,8 +30,8 @@ const buttonVariant = cva(
       },
     },
     compoundVariants: [
-      { intent: "primary", variant: "contained", className: "bg-purple-500 " },
-      { intent: "primary", variant: "outline", className: " text-purple-500" },
+      { intent: "primary", variant: "contained", className: "bg-[#BD76FF] " },
+      { intent: "primary", variant: "outline", className: " text-[#BD76FF]" },
       { intent: "secondary", variant: "contained", className: "bg-slate-500 " },
       { intent: "secondary", variant: "outline", className: " text-slate-500" },
       { intent: "danger", variant: "contained", className: "bg-rose-500 " },
