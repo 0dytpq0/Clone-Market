@@ -7,7 +7,9 @@ import { PropsWithChildren } from "react";
 function ProviderLayout({ children }: PropsWithChildren) {
   return (
     <QueryProvider>
-      <ModalProvider>{children}</ModalProvider>
+      <ModalProvider>
+        <div className="max-w-[1360px] mx-auto"> {children}</div>
+      </ModalProvider>
     </QueryProvider>
   );
 }

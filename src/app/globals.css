@@ -10,3 +10,18 @@
     @apply bg-white pt-6 pb-4 px-6 rounded-lg w-[360px] h-[120px] flex flex-col items-center justify-between;
   }
 }
+
+@keyframes dropdown {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.animate-dropdown {
+  animation: dropdown 0.3s ease-out forwards;
+}

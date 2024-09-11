@@ -1,8 +1,6 @@
 import { apiFetch } from "@/utils/apiFetch";
 import { authKeys } from "./queryKeys";
 
-// TODO 폼데이터 맞춰서 서버에 회원가입만 시켜주면 됨
-// 회원 가입 후 가입 완료 알려준 후 로그인 바로 로그인 시키고 홈페이지로
 export const authMutationOptions = {
   signup: () => ({
     mutationKey: authKeys.signup,
