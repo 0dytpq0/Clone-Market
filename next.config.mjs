@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    remotePatterns: [{ hostname: "product-image.kurly.com" }],
+    remotePatterns: [
+      { hostname: "product-image.kurly.com" },
+      { hostname: "3p-image.kurly.com" },
+    ],
   },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find((rule) =>

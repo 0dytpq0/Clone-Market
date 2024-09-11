@@ -1,32 +1,28 @@
-"use client";
+// app/page.tsx
+import HomePageContent from "@/components/pages/HompageContent";
+import { dataQueryOptions } from "@/queries/queryOptions";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from "@tanstack/react-query";
 
-import Header from "@/components/atom/Header";
-import BannerSlider from "@/components/molecules/BannerSlider";
-import { apiFetch } from "@/utils/apiFetch";
-import { useQuery } from "@tanstack/react-query";
+export const revalidate = 60;
 
-function HomePage() {
-  const { data } = useQuery({
-    queryKey: ["main"],
-    queryFn: async () => {
-      const response = await apiFetch("/api/main", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const banners = response.slice(2, 6);
+async function getHomepageData() {
+  const queryClient = new QueryClient();
 
-      return { banners };
-    },
-  });
-  console.log("data", data);
-  return (
-    <div>
-      <Header />
-      <BannerSlider banners={data?.banners} />
-    </div>
-  );
+  await queryClient.prefetchQuery(dataQueryOptions.homepageData());
+
+  return dehydrate(queryClient);
 }
 
-export default HomePage;
+export default async function HomePage() {
+  const dehydratedState = await getHomepageData();
+
+  return (
+    <HydrationBoundary state={dehydratedState}>
+      <HomePageContent />
+    </HydrationBoundary>
+  );
+}

@@ -25,3 +25,10 @@
 .animate-dropdown {
   animation: dropdown 0.3s ease-out forwards;
 }
+
+.swiper-button-prev::after {
+  color: black;
+}
+.swiper-button-next::after {
+  color: black;
+}

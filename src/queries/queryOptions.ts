@@ -1,39 +1,22 @@
-import { apiFetch } from "@/utils/apiFetch";
-import { authKeys } from "./queryKeys";
+import { loginService, signupService } from "@/services/auth.service";
+import { fetchHomepageData } from "@/services/data.service";
+import { authKeys, dataKeys } from "./queryKeys";
 
 export const authMutationOptions = {
   signup: () => ({
     mutationKey: authKeys.signup,
-    mutationFn: async (data: FormData) =>
-      await apiFetch("/api/auth/signup", {
-        method: "POST",
-        body: data,
-      }),
+    mutationFn: signupService,
   }),
 
   login: () => ({
     mutationKey: authKeys.login,
-    mutationFn: async ({
-      userId,
-      userPassword,
-    }: {
-      userId: string;
-      userPassword: string;
-    }) => {
-      try {
-        await apiFetch("/api/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            userId,
-            userPassword,
-          }),
-        });
-      } catch (e) {
-        throw new Error("로그인 실패");
-      }
-    },
+    mutationFn: loginService,
+  }),
+};
+
+export const dataQueryOptions = {
+  homepageData: () => ({
+    queryKey: dataKeys.home,
+    queryFn: fetchHomepageData,
   }),
 };

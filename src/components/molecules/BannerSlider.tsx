@@ -3,8 +3,9 @@
 import { DefaultContentType } from "@/types/Content.types";
 import Image from "next/image";
 import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 type BannerSliderProps = {
@@ -19,8 +20,12 @@ function BannerSlider({ banners }: BannerSliderProps) {
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
-        className="relative h-full max-h-80 w-full aspect-video"
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay, Pagination]}
+        className="relative h-full max-h-[370px] w-full aspect-video mb-20"
       >
         {banners &&
           banners?.map((banner, idx) => {
@@ -28,7 +33,7 @@ function BannerSlider({ banners }: BannerSliderProps) {
               <SwiperSlide key={banner.id} className="">
                 <Image
                   alt="banner"
-                  src={banner.images[0]}
+                  src={banner.images[0] ?? "/"}
                   fill
                   priority={true}
                   className="object-cover"
