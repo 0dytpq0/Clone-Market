@@ -1,4 +1,3 @@
-// app/page.tsx
 import HomePageContent from "@/components/pages/HompageContent";
 import { dataQueryOptions } from "@/queries/queryOptions";
 import {
