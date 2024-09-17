@@ -19,7 +19,7 @@ export default async function NewProductPage() {
 
   return (
     <div className="mx-8">
-      <h1 className="w-full flex items-center justify-center text-3xl font-semibold py-5">
+      <h1 className="w-full flex items-center justify-center text-3xl font-semibold py-5 ">
         신상품
       </h1>
       <HydrationBoundary state={dehydratedState}>
