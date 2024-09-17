@@ -7,5 +7,7 @@ export const useGetData = () => {
     dataQueryOptions.homepageData()
   );
 
-  return { getHomepageData };
+  const getNewProductpageData = useQuery(dataQueryOptions.newProductpageData());
+
+  return { getHomepageData,getNewProductpageData };
 };

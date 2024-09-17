@@ -1,5 +1,8 @@
 import { loginService, signupService } from "@/services/auth.service";
-import { fetchHomepageData } from "@/services/data.service";
+import {
+  fetchHomepageData,
+  fetchNewProductpageData,
+} from "@/services/data.service";
 import { authKeys, dataKeys } from "./queryKeys";
 
 export const authMutationOptions = {
@@ -18,5 +21,9 @@ export const dataQueryOptions = {
   homepageData: () => ({
     queryKey: dataKeys.home,
     queryFn: fetchHomepageData,
+  }),
+  newProductpageData: () => ({
+    queryKey: dataKeys.newProduct,
+    queryFn: fetchNewProductpageData,
   }),
 };

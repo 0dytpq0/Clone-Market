@@ -16,3 +16,13 @@ export const fetchHomepageData = async () => {
 
   return { banners, beauty, best };
 };
+
+export const fetchNewProductpageData = async () => {
+  const response = await apiFetch("/api/newProduct", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return response;
+};

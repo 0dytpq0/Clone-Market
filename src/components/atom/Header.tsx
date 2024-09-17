@@ -20,7 +20,7 @@ const Header = () => {
             </Link>
 
             <nav className="hidden md:flex space-x-6 text-sm text-gray-700">
-              <Link href={"/"}>신상품</Link>
+              <Link href={"/newProduct"}>신상품</Link>
               <Link href={"/"}>베스트</Link>
             </nav>
 

@@ -8,7 +8,7 @@ import {
 
 export const revalidate = 60;
 
-async function getHomepageData() {
+async function prefetchHomepageData() {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(dataQueryOptions.homepageData());
@@ -17,7 +17,7 @@ async function getHomepageData() {
 }
 
 export default async function HomePage() {
-  const dehydratedState = await getHomepageData();
+  const dehydratedState = await prefetchHomepageData();
 
   return (
     <HydrationBoundary state={dehydratedState}>
