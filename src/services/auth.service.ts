@@ -17,7 +17,6 @@ export const loginService = async ({
   userPassword: string;
 }) => {
   try {
-    console.log("userId, userPassword", userId, userPassword);
     await apiFetch("/api/auth/login", {
       method: "POST",
       headers: {

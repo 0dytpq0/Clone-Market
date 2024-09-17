@@ -10,10 +10,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <header>
-      {isOpen && <div className="fixed inset-0 backdrop-blur-md z-40"></div>}
+      {isOpen && <div className="fixed inset-0 backdrop-blur-md  z-40"></div>}
 
-      <div className="fixed top-0 left-0 right-0 h-12 bg-white z-50">
-        <div className="container mx-auto py-2 flex justify-between items-center">
+      <div className="container fixed inset-0 h-12 w-full max-w-[1360px] mx-auto px-8 bg-white z-50">
+        <div className="w-full py-2 flex justify-between items-center">
           <div className="flex items-center  md:space-x-4">
             <Link href={"/"} className="hidden md:flex">
               <Image src="/logo.webp" alt="Apple Logo" width={24} height={24} />

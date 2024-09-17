@@ -1,5 +1,6 @@
 import { loginService, signupService } from "@/services/auth.service";
 import {
+  appendBucketService,
   fetchHomepageData,
   fetchNewProductpageData,
 } from "@/services/data.service";
@@ -25,5 +26,9 @@ export const dataQueryOptions = {
   newProductpageData: () => ({
     queryKey: dataKeys.newProduct,
     queryFn: fetchNewProductpageData,
+  }),
+  appendBucketData: () => ({
+    mutationKey: dataKeys.bucket,
+    mutationFn: appendBucketService,
   }),
 };

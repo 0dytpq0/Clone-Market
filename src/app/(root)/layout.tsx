@@ -10,7 +10,7 @@ function ProviderLayout({ children }: PropsWithChildren) {
     <QueryProvider>
       <ModalProvider>
         <Header />
-        <div className="max-w-[1360px] mx-auto"> {children}</div>
+        <div className="max-w-[1360px] mx-auto mt-12"> {children}</div>
       </ModalProvider>
     </QueryProvider>
   );

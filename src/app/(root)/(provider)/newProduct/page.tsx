@@ -1,34 +1,30 @@
-"use client";
-import Loading from "@/components/atom/Loading";
-import ContentCard from "@/components/molecules/ContentCard";
-import { useGetData } from "@/hooks/useGetData";
-import { DefaultContentType } from "@/types/Content.types";
-import { apiFetch } from "@/utils/apiFetch";
-import { useQuery } from "@tanstack/react-query";
+import NewProductPageContent from "@/components/pages/NewProductPageContent";
+import { dataQueryOptions } from "@/queries/queryOptions";
+import {
+  HydrationBoundary,
+  QueryClient,
+  dehydrate,
+} from "@tanstack/react-query";
 
-function newProductPage() {
-  const { getNewProductpageData } = useGetData();
+async function prefetchNewProductPageData() {
+  const queryClient = new QueryClient();
 
-  if (getNewProductpageData.isLoading) {
-    return <Loading />;
-  }
+  await queryClient.prefetchQuery(dataQueryOptions.newProductpageData());
 
-  const data = getNewProductpageData.data;
-  console.log(data);
+  return dehydrate(queryClient);
+}
+
+export default async function NewProductPage() {
+  const dehydratedState = await prefetchNewProductPageData();
+
   return (
-    <div>
-      <h1>신상품</h1>
-      <div className="grid grid-cols-3">
-        {data.map((content: DefaultContentType) => {
-          return (
-            <div className="w-full h-[500px]">
-              <ContentCard key={content.id} content={content} />;
-            </div>
-          );
-        })}
-      </div>
+    <div className="mx-8">
+      <h1 className="w-full flex items-center justify-center text-3xl font-semibold py-5">
+        신상품
+      </h1>
+      <HydrationBoundary state={dehydratedState}>
+        <NewProductPageContent />
+      </HydrationBoundary>
     </div>
   );
 }
-
-export default newProductPage;
