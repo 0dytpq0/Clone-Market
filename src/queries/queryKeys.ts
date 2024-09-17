@@ -4,5 +4,7 @@ export const authKeys = {
 };
 
 export const dataKeys = {
-  home: ["home"] as const,
+  home: ["data", "home"] as const,
+  newProduct: ["data", "newProduct"] as const,
+  bucket: ["data", "bucket"] as const,
 };

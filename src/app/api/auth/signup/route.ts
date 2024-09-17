@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   const formData = await req.formData();
-  console.log("data12", formData);
   const userInfo = {
     userId: formData.get("userId"),
     userPassword: formData.get("userPassword"),
@@ -20,5 +19,5 @@ export async function POST(req: NextRequest) {
     },
     body: JSON.stringify(userInfo),
   });
-  return NextResponse.json("");
+  return NextResponse.json(response);
 }

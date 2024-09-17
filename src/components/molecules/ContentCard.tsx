@@ -1,9 +1,14 @@
+"use client";
+
 import ReviewIcon from "@/assets/icons/review.svg";
+import { useBucket } from "@/hooks/useBucket";
 import { DefaultContentType } from "@/types/Content.types";
 import Image from "next/image";
 import Button from "../atom/Button";
 
 function ContentCard({ content }: { content: DefaultContentType }) {
+  const { append } = useBucket();
+
   return (
     <>
       <div className="w-full h-full relative aspect-auto max-h-[320px]">
@@ -15,7 +20,12 @@ function ContentCard({ content }: { content: DefaultContentType }) {
         />
       </div>
       <div className="w-full h-9 mt-[6px]">
-        <Button intent={"secondary"} size={"lg"} variant={"outline"}>
+        <Button
+          onClick={() => append.mutate(content)}
+          intent={"secondary"}
+          size={"lg"}
+          variant={"outline"}
+        >
           담기
         </Button>
       </div>

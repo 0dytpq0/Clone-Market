@@ -10,7 +10,6 @@ const REFRESH_SECRET_KEY = new TextEncoder().encode(
 export async function POST(req: NextRequest) {
   try {
     const { userId, userPassword } = await req.json();
-    console.log("userId,userPassword", userId, userPassword);
     const response = await fetch(
       `http://localhost:5000/user?userId=${userId}&userPassword=${userPassword}`
     );

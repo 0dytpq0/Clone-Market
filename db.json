@@ -12,6 +12,7 @@
       "phoneNumber": "01031460962"
     }
   ],
+  "bucket": [],
   "main": [
     {
       "images": [
@@ -464,6 +465,261 @@
       "h2Texts": [],
       "h3Texts": ["[헤드스파7] 비오틴 모근강화 샴트리 샴푸 740g"],
       "id": "1e16"
+    }
+  ],
+  "newProduct": [
+    {
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/757bfdaf-7c5b-4918-9dda-e57d8a53eed6.jpg",
+        "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png",
+        "https://product-image.kurly.com/sticker/image/537db277-41e1-4d4a-abb5-b37eb0a7c216.png"
+      ],
+      "pTexts": ["15%쿠폰+증정"],
+      "spanTexts": [
+        "",
+        "",
+        "231,000원",
+        "231,000",
+        "원",
+        "15%",
+        "196,350원",
+        "196,350",
+        "원",
+        "529"
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": [
+        "[페스타딜][에스티 로더] 갈색병 75ml 기획세트 (+갈색병 총 75.5ml 증정)"
+      ],
+      "id": "08a5"
+    },
+    {
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/ef247f28-405a-466c-a22c-4cdb52dd77c3.jpg",
+        "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png",
+        "https://product-image.kurly.com/sticker/image/537db277-41e1-4d4a-abb5-b37eb0a7c216.png"
+      ],
+      "pTexts": ["+최대2만원쿠폰"],
+      "spanTexts": [
+        "",
+        "",
+        "65,000원",
+        "65,000",
+        "원",
+        "14%",
+        "55,900원",
+        "55,900",
+        "원",
+        "999+"
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": [
+        "[모로칸오일] 데스티네이션 하이드레이션(헤어트리트먼트 100ml+ 핸드크림 100ml)"
+      ],
+      "id": "f0b2"
+    },
+    {
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/07a9c80a-246e-4d59-99c3-8ce7eca35a17.jpg"
+      ],
+      "pTexts": ["15%쿠폰+증정"],
+      "spanTexts": [
+        "",
+        "최대헤택가 65,748원~",
+        "91,000원",
+        "91,000",
+        "원",
+        "15%",
+        "77,350원~",
+        "77,350",
+        "원",
+        "999+"
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": [
+        "[일일특가][에스티 로더] 더블웨어 파운데이션 & 소프트 글로우 매트 쿠션 13종(택1)"
+      ],
+      "id": "07f0"
+    },
+    {
+      "images": [
+        "https://3p-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/files/cc04c177-c8a3-4553-b9be-66e8403c4908/cd8c352c-7c06-4f28-8aa1-b1d5c72609a0.jpg"
+      ],
+      "pTexts": ["+7%쿠폰"],
+      "spanTexts": [
+        "",
+        "최대 혜택가 51,336원",
+        "69,000원",
+        "69,000",
+        "원",
+        "20%",
+        "55,200원",
+        "55,200",
+        "원",
+        ""
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": [
+        "[일일특가][사봉] 바디스크럽 600g 3종(택1) (+우드스쿱 /쇼핑백 증정)"
+      ],
+      "id": "6441"
+    },
+    {
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/bde56b04-61ad-4391-bc35-44d198455208.jpeg"
+      ],
+      "pTexts": ["+7%쿠폰"],
+      "spanTexts": [
+        "",
+        "최대 혜택가 34,680원",
+        "48,000원",
+        "",
+        "",
+        "15%",
+        "40,800원",
+        "",
+        "",
+        "999+"
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": ["[바비 브라운] 엑스트라 립 틴트 9종(택1)"],
+      "id": "37f0"
+    },
+    {
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/3b3f078a-a750-4ef6-b355-38de13035e4f.jpg?v=x0520",
+        "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png"
+      ],
+      "pTexts": [],
+      "spanTexts": [
+        "",
+        "",
+        "35,000원",
+        "",
+        "",
+        "60%",
+        "13,900원",
+        "",
+        "",
+        "999+"
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": ["[추천특가][헤드스파7] 비오틴 모근 강화 샴트리 샴푸 740g"],
+      "id": "778d"
+    },
+    {
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/0e09613b-fba9-4615-b6db-d4376645cfaf.jpg",
+        "https://product-image.kurly.com/sticker/image/1b8cf52a-11f7-4458-a683-fe467f0be422.png"
+      ],
+      "pTexts": ["+10%쿠폰"],
+      "spanTexts": [
+        "",
+        "",
+        "12,380원",
+        "12,380",
+        "원",
+        "19%",
+        "9,990원",
+        "9,990",
+        "원",
+        "62"
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": ["[KF365] 에어프라이어용 통 닭가슴살 치킨까스 120g*5pk"]
+    },
+    {
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/c149e8d3-35d1-44a2-8df2-213f5f5932e0.jpg"
+      ],
+      "pTexts": [],
+      "spanTexts": [
+        "",
+        "",
+        "16,900원",
+        "16,900",
+        "원",
+        "11%",
+        "14,900원",
+        "14,900",
+        "원",
+        ""
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": ["[네이처빌] 국내산 쌀 97% 한끼든든쌀국수 소컵 3종"]
+    },
+    {
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/dbbb1ca3-5915-4bcd-9178-e607685bd96c.jpg"
+      ],
+      "pTexts": [],
+      "spanTexts": [
+        "",
+        "",
+        "7,900원",
+        "7,900",
+        "원",
+        "5%",
+        "7,500원",
+        "7,500",
+        "원",
+        "29"
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": ["미니 티슈 브레드 (40g X 4개입)"]
+    },
+    {
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/3ebaa9ca-23d6-43b8-bb8a-cb7efd593404.jpg"
+      ],
+      "pTexts": [],
+      "spanTexts": ["", "", "9,800원", "", "", "", "9,800원", "", "", ""],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": ["대용량 트러플 카사바칩 500g"]
+    },
+    {
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/06eba271-4db6-41fd-ab6f-8880dc4d3b0f.jpg",
+        "https://product-image.kurly.com/sticker/image/cf07c518-c2aa-4300-8ded-78e37eb8b582.png"
+      ],
+      "pTexts": [],
+      "spanTexts": ["", "", "7,900원", "", "", "10%", "7,110원", "", "", ""],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": ["[구포국수] 오색국수세트 (310g*5개입)"]
+    },
+    {
+      "images": [
+        "https://3p-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/files/20240829/9fd7fa8e-2fff-46cf-9469-2d6a4b2671ed.jpg"
+      ],
+      "pTexts": ["+7%쿠폰"],
+      "spanTexts": [
+        "",
+        "",
+        "60,000원",
+        "60,000",
+        "원",
+        "70%",
+        "17,900원",
+        "17,900",
+        "원",
+        ""
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": [
+        "[프로텍트어베드]알러씰 텐셀 유칼립투스 방수 땅콩 메모리폼 베개"
+      ]
     }
   ]
 }

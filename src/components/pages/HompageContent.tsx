@@ -2,12 +2,13 @@
 import BannerSlider from "@/components/molecules/BannerSlider";
 import ContentSection from "@/components/template/ContentSection";
 import { useGetData } from "@/hooks/useGetData";
+import Loading from "../atom/Loading";
 
 const HomePageContent = () => {
   const { getHomepageData } = useGetData();
 
   if (getHomepageData.isLoading) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   const data = getHomepageData.data;
