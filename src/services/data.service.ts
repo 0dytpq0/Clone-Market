@@ -3,7 +3,7 @@
 import { DefaultContentType } from "@/types/Content.types";
 import { apiFetch } from "@/utils/apiFetch";
 
-export const fetchHomepageData = async () => {
+export const fetchHomePageData = async () => {
   const response = await apiFetch("/api/main", {
     method: "GET",
     headers: {
@@ -18,7 +18,7 @@ export const fetchHomepageData = async () => {
   return { banners, beauty, best };
 };
 
-export const fetchNewProductpageData = async () => {
+export const fetchNewProductPageData = async () => {
   const response = await apiFetch("/api/newProduct", {
     method: "GET",
     headers: {
@@ -36,5 +36,16 @@ export const appendBucketService = async (data: DefaultContentType) => {
     },
     body: JSON.stringify({ data }),
   });
+  return response;
+};
+
+export const fetchBucketpageData = async () => {
+  const response = await apiFetch("/api/bucket", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
   return response;
 };

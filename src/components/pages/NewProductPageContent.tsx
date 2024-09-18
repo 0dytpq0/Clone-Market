@@ -10,13 +10,13 @@ import SortTagMenu from "../molecules/SortTagMenu";
 
 function NewProductPageContent() {
   const [sortStandard, setSortStandard] = useState<string>("asc");
-  const { getNewProductpageData } = useGetData();
+  const { getNewProductPageData } = useGetData();
   const data = useMemo(
-    () => sortByPrice(getNewProductpageData.data, sortStandard),
-    [getNewProductpageData?.data, sortStandard]
+    () => sortByPrice(getNewProductPageData.data, sortStandard),
+    [getNewProductPageData?.data, sortStandard]
   );
 
-  if (getNewProductpageData.isLoading) {
+  if (getNewProductPageData.isLoading) {
     return <Loading />;
   }
 

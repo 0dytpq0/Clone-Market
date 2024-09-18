@@ -5,13 +5,13 @@ import { useGetData } from "@/hooks/useGetData";
 import Loading from "../atom/Loading";
 
 const HomePageContent = () => {
-  const { getHomepageData } = useGetData();
+  const { getHomePageData } = useGetData();
 
-  if (getHomepageData.isLoading) {
+  if (getHomePageData.isLoading) {
     return <Loading />;
   }
 
-  const data = getHomepageData.data;
+  const data = getHomePageData.data;
 
   return (
     <div>

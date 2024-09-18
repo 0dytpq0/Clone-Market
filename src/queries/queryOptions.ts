@@ -1,8 +1,9 @@
 import { loginService, signupService } from "@/services/auth.service";
 import {
   appendBucketService,
-  fetchHomepageData,
-  fetchNewProductpageData,
+  fetchBucketpageData,
+  fetchHomePageData,
+  fetchNewProductPageData,
 } from "@/services/data.service";
 import { authKeys, dataKeys } from "./queryKeys";
 
@@ -19,16 +20,20 @@ export const authMutationOptions = {
 };
 
 export const dataQueryOptions = {
-  homepageData: () => ({
+  fetchHomePageData: () => ({
     queryKey: dataKeys.home,
-    queryFn: fetchHomepageData,
+    queryFn: fetchHomePageData,
   }),
-  newProductpageData: () => ({
+  fetchNewProductPageData: () => ({
     queryKey: dataKeys.newProduct,
-    queryFn: fetchNewProductpageData,
+    queryFn: fetchNewProductPageData,
   }),
   appendBucketData: () => ({
     mutationKey: dataKeys.bucket,
     mutationFn: appendBucketService,
+  }),
+  fetchBucketPageData: () => ({
+    queryKey: dataKeys.bucket,
+    queryFn: fetchBucketpageData,
   }),
 };

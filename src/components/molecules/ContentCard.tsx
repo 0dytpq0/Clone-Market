@@ -26,7 +26,7 @@ function ContentCard({ content }: { content: DefaultContentType }) {
           size={"lg"}
           variant={"outline"}
         >
-          담기
+          w
         </Button>
       </div>
       <h3 className="font-semibold mb-2 h-[49px] text-ellipsis line-clamp-2">
@@ -39,7 +39,9 @@ function ContentCard({ content }: { content: DefaultContentType }) {
       )}
       <p className="text-[#B5B5B5] line-through">{content.spanTexts[2]}</p>
       <div className="flex gap-x-2 text-xl">
-        <p className="text-[#FA622F] font-bold">{content.spanTexts[5]}</p>
+        {content.spanTexts[5] && (
+          <p className="text-[#FA622F] font-bold">{content.spanTexts[5]}</p>
+        )}
         <p className="font-bold">{content.spanTexts[6]}</p>
       </div>
       <div className="text-sm text-[#B5B5B5] flex items-center gap-x-1 pt-2">
