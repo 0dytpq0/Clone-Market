@@ -2,6 +2,7 @@
 import AddIcon from "@/assets/icons/add.svg";
 import CloseIcon from "@/assets/icons/close.svg";
 import RemoveIcon from "@/assets/icons/remove.svg";
+import { useBucket } from "@/hooks/useBucket";
 import { BucketContentType } from "@/types/Content.types";
 import { Checkbox } from "@headlessui/react";
 import Image from "next/image";
@@ -12,6 +13,7 @@ type BucketContentCardProps = {
 
 function BucketContentCard({ content }: BucketContentCardProps) {
   const [enabled, setEnabled] = useState(false);
+  const { remove } = useBucket();
 
   return (
     <div className="flex flex-col gap-y-4 w-full my-4">
@@ -25,7 +27,10 @@ function BucketContentCard({ content }: BucketContentCardProps) {
           <span>{content.h3Texts[0]}</span>
         </div>
         <div>
-          <CloseIcon className={"hover:cursor-pointer"} />
+          <CloseIcon
+            className={"hover:cursor-pointer"}
+            onClick={() => remove.mutate(content.id)}
+          />
         </div>
       </div>
       <div className="w-full flex space-x-3">

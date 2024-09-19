@@ -1,3 +1,4 @@
+import MESSAGE from "@/constants/message";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest, res: NextResponse) {
@@ -32,15 +33,40 @@ export async function GET(req: NextRequest, res: NextResponse) {
   }
 }
 
-export async function DELETE(req: NextRequest, res: NextResponse) {
+export async function DELETE(req: NextRequest) {
   try {
-    const response = await fetch("http://localhost:5000/bucket", {
-      method: "DELETE",
+    const { id } = await req.json();
+
+    const getResponse = await fetch(`http://localhost:5000/bucket?id=${id}`, {
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
-    }).then((res) => res.json());
+    });
+
+    const data = await getResponse.json();
+
+    if (data.length === 0) {
+      return NextResponse.json(
+        { message: MESSAGE.ERROR_MESSAGE.noData },
+        { status: 404 }
+      );
+    }
+
+    for (const item of data) {
+      await fetch(`http://localhost:5000/bucket/${item.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+    }
+
+    return NextResponse.json({
+      message: "모든 데이터를 성공적으로 삭제했습니다.",
+    });
   } catch (e) {
-    throw new Error("장바구니 삭제 실패");
+    console.error(`${MESSAGE.ERROR_MESSAGE.delete} : `, e);
+    return NextResponse.json({ error: "장바구니 삭제 실패" }, { status: 500 });
   }
 }

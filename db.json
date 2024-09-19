@@ -14,31 +14,6 @@
   ],
   "bucket": [
     {
-      "id": "1962",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/06eba271-4db6-41fd-ab6f-8880dc4d3b0f.jpg",
-        "https://product-image.kurly.com/sticker/image/cf07c518-c2aa-4300-8ded-78e37eb8b582.png"
-      ],
-      "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "7,900원",
-        "",
-        "",
-        "10%",
-        "7,110원",
-        "",
-        "",
-        ""
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[구포국수] 오색국수세트 (310g*5개입)"
-      ]
-    },
-    {
       "id": "3723",
       "images": [
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/dbbb1ca3-5915-4bcd-9178-e607685bd96c.jpg"
@@ -266,81 +241,6 @@
       "h2Texts": [],
       "h3Texts": [
         "[일일특가][에스티 로더] 더블웨어 파운데이션 & 소프트 글로우 매트 쿠션 13종(택1)"
-      ]
-    },
-    {
-      "id": "1962",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/06eba271-4db6-41fd-ab6f-8880dc4d3b0f.jpg",
-        "https://product-image.kurly.com/sticker/image/cf07c518-c2aa-4300-8ded-78e37eb8b582.png"
-      ],
-      "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "7,900원",
-        "",
-        "",
-        "10%",
-        "7,110원",
-        "",
-        "",
-        ""
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[구포국수] 오색국수세트 (310g*5개입)"
-      ]
-    },
-    {
-      "id": "1962",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/06eba271-4db6-41fd-ab6f-8880dc4d3b0f.jpg",
-        "https://product-image.kurly.com/sticker/image/cf07c518-c2aa-4300-8ded-78e37eb8b582.png"
-      ],
-      "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "7,900원",
-        "",
-        "",
-        "10%",
-        "7,110원",
-        "",
-        "",
-        ""
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[구포국수] 오색국수세트 (310g*5개입)"
-      ]
-    },
-    {
-      "id": "1962",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/06eba271-4db6-41fd-ab6f-8880dc4d3b0f.jpg",
-        "https://product-image.kurly.com/sticker/image/cf07c518-c2aa-4300-8ded-78e37eb8b582.png"
-      ],
-      "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "7,900원",
-        "",
-        "",
-        "10%",
-        "7,110원",
-        "",
-        "",
-        ""
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[구포국수] 오색국수세트 (310g*5개입)"
       ]
     }
   ],
