@@ -31,3 +31,16 @@ export async function GET(req: NextRequest, res: NextResponse) {
     throw new Error("장바구니 데이터 페치 실패");
   }
 }
+
+export async function DELETE(req: NextRequest, res: NextResponse) {
+  try {
+    const response = await fetch("http://localhost:5000/bucket", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+  } catch (e) {
+    throw new Error("장바구니 삭제 실패");
+  }
+}

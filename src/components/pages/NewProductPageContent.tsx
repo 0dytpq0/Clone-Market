@@ -12,7 +12,7 @@ function NewProductPageContent() {
   const [sortStandard, setSortStandard] = useState<string>("asc");
   const { getNewProductPageData } = useGetData();
   const data = useMemo(
-    () => sortByPrice(getNewProductPageData.data, sortStandard),
+    () => sortByPrice(getNewProductPageData.data!, sortStandard),
     [getNewProductPageData?.data, sortStandard]
   );
 

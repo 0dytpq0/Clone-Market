@@ -13,7 +13,7 @@ function ContentCard({ content }: { content: DefaultContentType }) {
     <>
       <div className="w-full h-full relative aspect-auto max-h-[320px]">
         <Image
-          alt="homepageCard"
+          alt="foodImg"
           src={content.images[0] ?? "/"}
           fill
           className="object-cover rounded-md"
@@ -26,7 +26,7 @@ function ContentCard({ content }: { content: DefaultContentType }) {
           size={"lg"}
           variant={"outline"}
         >
-          w
+          담기
         </Button>
       </div>
       <h3 className="font-semibold mb-2 h-[49px] text-ellipsis line-clamp-2">
