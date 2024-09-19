@@ -35,38 +35,47 @@ export async function GET(req: NextRequest, res: NextResponse) {
 
 export async function DELETE(req: NextRequest) {
   try {
-    const { id } = await req.json();
+    const { ids } = await req.json();
 
-    const getResponse = await fetch(`http://localhost:5000/bucket?id=${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data = await getResponse.json();
-
-    if (data.length === 0) {
+    if (!Array.isArray(ids) || ids.length === 0) {
       return NextResponse.json(
-        { message: MESSAGE.ERROR_MESSAGE.noData },
-        { status: 404 }
+        { error: MESSAGE.ERROR_MESSAGE.noData },
+        { status: 400 }
       );
     }
 
-    for (const item of data) {
-      await fetch(`http://localhost:5000/bucket/${item.id}`, {
-        method: "DELETE",
+    for (const id of ids) {
+      const getResponse = await fetch(`http://localhost:5000/bucket?id=${id}`, {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
       });
+
+      const data = await getResponse.json();
+
+      if (data.length === 0) {
+        return NextResponse.json(
+          { message: `${MESSAGE.ERROR_MESSAGE.noData}` },
+          { status: 404 }
+        );
+      }
+
+      for (const item of data) {
+        await fetch(`http://localhost:5000/bucket/${item.id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+      }
     }
 
     return NextResponse.json({
-      message: "모든 데이터를 성공적으로 삭제했습니다.",
+      message: "선택한 모든 데이터를 성공적으로 삭제했습니다.",
     });
   } catch (e) {
-    console.error(`${MESSAGE.ERROR_MESSAGE.delete} : `, e);
+    console.error(`${MESSAGE.ERROR_MESSAGE.delete}`, e);
     return NextResponse.json({ error: "장바구니 삭제 실패" }, { status: 500 });
   }
 }

@@ -50,13 +50,13 @@ export const fetchBucketpageData = async () => {
   return response;
 };
 
-export const removeBucketService = async (id: string) => {
+export const removeBucketService = async (ids: string[]) => {
   const response = await apiFetch("/api/bucket", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ id }),
+    body: JSON.stringify({ ids }),
   });
   return response;
 };

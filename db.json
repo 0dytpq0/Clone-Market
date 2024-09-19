@@ -14,81 +14,6 @@
   ],
   "bucket": [
     {
-      "id": "3723",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/dbbb1ca3-5915-4bcd-9178-e607685bd96c.jpg"
-      ],
-      "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "7,900원",
-        "7,900",
-        "원",
-        "5%",
-        "7,500원",
-        "7,500",
-        "원",
-        "29"
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "미니 티슈 브레드 (40g X 4개입)"
-      ]
-    },
-    {
-      "id": "9f52",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/3ebaa9ca-23d6-43b8-bb8a-cb7efd593404.jpg"
-      ],
-      "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "9,800원",
-        "",
-        "",
-        "",
-        "9,800원",
-        "",
-        "",
-        ""
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "대용량 트러플 카사바칩 500g"
-      ]
-    },
-    {
-      "id": "6aae",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/0e09613b-fba9-4615-b6db-d4376645cfaf.jpg",
-        "https://product-image.kurly.com/sticker/image/1b8cf52a-11f7-4458-a683-fe467f0be422.png"
-      ],
-      "pTexts": [
-        "+10%쿠폰"
-      ],
-      "spanTexts": [
-        "",
-        "",
-        "12,380원",
-        "12,380",
-        "원",
-        "19%",
-        "9,990원",
-        "9,990",
-        "원",
-        "62"
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[KF365] 에어프라이어용 통 닭가슴살 치킨까스 120g*5pk"
-      ]
-    },
-    {
       "id": "0fff",
       "images": [
         "https://3p-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/files/20240829/9fd7fa8e-2fff-46cf-9469-2d6a4b2671ed.jpg"
@@ -218,29 +143,28 @@
       ]
     },
     {
-      "id": "07f0",
+      "id": "1962",
       "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/07a9c80a-246e-4d59-99c3-8ce7eca35a17.jpg"
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/06eba271-4db6-41fd-ab6f-8880dc4d3b0f.jpg",
+        "https://product-image.kurly.com/sticker/image/cf07c518-c2aa-4300-8ded-78e37eb8b582.png"
       ],
-      "pTexts": [
-        "15%쿠폰+증정"
-      ],
+      "pTexts": [],
       "spanTexts": [
         "",
-        "최대헤택가 65,748원~",
-        "91,000원",
-        "91,000",
-        "원",
-        "15%",
-        "77,350원~",
-        "77,350",
-        "원",
-        "999+"
+        "",
+        "7,900원",
+        "",
+        "",
+        "10%",
+        "7,110원",
+        "",
+        "",
+        ""
       ],
       "h1Texts": [],
       "h2Texts": [],
       "h3Texts": [
-        "[일일특가][에스티 로더] 더블웨어 파운데이션 & 소프트 글로우 매트 쿠션 13종(택1)"
+        "[구포국수] 오색국수세트 (310g*5개입)"
       ]
     }
   ],

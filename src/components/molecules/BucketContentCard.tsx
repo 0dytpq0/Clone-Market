@@ -15,6 +15,8 @@ function BucketContentCard({ content }: BucketContentCardProps) {
   const [enabled, setEnabled] = useState(false);
   const { remove } = useBucket();
 
+  const contentId = [content.id];
+
   return (
     <div className="flex flex-col gap-y-4 w-full my-4">
       <div className="flex justify-between">
@@ -29,7 +31,7 @@ function BucketContentCard({ content }: BucketContentCardProps) {
         <div>
           <CloseIcon
             className={"hover:cursor-pointer"}
-            onClick={() => remove.mutate(content.id)}
+            onClick={() => remove.mutate(contentId)}
           />
         </div>
       </div>
