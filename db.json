@@ -25,57 +25,6 @@
   ],
   "bucket": [
     {
-      "id": "1962",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/06eba271-4db6-41fd-ab6f-8880dc4d3b0f.jpg",
-        "https://product-image.kurly.com/sticker/image/cf07c518-c2aa-4300-8ded-78e37eb8b582.png"
-      ],
-      "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "7,900원",
-        "",
-        "",
-        "10%",
-        "7,110원",
-        "",
-        "",
-        ""
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[구포국수] 오색국수세트 (310g*5개입)"
-      ],
-      "order": 5
-    },
-    {
-      "id": "3723",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/dbbb1ca3-5915-4bcd-9178-e607685bd96c.jpg"
-      ],
-      "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "7,900원",
-        "7,900",
-        "원",
-        "5%",
-        "7,500원",
-        "7,500",
-        "원",
-        "29"
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "미니 티슈 브레드 (40g X 4개입)"
-      ],
-      "order": 2
-    },
-    {
       "id": "778d",
       "images": [
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/3b3f078a-a750-4ef6-b355-38de13035e4f.jpg?v=x0520",

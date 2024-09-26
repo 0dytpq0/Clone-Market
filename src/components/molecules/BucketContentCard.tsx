@@ -4,6 +4,7 @@ import CloseIcon from "@/assets/icons/close.svg";
 import RemoveIcon from "@/assets/icons/remove.svg";
 import { useBucket } from "@/hooks/useBucket";
 import { BucketContentType } from "@/types/Content.types";
+import { calculateTotalPrice } from "@/utils/calculateTotalPrice";
 import { Checkbox } from "@headlessui/react";
 import Image from "next/image";
 import { Dispatch, SetStateAction } from "react";
@@ -27,6 +28,14 @@ function BucketContentCard({ content, setIds, ids }: BucketContentCardProps) {
     const newContent = { ...content, order: content.order + 1 };
     console.log("newContent", newContent);
     patch.mutate(newContent);
+  };
+  const decreseOrder = (content: BucketContentType) => {
+    if (content.order === 1) {
+      return;
+    } else {
+      const newContent = { ...content, order: content.order + -1 };
+      patch.mutate(newContent);
+    }
   };
   return (
     <div className="flex flex-col gap-y-4 w-full my-4">
@@ -60,9 +69,11 @@ function BucketContentCard({ content, setIds, ids }: BucketContentCardProps) {
         </div>
         <div className="flex flex-col justify-between">
           <div className="flex items-center space-x-1 font-bold">
-            <span>{content.spanTexts[6]}</span>
+            <span>
+              {calculateTotalPrice(content.spanTexts[6], content.order)}
+            </span>
             <span className="text-[#B5B5B5] line-through">
-              {content.spanTexts[2]}
+              {calculateTotalPrice(content.spanTexts[2], content.order)}
             </span>
           </div>
           <div className="flex items-center justify-around w-24 h-9 bg-gray-400 rounded-3xl p-2">
@@ -72,7 +83,11 @@ function BucketContentCard({ content, setIds, ids }: BucketContentCardProps) {
               fill={"white"}
             />
             <span className="text-white">{content.order}</span>
-            <RemoveIcon className={"hover:cursor-pointer"} fill={"white"} />
+            <RemoveIcon
+              onClick={() => decreseOrder(content)}
+              className={"hover:cursor-pointer"}
+              fill={"white"}
+            />
           </div>
         </div>
       </div>
