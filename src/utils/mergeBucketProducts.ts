@@ -1,16 +1,5 @@
 import { BucketContentType, DefaultContentType } from "@/types/Content.types";
 
-type MergedProductType = {
-  id: string;
-  h1Texts: string[];
-  h2Texts: string[];
-  h3Texts: string[];
-  images: string[];
-  pTexts: string[];
-  spanTexts: string[];
-  order: number;
-};
-
 function mergeBucketProducts(
   products: DefaultContentType[]
 ): BucketContentType[] {

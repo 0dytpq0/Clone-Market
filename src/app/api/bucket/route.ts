@@ -79,3 +79,7 @@ export async function DELETE(req: NextRequest) {
     return NextResponse.json({ error: "장바구니 삭제 실패" }, { status: 500 });
   }
 }
+
+export async function PATCH(req: NextRequest, res: NextResponse) {
+  const {} = await req.json();
+}

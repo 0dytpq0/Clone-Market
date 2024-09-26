@@ -10,35 +10,20 @@
       "email": "rkfnahs12e@gmail.com",
       "address": "광주 광산구 신창동 1204-10 302호",
       "phoneNumber": "01031460962"
+    },
+    {
+      "id": "69e0",
+      "userId": "seonjuBabo",
+      "userPassword": "rkfnahs12",
+      "verifyPassword": "rkfnahs12",
+      "username": "선주바보",
+      "birthDate": "19980317",
+      "email": "rkfnahs12e@gmail.com",
+      "address": "광주 광산구 신창동 1204-10",
+      "phoneNumber": "01031460962"
     }
   ],
   "bucket": [
-    {
-      "id": "0fff",
-      "images": [
-        "https://3p-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/files/20240829/9fd7fa8e-2fff-46cf-9469-2d6a4b2671ed.jpg"
-      ],
-      "pTexts": [
-        "+7%쿠폰"
-      ],
-      "spanTexts": [
-        "",
-        "",
-        "60,000원",
-        "60,000",
-        "원",
-        "70%",
-        "17,900원",
-        "17,900",
-        "원",
-        ""
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[프로텍트어베드]알러씰 텐셀 유칼립투스 방수 땅콩 메모리폼 베개"
-      ]
-    },
     {
       "id": "37f0",
       "images": [
@@ -63,30 +48,6 @@
       "h2Texts": [],
       "h3Texts": [
         "[바비 브라운] 엑스트라 립 틴트 9종(택1)"
-      ]
-    },
-    {
-      "id": "b6b8",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/c149e8d3-35d1-44a2-8df2-213f5f5932e0.jpg"
-      ],
-      "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "16,900원",
-        "16,900",
-        "원",
-        "11%",
-        "14,900원",
-        "14,900",
-        "원",
-        ""
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[네이처빌] 국내산 쌀 97% 한끼든든쌀국수 소컵 3종"
       ]
     },
     {
@@ -165,6 +126,60 @@
       "h2Texts": [],
       "h3Texts": [
         "[구포국수] 오색국수세트 (310g*5개입)"
+      ]
+    },
+    {
+      "id": "63c1",
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E800x%3E400/cropcenter/800x400/quality/85/src/product/image/58070986-6d3c-4e4a-90b8-5d029e050a96.jpg"
+      ],
+      "pTexts": [
+        "일일특가"
+      ],
+      "spanTexts": [
+        "",
+        "",
+        "10,900원",
+        "10,900",
+        "원",
+        "36%",
+        "6,900원",
+        "6,900",
+        "원",
+        "182"
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": [
+        "[KF365] 유명산지 샤인머스캣500g"
+      ]
+    },
+    {
+      "id": "69b4",
+      "images": [
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/73285f5c-355b-4cc2-b40b-8793d1a181cd.jpg",
+        "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png",
+        "https://product-image.kurly.com/sticker/image/537db277-41e1-4d4a-abb5-b37eb0a7c216.png"
+      ],
+      "pTexts": [
+        "15%쿠폰+증정"
+      ],
+      "spanTexts": [
+        "",
+        "",
+        "200,000원",
+        "200,000",
+        "원",
+        "15%",
+        "170,000원",
+        "170,000",
+        "원",
+        "889"
+      ],
+      "h1Texts": [],
+      "h2Texts": [],
+      "h3Texts": [
+        "[에스티 로더] 갈색병 50ML 스페셜 기획세트 (클렌저 30ml+단단크림 15ml+아이젤크림 5ml+갈색병 15ml 증정)"
       ]
     }
   ],

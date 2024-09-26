@@ -52,7 +52,11 @@ function BucketContentCard({ content }: BucketContentCardProps) {
             </span>
           </div>
           <div className="flex items-center justify-around w-24 h-9 bg-gray-400 rounded-3xl p-2">
-            <AddIcon className={"hover:cursor-pointer"} fill={"white"} />
+            <AddIcon
+              className={"hover:cursor-pointer"}
+              fill={"white"}
+              onClick={() => (content.order += 1)}
+            />
             <span className="text-white">{content.order}</span>
             <RemoveIcon className={"hover:cursor-pointer"} fill={"white"} />
           </div>
