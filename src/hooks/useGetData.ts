@@ -1,5 +1,5 @@
 import { dataQueryOptions } from "@/queries/queryOptions";
-import { DefaultContentType } from "@/types/Content.types";
+import { BucketContentType, DefaultContentType } from "@/types/Content.types";
 import { HomePageData } from "@/types/Data.types";
 import { useQuery } from "@tanstack/react-query";
 
@@ -12,7 +12,7 @@ export const useGetData = () => {
     dataQueryOptions.fetchNewProductPageData()
   );
 
-  const getBucketPageData = useQuery<DefaultContentType[]>(
+  const getBucketPageData = useQuery<BucketContentType[]>(
     dataQueryOptions.fetchBucketPageData()
   );
 

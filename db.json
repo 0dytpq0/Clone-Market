@@ -25,85 +25,6 @@
   ],
   "bucket": [
     {
-      "id": "37f0",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/bde56b04-61ad-4391-bc35-44d198455208.jpeg"
-      ],
-      "pTexts": [
-        "+7%쿠폰"
-      ],
-      "spanTexts": [
-        "",
-        "최대 혜택가 34,680원",
-        "48,000원",
-        "",
-        "",
-        "15%",
-        "40,800원",
-        "",
-        "",
-        "999+"
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[바비 브라운] 엑스트라 립 틴트 9종(택1)"
-      ]
-    },
-    {
-      "id": "778d",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/3b3f078a-a750-4ef6-b355-38de13035e4f.jpg?v=x0520",
-        "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png"
-      ],
-      "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "35,000원",
-        "",
-        "",
-        "60%",
-        "13,900원",
-        "",
-        "",
-        "999+"
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[추천특가][헤드스파7] 비오틴 모근 강화 샴트리 샴푸 740g"
-      ]
-    },
-    {
-      "id": "08a5",
-      "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/757bfdaf-7c5b-4918-9dda-e57d8a53eed6.jpg",
-        "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png",
-        "https://product-image.kurly.com/sticker/image/537db277-41e1-4d4a-abb5-b37eb0a7c216.png"
-      ],
-      "pTexts": [
-        "15%쿠폰+증정"
-      ],
-      "spanTexts": [
-        "",
-        "",
-        "231,000원",
-        "231,000",
-        "원",
-        "15%",
-        "196,350원",
-        "196,350",
-        "원",
-        "529"
-      ],
-      "h1Texts": [],
-      "h2Texts": [],
-      "h3Texts": [
-        "[페스타딜][에스티 로더] 갈색병 75ml 기획세트 (+갈색병 총 75.5ml 증정)"
-      ]
-    },
-    {
       "id": "1962",
       "images": [
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/06eba271-4db6-41fd-ab6f-8880dc4d3b0f.jpg",
@@ -126,61 +47,58 @@
       "h2Texts": [],
       "h3Texts": [
         "[구포국수] 오색국수세트 (310g*5개입)"
-      ]
+      ],
+      "order": 3
     },
     {
-      "id": "63c1",
+      "id": "3723",
       "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E800x%3E400/cropcenter/800x400/quality/85/src/product/image/58070986-6d3c-4e4a-90b8-5d029e050a96.jpg"
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/dbbb1ca3-5915-4bcd-9178-e607685bd96c.jpg"
       ],
-      "pTexts": [
-        "일일특가"
-      ],
+      "pTexts": [],
       "spanTexts": [
         "",
         "",
-        "10,900원",
-        "10,900",
+        "7,900원",
+        "7,900",
         "원",
-        "36%",
-        "6,900원",
-        "6,900",
+        "5%",
+        "7,500원",
+        "7,500",
         "원",
-        "182"
+        "29"
       ],
       "h1Texts": [],
       "h2Texts": [],
       "h3Texts": [
-        "[KF365] 유명산지 샤인머스캣500g"
-      ]
+        "미니 티슈 브레드 (40g X 4개입)"
+      ],
+      "order": 1
     },
     {
-      "id": "69b4",
+      "id": "9f52",
       "images": [
-        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/73285f5c-355b-4cc2-b40b-8793d1a181cd.jpg",
-        "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png",
-        "https://product-image.kurly.com/sticker/image/537db277-41e1-4d4a-abb5-b37eb0a7c216.png"
+        "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/3ebaa9ca-23d6-43b8-bb8a-cb7efd593404.jpg"
       ],
-      "pTexts": [
-        "15%쿠폰+증정"
-      ],
+      "pTexts": [],
       "spanTexts": [
         "",
         "",
-        "200,000원",
-        "200,000",
-        "원",
-        "15%",
-        "170,000원",
-        "170,000",
-        "원",
-        "889"
+        "9,800원",
+        "",
+        "",
+        "",
+        "9,800원",
+        "",
+        "",
+        ""
       ],
       "h1Texts": [],
       "h2Texts": [],
       "h3Texts": [
-        "[에스티 로더] 갈색병 50ML 스페셜 기획세트 (클렌저 30ml+단단크림 15ml+아이젤크림 5ml+갈색병 15ml 증정)"
-      ]
+        "대용량 트러플 카사바칩 500g"
+      ],
+      "order": 1
     }
   ],
   "main": [

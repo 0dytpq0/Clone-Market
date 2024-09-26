@@ -6,24 +6,34 @@ import { useBucket } from "@/hooks/useBucket";
 import { BucketContentType } from "@/types/Content.types";
 import { Checkbox } from "@headlessui/react";
 import Image from "next/image";
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 type BucketContentCardProps = {
   content: BucketContentType;
+  setIds: Dispatch<SetStateAction<string[]>>;
+  ids: string[];
 };
 
-function BucketContentCard({ content }: BucketContentCardProps) {
-  const [enabled, setEnabled] = useState(false);
+function BucketContentCard({ content, setIds, ids }: BucketContentCardProps) {
   const { remove } = useBucket();
 
-  const contentId = [content.id];
+  const handleCheckboxChange = () => {
+    if (ids.includes(content.id)) {
+      setIds((prevIds) => prevIds.filter((id) => id !== content.id));
+    } else {
+      setIds((prevIds) => [...prevIds, content.id]);
+    }
+  };
 
+  const increaseOrder = (order: number) => {
+    const newOrder = order + 1;
+  };
   return (
     <div className="flex flex-col gap-y-4 w-full my-4">
       <div className="flex justify-between">
         <div className="flex space-x-2 items-center">
           <Checkbox
-            checked={enabled}
-            onChange={setEnabled}
+            checked={ids.includes(content.id)}
+            onChange={handleCheckboxChange}
             className="group block size-5 rounded border-2 bg-white data-[checked]:bg-black transform duration-200 hover:cursor-pointer"
           />
           <span>{content.h3Texts[0]}</span>
@@ -31,7 +41,7 @@ function BucketContentCard({ content }: BucketContentCardProps) {
         <div>
           <CloseIcon
             className={"hover:cursor-pointer"}
-            onClick={() => remove.mutate(contentId)}
+            onClick={() => remove.mutate([content.id])}
           />
         </div>
       </div>
@@ -52,11 +62,7 @@ function BucketContentCard({ content }: BucketContentCardProps) {
             </span>
           </div>
           <div className="flex items-center justify-around w-24 h-9 bg-gray-400 rounded-3xl p-2">
-            <AddIcon
-              className={"hover:cursor-pointer"}
-              fill={"white"}
-              onClick={() => (content.order += 1)}
-            />
+            <AddIcon className={"hover:cursor-pointer"} fill={"white"} />
             <span className="text-white">{content.order}</span>
             <RemoveIcon className={"hover:cursor-pointer"} fill={"white"} />
           </div>

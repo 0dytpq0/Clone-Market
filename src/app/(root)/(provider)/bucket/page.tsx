@@ -4,7 +4,6 @@ import Loading from "@/components/atom/Loading";
 import BucketContentCard from "@/components/molecules/BucketContentCard";
 import { useGetData } from "@/hooks/useGetData";
 import { BucketContentType } from "@/types/Content.types";
-import mergeBucketProducts from "@/utils/mergeBucketProducts";
 import { Checkbox } from "@headlessui/react";
 import { useState } from "react";
 
@@ -17,10 +16,8 @@ function BucketPage() {
   if (getBucketPageData.isLoading) {
     return <Loading />;
   }
-  const bucketData: BucketContentType[] = mergeBucketProducts(
-    getBucketPageData.data!
-  );
   console.log("ids", ids);
+  const bucketData: BucketContentType[] = getBucketPageData.data!;
   return (
     <main className="mx-8 bg-[#f2f5f8] h-[700px]">
       <header className="w-full flex items-center justify-center text-3xl font-semibold py-4">
@@ -59,7 +56,14 @@ function BucketPage() {
           {bucketData && (
             <div>
               {bucketData.map((content) => {
-                return <BucketContentCard key={content.id} content={content} />;
+                return (
+                  <BucketContentCard
+                    key={content.id}
+                    content={content}
+                    setIds={setIds}
+                    ids={ids}
+                  />
+                );
               })}
             </div>
           )}
