@@ -11,7 +11,7 @@ export const revalidate = 60;
 async function prefetchHomepageData() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(dataQueryOptions.homepageData());
+  await queryClient.prefetchQuery(dataQueryOptions.fetchHomePageData());
 
   return dehydrate(queryClient);
 }

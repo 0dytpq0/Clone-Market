@@ -11,6 +11,7 @@ const ERROR_MESSAGE = Object.freeze({
   phoneNumber: "11자리 ~ 15자리 숫자만 적어주세요",
   verifyPassword: "비밀번호가 정확한지 확인해주세요.",
   address: "한글 + 숫자 + -로 이뤄진 주소를 적어주세요",
+  delete: "삭제 실패",
 });
 
 const MESSAGE = Object.freeze({ ERROR_MESSAGE });

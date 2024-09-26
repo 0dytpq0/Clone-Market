@@ -11,7 +11,7 @@ type ButtonType = ButtonVariantProps &
 type ButtonVariantProps = VariantProps<typeof buttonVariant>;
 
 const buttonVariant = cva(
-  "w-full h-full border rounded flex justify-center items-center font-semibold hover:brightness-90 active:brightness-75",
+  "w-full h-full border rounded flex justify-center items-center font-semibold hover:brightness-90 active:brightness-75 transform duration-200",
   {
     variants: {
       intent: {

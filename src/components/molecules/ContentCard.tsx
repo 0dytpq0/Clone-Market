@@ -13,7 +13,7 @@ function ContentCard({ content }: { content: DefaultContentType }) {
     <>
       <div className="w-full h-full relative aspect-auto max-h-[320px]">
         <Image
-          alt="homepageCard"
+          alt="foodImg"
           src={content.images[0] ?? "/"}
           fill
           className="object-cover rounded-md"
@@ -39,7 +39,9 @@ function ContentCard({ content }: { content: DefaultContentType }) {
       )}
       <p className="text-[#B5B5B5] line-through">{content.spanTexts[2]}</p>
       <div className="flex gap-x-2 text-xl">
-        <p className="text-[#FA622F] font-bold">{content.spanTexts[5]}</p>
+        {content.spanTexts[5] && (
+          <p className="text-[#FA622F] font-bold">{content.spanTexts[5]}</p>
+        )}
         <p className="font-bold">{content.spanTexts[6]}</p>
       </div>
       <div className="text-sm text-[#B5B5B5] flex items-center gap-x-1 pt-2">

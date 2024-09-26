@@ -9,7 +9,7 @@ import {
 async function prefetchNewProductPageData() {
   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(dataQueryOptions.newProductpageData());
+  await queryClient.prefetchQuery(dataQueryOptions.fetchNewProductPageData());
 
   return dehydrate(queryClient);
 }

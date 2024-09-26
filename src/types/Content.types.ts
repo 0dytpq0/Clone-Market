@@ -7,3 +7,5 @@ export type DefaultContentType = {
   pTexts: string[];
   spanTexts: string[];
 };
+
+export type BucketContentType = DefaultContentType & { order: number };

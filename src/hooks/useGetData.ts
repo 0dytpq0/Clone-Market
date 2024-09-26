@@ -1,13 +1,20 @@
 import { dataQueryOptions } from "@/queries/queryOptions";
+import { BucketContentType, DefaultContentType } from "@/types/Content.types";
 import { HomePageData } from "@/types/Data.types";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetData = () => {
-  const getHomepageData = useQuery<HomePageData>(
-    dataQueryOptions.homepageData()
+  const getHomePageData = useQuery<HomePageData>(
+    dataQueryOptions.fetchHomePageData()
   );
 
-  const getNewProductpageData = useQuery(dataQueryOptions.newProductpageData());
+  const getNewProductPageData = useQuery<DefaultContentType[]>(
+    dataQueryOptions.fetchNewProductPageData()
+  );
 
-  return { getHomepageData,getNewProductpageData };
+  const getBucketPageData = useQuery<BucketContentType[]>(
+    dataQueryOptions.fetchBucketPageData()
+  );
+
+  return { getHomePageData, getNewProductPageData, getBucketPageData };
 };

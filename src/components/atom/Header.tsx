@@ -34,7 +34,7 @@ const Header = () => {
               <AvatarIcon />
             </Link>
 
-            <Link href={"/"}>
+            <Link href={"/bucket"}>
               <CartIcon onClick={() => console.log(123)} />
             </Link>
           </div>
