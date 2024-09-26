@@ -4,6 +4,7 @@ import {
   fetchBucketpageData,
   fetchHomePageData,
   fetchNewProductPageData,
+  patchBucketService,
   removeBucketService,
 } from "@/services/data.service";
 import { authKeys, dataKeys } from "./queryKeys";
@@ -40,5 +41,9 @@ export const dataQueryOptions = {
   removeBucketData: () => ({
     mutationKey: dataKeys.bucket,
     mutationFn: removeBucketService,
+  }),
+  patchBucketData: () => ({
+    mutationKey: dataKeys.bucket,
+    mutationFn: patchBucketService,
   }),
 };

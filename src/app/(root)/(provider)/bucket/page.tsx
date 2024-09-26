@@ -2,21 +2,32 @@
 import Button from "@/components/atom/Button";
 import Loading from "@/components/atom/Loading";
 import BucketContentCard from "@/components/molecules/BucketContentCard";
+import { useBucket } from "@/hooks/useBucket";
 import { useGetData } from "@/hooks/useGetData";
 import { BucketContentType } from "@/types/Content.types";
 import { Checkbox } from "@headlessui/react";
 import { useState } from "react";
 
-// TODO 개별 체크 가능하도록 + 삭제, 결제 기능 추가 후 배포
 function BucketPage() {
   const { getBucketPageData } = useGetData();
-  const [enabled, setEnabled] = useState<boolean>(false);
+  const { remove } = useBucket();
   const [ids, setIds] = useState<string[]>([]);
 
   if (getBucketPageData.isLoading) {
     return <Loading />;
   }
-  console.log("ids", ids);
+
+  const handleSelectAllIds = () => {
+    const bucketDataIds: string[] = [];
+    if (ids.length === 0) {
+      bucketData.forEach((content) => {
+        bucketDataIds.push(content.id);
+      });
+      setIds(bucketDataIds);
+    } else {
+      setIds([]);
+    }
+  };
   const bucketData: BucketContentType[] = getBucketPageData.data!;
   return (
     <main className="mx-8 bg-[#f2f5f8] h-[700px]">
@@ -28,23 +39,22 @@ function BucketPage() {
           <div className="flex items-center space-x-2 ">
             <Checkbox
               checked={ids.length === bucketData.length}
-              onChange={() => {
-                const bucketDataIds: string[] = [];
-                if (ids.length === 0) {
-                  bucketData.forEach((content) => {
-                    bucketDataIds.push(content.id);
-                  });
-                  setIds(bucketDataIds);
-                } else {
-                  setIds([]);
-                }
-              }}
+              onChange={handleSelectAllIds}
               className="group block size-5 rounded border-2 bg-white data-[checked]:bg-black transform duration-200 hover:cursor-pointer"
             />
-            <span className="text-xl">전체선택 0/{bucketData?.length}</span>
+            <span className="text-xl">
+              전체선택 {ids.length}/{bucketData?.length}
+            </span>
           </div>
           <div className="flex items-center w-30 h-10">
-            <Button intent={"secondary"} variant={"outline"}>
+            <Button
+              onClick={() => {
+                remove.mutate(ids);
+                setIds([]);
+              }}
+              intent={"secondary"}
+              variant={"outline"}
+            >
               선택삭제
             </Button>
           </div>

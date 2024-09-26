@@ -14,5 +14,11 @@ export const useBucket = () => {
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: dataKeys.bucket }),
   });
-  return { append, remove };
+
+  const patch = useMutation({
+    mutationFn: dataQueryOptions.patchBucketData().mutationFn,
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: dataKeys.bucket }),
+  });
+  return { append, remove, patch };
 };

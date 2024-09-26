@@ -14,7 +14,7 @@ type BucketContentCardProps = {
 };
 
 function BucketContentCard({ content, setIds, ids }: BucketContentCardProps) {
-  const { remove } = useBucket();
+  const { remove, patch } = useBucket();
 
   const handleCheckboxChange = () => {
     if (ids.includes(content.id)) {
@@ -23,9 +23,10 @@ function BucketContentCard({ content, setIds, ids }: BucketContentCardProps) {
       setIds((prevIds) => [...prevIds, content.id]);
     }
   };
-
-  const increaseOrder = (order: number) => {
-    const newOrder = order + 1;
+  const increaseOrder = (content: BucketContentType) => {
+    const newContent = { ...content, order: content.order + 1 };
+    console.log("newContent", newContent);
+    patch.mutate(newContent);
   };
   return (
     <div className="flex flex-col gap-y-4 w-full my-4">
@@ -41,7 +42,10 @@ function BucketContentCard({ content, setIds, ids }: BucketContentCardProps) {
         <div>
           <CloseIcon
             className={"hover:cursor-pointer"}
-            onClick={() => remove.mutate([content.id])}
+            onClick={() => {
+              remove.mutate([content.id]);
+              setIds((prevIds) => prevIds.filter((id) => id !== content.id));
+            }}
           />
         </div>
       </div>
@@ -62,7 +66,11 @@ function BucketContentCard({ content, setIds, ids }: BucketContentCardProps) {
             </span>
           </div>
           <div className="flex items-center justify-around w-24 h-9 bg-gray-400 rounded-3xl p-2">
-            <AddIcon className={"hover:cursor-pointer"} fill={"white"} />
+            <AddIcon
+              onClick={() => increaseOrder(content)}
+              className={"hover:cursor-pointer"}
+              fill={"white"}
+            />
             <span className="text-white">{content.order}</span>
             <RemoveIcon className={"hover:cursor-pointer"} fill={"white"} />
           </div>

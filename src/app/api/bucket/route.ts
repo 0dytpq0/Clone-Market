@@ -112,5 +112,24 @@ export async function DELETE(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest, res: NextResponse) {
-  const {} = await req.json();
+  try {
+    const { data } = await req.json();
+    console.log("data", data);
+
+    const response = await fetch(`http://localhost:5000/bucket/${data.id}`, {
+      method: "PATCH",
+      body: JSON.stringify(data), // data를 중첩하지 않고 바로 전송
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+
+    return NextResponse.json(response);
+  } catch (e) {
+    console.error("장바구니 업데이트 실패:", e);
+    return NextResponse.json(
+      { error: "장바구니 업데이트 실패" },
+      { status: 500 }
+    );
+  }
 }

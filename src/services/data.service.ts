@@ -1,6 +1,6 @@
 // services/dataService.ts
 
-import { DefaultContentType } from "@/types/Content.types";
+import { BucketContentType, DefaultContentType } from "@/types/Content.types";
 import { apiFetch } from "@/utils/apiFetch";
 
 export const fetchHomePageData = async () => {
@@ -58,5 +58,18 @@ export const removeBucketService = async (ids: string[]) => {
     },
     body: JSON.stringify({ ids }),
   });
+  return response;
+};
+
+export const patchBucketService = async (data: BucketContentType) => {
+  console.log("data", data);
+  const response = await apiFetch("/api/bucket", {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data }),
+  });
+
   return response;
 };
