@@ -24,7 +24,7 @@ function BannerSlider({ banners }: BannerSliderProps) {
         disableOnInteraction: false,
       }}
       modules={[Autoplay, Pagination]}
-      className="relative h-full max-h-[370px] w-full aspect-video mb-20"
+      className="relative h-full max-h-[370px] w-full aspect-video my-20"
     >
       {banners &&
         banners?.map((banner, idx) => {

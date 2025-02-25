@@ -46,7 +46,7 @@ function ContentCard({ content }: { content: DefaultContentType }) {
       </div>
       <div className="text-sm text-[#B5B5B5] flex items-center gap-x-1 pt-2">
         <ReviewIcon width={14} height={14} fill={"#B5B5B5"} />
-        {content.spanTexts[9]}
+        {content.spanTexts[9] || 0}
       </div>
     </>
   );

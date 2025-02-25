@@ -10,18 +10,18 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <header>
-      {isOpen && <div className="fixed inset-0 backdrop-blur-md  z-40"></div>}
+      {isOpen && <div className="fixed inset-0 backdrop-blur-md z-40"></div>}
 
-      <div className="container fixed inset-0 h-12 w-full max-w-[1360px] mx-auto px-8 bg-white z-50">
-        <div className="w-full py-2 flex justify-between items-center">
+      <div className="container fixed inset-0 h-20 w-full max-w-[1360px] mx-auto backdrop-blur-md bg-transparent z-50">
+        <div className="w-full h-full py-2 flex justify-between items-center">
           <div className="flex items-center  md:space-x-4">
             <Link href={"/"} className="hidden md:flex">
               <Image src="/logo.webp" alt="Apple Logo" width={24} height={24} />
             </Link>
 
-            <nav className="hidden md:flex space-x-6 text-sm text-gray-700">
+            <nav className="hidden md:flex space-x-6 text-xl text-gray-700">
               <Link href={"/newProduct"}>신상품</Link>
-              <Link href={"/"}>베스트</Link>
+              <Link href={"/bestProduct"}>베스트</Link>
             </nav>
 
             <nav className={clsx("md:hidden")}>
@@ -31,11 +31,11 @@ const Header = () => {
 
           <div className="flex items-center space-x-4">
             <Link href={"/"}>
-              <AvatarIcon />
+              <AvatarIcon className="w-10 h-10" />
             </Link>
 
             <Link href={"/bucket"}>
-              <CartIcon onClick={() => console.log(123)} />
+              <CartIcon className="w-10 h-10" />
             </Link>
           </div>
         </div>
