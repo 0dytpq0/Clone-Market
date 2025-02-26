@@ -20,8 +20,12 @@ const Header = () => {
             </Link>
 
             <nav className="hidden md:flex space-x-6 text-xl text-gray-700">
-              <Link href={"/newProduct"}>신상품</Link>
-              <Link href={"/bestProduct"}>베스트</Link>
+              <Link href={"/newProduct"}>
+                <span>신상품</span>
+              </Link>
+              <Link href={"/bestProduct"}>
+                <span>베스트</span>
+              </Link>
             </nav>
 
             <nav className={clsx("md:hidden")}>
@@ -30,8 +34,8 @@ const Header = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Link href={"/"}>
-              <AvatarIcon className="w-10 h-10" />
+            <Link href={"/user/login"}>
+              <span>로그인</span>
             </Link>
 
             <Link href={"/bucket"}>

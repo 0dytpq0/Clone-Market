@@ -21,6 +21,9 @@ export const authMutationOptions = {
     mutationKey: authKeys.login,
     mutationFn: loginService,
   }),
+  me : () => ({
+    mutationKey : authKeys.me
+  })
 };
 
 export const dataQueryOptions = {

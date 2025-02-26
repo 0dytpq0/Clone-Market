@@ -13,7 +13,6 @@ export async function POST(req: NextRequest) {
     const response = await fetch(
       `http://localhost:5000/user?userId=${userId}&userPassword=${userPassword}`
     );
-    console.log("response", response);
     if (userId === "" || userPassword === "") {
       return NextResponse.json(
         {
@@ -39,7 +38,7 @@ export async function POST(req: NextRequest) {
 
     const accessToken = await new SignJWT({ user: users[0] })
       .setProtectedHeader({ alg: "HS256" })
-      .setExpirationTime("15m")
+      .setExpirationTime("1d")
       .sign(SECRET_KEY);
 
     const refreshToken = await new SignJWT({ user: users[0] })
@@ -54,7 +53,7 @@ export async function POST(req: NextRequest) {
     responseWithCookies.cookies.set("accessToken", accessToken, {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      maxAge: 15 * 60,
+      maxAge: 24 * 60 * 60,
       path: "/",
     });
 

@@ -5,7 +5,6 @@ import {
   dehydrate,
 } from "@tanstack/react-query";
 import { dataQueryOptions } from "@/queries/queryOptions";
-import { fetchNewProductPageData } from "@/services/data.service";
 
 async function prefetchNewProductPageData() {
   const queryClient = new QueryClient();
