@@ -18,7 +18,7 @@ export default async function NewProductPage() {
   const dehydratedState = await prefetchNewProductPageData();
 
   return (
-    <div className="mx-8">
+    <div>
       <h1 className="w-full flex items-center justify-center text-3xl font-semibold py-5 ">
         베스트
       </h1>

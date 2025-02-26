@@ -26,7 +26,6 @@ function BucketContentCard({ content, setIds, ids }: BucketContentCardProps) {
   };
   const increaseOrder = (content: BucketContentType) => {
     const newContent = { ...content, order: content.order + 1 };
-    console.log("newContent", newContent);
     patch.mutate(newContent);
   };
   const decreseOrder = (content: BucketContentType) => {

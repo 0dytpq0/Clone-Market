@@ -31,11 +31,18 @@ export const dataQueryOptions = {
   fetchNewProductPageData: () => ({
     queryKey: ["data", "newProduct"],
     queryFn: async ({ pageParam }: QueryFunctionContext) =>
-      fetchNewProductPageData(pageParam as number), // ✅ pageParam을 숫자로 변환
-
+      fetchNewProductPageData(pageParam as number),
     getNextPageParam: (
-      lastPage: { data: DefaultContentType[]; totalPages: number; hasNextPage: boolean },
-      allPages: Array<{ data: DefaultContentType[]; totalPages: number; hasNextPage: boolean }>
+      lastPage: {
+        data: DefaultContentType[];
+        totalPages: number;
+        hasNextPage: boolean;
+      },
+      allPages: Array<{
+        data: DefaultContentType[];
+        totalPages: number;
+        hasNextPage: boolean;
+      }>
     ): number | undefined => {
       return lastPage.hasNextPage ? allPages.length + 1 : undefined;
     },

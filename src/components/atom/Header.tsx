@@ -9,10 +9,10 @@ import { useState } from "react";
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
-    <header>
+    <header className="">
       {isOpen && <div className="fixed inset-0 backdrop-blur-md z-40"></div>}
 
-      <div className="container fixed inset-0 h-20 w-full max-w-[1360px] mx-auto backdrop-blur-md bg-transparent z-50">
+      <div className="fixed h-20 w-full max-w-[1360px] inset-0 mx-auto backdrop-blur-md z-50">
         <div className="w-full h-full py-2 flex justify-between items-center">
           <div className="flex items-center  md:space-x-4">
             <Link href={"/"} className="hidden md:flex">

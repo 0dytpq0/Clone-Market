@@ -3,7 +3,7 @@
 import { Dispatch, SetStateAction } from "react";
 
 type SortTagMenuProps = {
-  onClickFn: Dispatch<SetStateAction<string>>;
+  onClickFn: Dispatch<SetStateAction<"asc" | "desc">>;
 };
 
 function SortTagMenu({ onClickFn: setSortStandard }: SortTagMenuProps) {

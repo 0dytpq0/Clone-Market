@@ -15,8 +15,13 @@ function ContentCard({ content }: { content: DefaultContentType }) {
         <Image
           alt="foodImg"
           src={content.images[0] ?? "/"}
+          sizes=" (max-width: 640px) 100vw, 
+    (max-width: 1024px) 50vw, 
+    (max-width: 1440px) 33vw, 
+    25vw"
           fill
           className="object-cover rounded-md"
+          priority={true}
         />
       </div>
       <div className="w-full h-9 mt-[6px]">
