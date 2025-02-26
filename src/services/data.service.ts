@@ -2,6 +2,7 @@
 
 import { BucketContentType, DefaultContentType } from "@/types/Content.types";
 import { apiFetch } from "@/utils/apiFetch";
+import { QueryFunctionContext } from "@tanstack/react-query";
 
 export const fetchHomePageData = async () => {
   const response = await apiFetch("/api/main", {
@@ -18,16 +19,24 @@ export const fetchHomePageData = async () => {
   return { banners, beauty, best };
 };
 
-export const fetchNewProductPageData = async () => {
-  const response = await apiFetch("/api/newProduct", {
+export const fetchNewProductPageData = async (pageParam: number): Promise<{
+  data: DefaultContentType[];
+  totalPages: number;
+  hasNextPage: boolean;
+}> => {
+  const response = await apiFetch(`/api/newProduct?page=${pageParam}&limit=8`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   });
-  return response;
-};
 
+  if (!response) {
+    throw new Error("데이터를 불러오지 못했습니다.");
+  }
+
+  return response; // 반드시 `{ data, totalPages, hasNextPage }` 형태 반환
+};
 export const appendBucketService = async (data: DefaultContentType) => {
   const response = await apiFetch("/api/bucket", {
     method: "POST",

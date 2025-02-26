@@ -1,17 +1,19 @@
 import { dataQueryOptions } from "@/queries/queryOptions";
 import { BucketContentType, DefaultContentType } from "@/types/Content.types";
 import { HomePageData } from "@/types/Data.types";
-import { useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 
 export const useGetData = () => {
   const getHomePageData = useQuery<HomePageData>(
     dataQueryOptions.fetchHomePageData()
   );
 
-  const getNewProductPageData = useQuery<DefaultContentType[]>(
-    dataQueryOptions.fetchNewProductPageData()
-  );
-
+  const getNewProductPageData = useInfiniteQuery<
+    { data: DefaultContentType[]; totalPages: number; hasNextPage: boolean }, // 반환 데이터 타입
+    Error
+  >({
+    ...dataQueryOptions.fetchNewProductPageData(),
+  });
   const getBucketPageData = useQuery<BucketContentType[]>(
     dataQueryOptions.fetchBucketPageData()
   );

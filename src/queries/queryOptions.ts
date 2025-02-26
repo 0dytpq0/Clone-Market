@@ -8,6 +8,8 @@ import {
   removeBucketService,
 } from "@/services/data.service";
 import { authKeys, dataKeys } from "./queryKeys";
+import { DefaultContentType } from "@/types/Content.types";
+import { QueryFunctionContext } from "@tanstack/react-query";
 
 export const authMutationOptions = {
   signup: () => ({
@@ -27,8 +29,18 @@ export const dataQueryOptions = {
     queryFn: fetchHomePageData,
   }),
   fetchNewProductPageData: () => ({
-    queryKey: dataKeys.newProduct,
-    queryFn: fetchNewProductPageData,
+    queryKey: ["data", "newProduct"],
+    queryFn: async ({ pageParam }: QueryFunctionContext) =>
+      fetchNewProductPageData(pageParam as number), // ✅ pageParam을 숫자로 변환
+
+    getNextPageParam: (
+      lastPage: { data: DefaultContentType[]; totalPages: number; hasNextPage: boolean },
+      allPages: Array<{ data: DefaultContentType[]; totalPages: number; hasNextPage: boolean }>
+    ): number | undefined => {
+      return lastPage.hasNextPage ? allPages.length + 1 : undefined;
+    },
+
+    initialPageParam: 1,
   }),
   appendBucketData: () => ({
     mutationKey: dataKeys.bucket,
