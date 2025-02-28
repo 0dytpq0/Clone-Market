@@ -3,6 +3,7 @@ import BannerSlider from "@/components/molecules/BannerSlider";
 import ContentSection from "@/components/template/ContentSection";
 import { useGetData } from "@/hooks/useGetData";
 import Loading from "../atom/Loading";
+import { useAuth } from "@/hooks/useAuth";
 
 const HomePageContent = () => {
   const { getHomePageData } = useGetData();

@@ -1,13 +1,16 @@
-import AvatarIcon from "@/assets/icons/avatar.svg";
 import CartIcon from "@/assets/icons/cart.svg";
 import MenuIcon from "@/assets/icons/menu.svg";
+import { useAuth } from "@/hooks/useAuth";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import Button from "./Button";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { getUserInfo, logout } = useAuth();
+  const { data: userInfo } = getUserInfo;
   return (
     <header className="">
       {isOpen && <div className="fixed inset-0 backdrop-blur-md z-40"></div>}
@@ -19,7 +22,7 @@ const Header = () => {
               <Image src="/logo.webp" alt="Apple Logo" width={24} height={24} />
             </Link>
 
-            <nav className="hidden md:flex space-x-6 text-xl text-gray-700">
+            <nav className="hidden md:flex space-x-6 font-bold text-xl text-[#BD76FF]">
               <Link href={"/newProduct"}>
                 <span>신상품</span>
               </Link>
@@ -34,12 +37,28 @@ const Header = () => {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Link href={"/user/login"}>
-              <span>로그인</span>
-            </Link>
-
+            {userInfo ? (
+              <Button
+                onClick={() => logout.mutate()}
+                href={"/"}
+                intent={"primary"}
+                size={"md"}
+                variant={"outline"}
+              >
+                <span className="text-lg">로그아웃</span>
+              </Button>
+            ) : (
+              <Button
+                href={"/user/login"}
+                intent={"primary"}
+                size={"md"}
+                variant={"outline"}
+              >
+                <span className="text-lg">로그인</span>
+              </Button>
+            )}
             <Link href={"/bucket"}>
-              <CartIcon className="w-10 h-10" />
+              <CartIcon className="w-10 h-10" fill={"#BD76FF"} />
             </Link>
           </div>
         </div>

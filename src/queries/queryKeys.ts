@@ -1,7 +1,8 @@
 export const authKeys = {
   signup: ["auth", "signup"] as const,
   login: ["auth", "login"] as const,
-  me : ['auth','me'] as const
+  logout: ["auth", "logout"] as const,
+  userInfo: ["auth", "userInfo"] as const,
 };
 
 export const dataKeys = {

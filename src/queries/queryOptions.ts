@@ -1,4 +1,4 @@
-import { loginService, signupService } from "@/services/auth.service";
+import { getUserInfo, login, logout, signup } from "@/services/auth.service";
 import {
   appendBucketService,
   fetchBucketpageData,
@@ -14,18 +14,24 @@ import { QueryFunctionContext } from "@tanstack/react-query";
 export const authMutationOptions = {
   signup: () => ({
     mutationKey: authKeys.signup,
-    mutationFn: signupService,
+    mutationFn: signup,
   }),
 
   login: () => ({
     mutationKey: authKeys.login,
-    mutationFn: loginService,
+    mutationFn: login,
   }),
-  me : () => ({
-    mutationKey : authKeys.me
-  })
+  logout: () => ({
+    mutationKey: authKeys.logout,
+    mutationFn: logout,
+  }),
 };
-
+export const authQueryOptions = {
+  getUserInfo: () => ({
+    queryKey: authKeys.userInfo,
+    queryFn: getUserInfo,
+  }),
+};
 export const dataQueryOptions = {
   fetchHomePageData: () => ({
     queryKey: dataKeys.home,
