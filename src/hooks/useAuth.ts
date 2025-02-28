@@ -2,24 +2,40 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { authMutationOptions, authQueryOptions } from "../queries/queryOptions";
 import { authKeys } from "@/queries/queryKeys";
+import { useRouter } from "next/navigation";
+import { useModal } from "@/contexts/modal.context";
+import MESSAGE from "@/constants/message";
 
 export const useAuth = () => {
   const queryClient = useQueryClient();
+  const router = useRouter();
+  const modal = useModal();
+
   const signup = useMutation(authMutationOptions.signup());
   const login = useMutation({
-    mutationKey: authMutationOptions.login().mutationKey,
-    mutationFn: authMutationOptions.login().mutationFn,
+    ...authMutationOptions.login(),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: authKeys.userInfo });
+      router.push("/");
+    },
+    onError: () => {
+      modal.open({ title: MESSAGE.ERROR_MESSAGE.login });
     },
   });
   const logout = useMutation({
-    mutationKey: authMutationOptions.logout().mutationKey,
-    mutationFn: authMutationOptions.logout().mutationFn,
+    ...authMutationOptions.logout(),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: authKeys.userInfo });
+      // logout시에 getUserInfo를 요청 시 error가 발생하여 리패칭되지 않기에 직접 수정
+      queryClient.setQueryData(authKeys.userInfo, null);
+      router.push("/");
+    },
+    onError: () => {
+      modal.open({ title: MESSAGE.ERROR_MESSAGE.logout });
     },
   });
-  const getUserInfo = useQuery(authQueryOptions.getUserInfo());
+  const getUserInfo = useQuery({
+    ...authQueryOptions.getUserInfo(),
+    retry: 0,
+  });
   return { signup, login, logout, getUserInfo };
 };

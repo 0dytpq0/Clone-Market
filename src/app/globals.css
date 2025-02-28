@@ -4,10 +4,10 @@
 
 @layer utilities {
   .backdrop {
-    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center;
+    @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-40;
   }
   .modal {
-    @apply bg-white pt-6 pb-4 px-6 rounded-lg w-[360px] h-[120px] flex flex-col items-center justify-between;
+    @apply bg-white pt-6 pb-4 px-6 rounded-lg w-[360px] h-[120px] flex flex-col items-center justify-between z-50;
   }
 }
 

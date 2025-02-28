@@ -28,7 +28,7 @@ function LoginForm() {
         <h1 className="font-bold text-2xl text-[#BD76FF] min-w-[340px]">
           클론 마켓에 지금 로그인하세요!
         </h1>
-        <Button intent={"primary"} variant={"outline"} href={'/user/signup'}>
+        <Button intent={"primary"} variant={"outline"} href={"/user/signup"}>
           {" "}
           회원가입{" "}
         </Button>
@@ -53,17 +53,7 @@ function LoginForm() {
         ref={passwordInputRef}
         innerClassName={`${isUserId ? "visible" : "invisible"} `}
         handleSubmit={() => {
-          login.mutate(
-            { userId, userPassword },
-            {
-              onSuccess: () => {
-                router.push("/");
-              },
-              onError: () => {
-                modal.open({ title: MESSAGE.ERROR_MESSAGE.login });
-              },
-            }
-          );
+          login.mutate({ userId, userPassword });
         }}
         validator={Validator.signup.userPassword}
       />

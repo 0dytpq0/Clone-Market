@@ -11,11 +11,12 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { getUserInfo, logout } = useAuth();
   const { data: userInfo } = getUserInfo;
+  console.log("userInfo", userInfo);
   return (
     <header className="">
-      {isOpen && <div className="fixed inset-0 backdrop-blur-md z-40"></div>}
+      {isOpen && <div className="fixed inset-0 backdrop-blur-md z-20"></div>}
 
-      <div className="fixed h-20 w-full max-w-[1360px] inset-0 mx-auto backdrop-blur-md z-50">
+      <div className="fixed h-20 w-full max-w-[1360px] inset-0 mx-auto backdrop-blur-md z-30">
         <div className="w-full h-full py-2 flex justify-between items-center">
           <div className="flex items-center  md:space-x-4">
             <Link href={"/"} className="hidden md:flex">
@@ -40,7 +41,6 @@ const Header = () => {
             {userInfo ? (
               <Button
                 onClick={() => logout.mutate()}
-                href={"/"}
                 intent={"primary"}
                 size={"md"}
                 variant={"outline"}
@@ -66,7 +66,7 @@ const Header = () => {
 
       <div
         className={clsx(
-          "fixed top-12 left-0 right-0 h-1/2 bg-white z-50 origin-top transition-transform duration-500 ease-out transform",
+          "fixed top-12 left-0 right-0 h-1/2 bg-white z-30 origin-top transition-transform duration-500 ease-out transform",
           {
             "scale-y-0 ": !isOpen,
             "scale-y-100": isOpen,

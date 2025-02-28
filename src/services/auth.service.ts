@@ -34,19 +34,15 @@ export const login = async ({
 
 export const logout = async () => {
   try {
-    const response = await apiFetch("/api/auth/logout", {
+    await apiFetch("/api/auth/logout", {
       method: "POST",
       credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-
-    if (!response.ok) {
-      throw new Error("로그아웃 실패");
-    }
-
-    return response.json();
   } catch (error) {
-    console.error("로그아웃 중 오류 발생:", error);
-    throw new Error("Logout failed");
+    throw new Error("로그아웃 실패");
   }
 };
 
