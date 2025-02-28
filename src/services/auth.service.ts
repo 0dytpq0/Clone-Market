@@ -34,7 +34,7 @@ export const login = async ({
 
 export const logout = async () => {
   try {
-    const response = await fetch("/api/auth/logout", {
+    const response = await apiFetch("/api/auth/logout", {
       method: "POST",
       credentials: "include",
     });

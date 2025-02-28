@@ -5,6 +5,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Validator } from "@/utils/validateSignup";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import Button from "../atom/Button";
 
 function LoginForm() {
   const [userId, setUserId] = useState<string>("");
@@ -23,7 +24,15 @@ function LoginForm() {
   const passwordInputRef = useRef<HTMLInputElement>(null);
   return (
     <div className="w-[480px] min-h-[700px] mx-auto flex flex-col justify-center gap-y-4">
-      <h1 className="font-bold text-2xl">클론 마켓에 지금 로그인하세요!</h1>
+      <div className="flex justify-between items-center gap-x-4">
+        <h1 className="font-bold text-2xl text-[#BD76FF] min-w-[340px]">
+          클론 마켓에 지금 로그인하세요!
+        </h1>
+        <Button intent={"primary"} variant={"outline"} href={'/user/signup'}>
+          {" "}
+          회원가입{" "}
+        </Button>
+      </div>
       <Input
         formType="login"
         inputValue={userId}
