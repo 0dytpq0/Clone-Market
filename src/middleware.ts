@@ -8,9 +8,14 @@ const REFRESH_SECRET_KEY = new TextEncoder().encode(
 export async function middleware(req: NextRequest) {
   const accessToken = req.cookies.get("accessToken");
   const refreshToken = req.cookies.get("refreshToken");
+  console.log("accessToken, refreshToken", accessToken, refreshToken);
   if (!accessToken && !refreshToken) {
     if (req.nextUrl.pathname !== "/user/login") {
-      return NextResponse.redirect(new URL("/user/login", req.url));
+      return NextResponse.redirect(new URL("/user/login", req.url), {
+        headers: {
+          "Cache-Control": "no-store, must-revalidate",
+        },
+      });
     }
   }
 
@@ -20,7 +25,11 @@ export async function middleware(req: NextRequest) {
     try {
       const { payload } = await jwtVerify(accessToken.value, SECRET_KEY);
       decodedUser = payload.user;
-      return NextResponse.next();
+      return NextResponse.next({
+        headers: {
+          "Cache-Control": "no-store, must-revalidate",
+        },
+      });
     } catch (error) {
       console.log("Access token expired, trying refresh token...");
     }
@@ -39,7 +48,11 @@ export async function middleware(req: NextRequest) {
         .setExpirationTime("15m")
         .sign(SECRET_KEY);
 
-      const response = NextResponse.next();
+      const response = NextResponse.next({
+        headers: {
+          "Cache-Control": "no-store, must-revalidate",
+        },
+      });
       response.cookies.set("accessToken", newAccessToken, {
         httpOnly: true,
         maxAge: 15 * 60,
@@ -49,7 +62,11 @@ export async function middleware(req: NextRequest) {
       return response;
     } catch (error) {
       console.error("Refresh token expired or invalid");
-      return NextResponse.redirect(new URL("/user/login", req.url));
+      return NextResponse.redirect(new URL("/user/login", req.url), {
+        headers: {
+          "Cache-Control": "no-store, must-revalidate",
+        },
+      });
     }
   }
 }

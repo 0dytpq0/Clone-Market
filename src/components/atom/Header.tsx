@@ -11,7 +11,6 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { getUserInfo, logout } = useAuth();
   const { data: userInfo } = getUserInfo;
-  console.log("userInfo", userInfo);
   return (
     <header className="">
       {isOpen && <div className="fixed inset-0 backdrop-blur-md z-20"></div>}
@@ -19,11 +18,17 @@ const Header = () => {
       <div className="fixed h-20 w-full max-w-[1360px] inset-0 mx-auto backdrop-blur-md z-30">
         <div className="w-full h-full py-2 flex justify-between items-center">
           <div className="flex items-center  md:space-x-4">
-            <Link href={"/"} className="hidden md:flex">
-              <Image src="/logo.webp" alt="Apple Logo" width={24} height={24} />
+            <Link href={"/"} className="rounded-s-lg">
+              <Image
+                src="/logo.webp"
+                alt="Logo"
+                width={70}
+                height={70}
+                className="rounded-lg"
+              />
             </Link>
 
-            <nav className="hidden md:flex space-x-6 font-bold text-xl text-[#BD76FF]">
+            <nav className="hidden md:flex space-x-6 font-bold text-2xl text-[#BD76FF]">
               <Link href={"/newProduct"}>
                 <span>신상품</span>
               </Link>
