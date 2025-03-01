@@ -16,7 +16,7 @@ function CardSlider({ content }: { content: DefaultContentType[] }) {
       {content?.map((content) => {
         if (!content.h3Texts[0]) return;
         return (
-          <SwiperSlide key={content.id} className="relative">
+          <SwiperSlide key={content.id} className="relative min-w-[260px]">
             <ContentCard content={content} />
           </SwiperSlide>
         );

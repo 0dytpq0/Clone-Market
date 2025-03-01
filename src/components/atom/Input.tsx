@@ -73,11 +73,19 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {label && (
             <label
               htmlFor={inputUid}
-              className={`absolute text-[#86868B] left-4 transition-all duration-200 ease-in-out pointer-events-none ${
+              className={`absolute w-full text-[#86868B] left-4 transition-all duration-200 ease-in-out pointer-events-none ${
                 isFocused || inputValue ? "text-[10px] top-2" : "text-sm "
               }`}
             >
-              {label}
+              <div className="flex justify-between w-full pr-8">
+                <p>{label}</p>
+                {validator(inputValue) !== null && inputValue.length !== 0 && (
+                  <p className="flex items-center gap-x-1 text-[10px] text-[#EA5E6C]">
+                    <WarningIcon width={14} height={14} fill={"#EA5E6C"} />
+                    {validator(inputValue)}
+                  </p>
+                )}
+              </div>
             </label>
           )}
           <input
@@ -110,12 +118,6 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             />
           )}
         </div>
-        {validator(inputValue) !== null && inputValue.length !== 0 && (
-          <p className="flex items-center gap-x-2 text-[10px] text-[#EA5E6C]">
-            <WarningIcon width={14} height={14} fill={"#EA5E6C"} />
-            {validator(inputValue)}
-          </p>
-        )}
       </>
     );
   }
