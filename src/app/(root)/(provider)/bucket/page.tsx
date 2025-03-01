@@ -40,7 +40,7 @@ function BucketPage() {
 
         <section className="relative p-6 flex flex-col gap-4 flex-1">
           <div className="flex items-center justify-between w-full rounded-lg px-4 py-4 bg-[#EADFFC]">
-          <div className="absolute right-10 bottom-10 max-w-32">
+            <div className="absolute right-10 bottom-10 max-w-32">
               <Button variant={"outline"} size={"lg"}>
                 결제
               </Button>
@@ -72,16 +72,10 @@ function BucketPage() {
 
           {/* 상품 목록 */}
           <div className="overflow-y-auto min-h-[60vh] max-h-[70vh] rounded-lg bg-white px-4 py-4 shadow-md border border-[#EADFFC] custom-scrollbar">
-            
             <div className="flex items-center justify-between w-full pb-2 border-b border-[#EADFFC]">
               <span className="text-lg font-semibold text-[#5A3E91]">
                 상품 목록
               </span>
-              <div className="max-w-32">
-                <Button variant={"outline"} size={"md"}>
-                  결제
-                </Button>
-              </div>
             </div>
 
             {bucketData.length > 0 ? (
