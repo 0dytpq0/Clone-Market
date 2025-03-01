@@ -12,13 +12,15 @@ const Header = () => {
   const { getUserInfo, logout } = useAuth();
   const { data: userInfo } = getUserInfo;
   return (
-    <header className="">
-      {isOpen && <div className="fixed inset-0 backdrop-blur-md z-20"></div>}
+    <header>
+      {isOpen && (
+        <div className="fixed inset-0 md:hidden backdrop-blur-md z-20"></div>
+      )}
 
-      <div className="fixed h-20 w-full max-w-[1360px] inset-0 mx-auto backdrop-blur-md z-30">
+      <div className="fixed h-20 w-full max-w-[1360px] inset-0 mx-auto bg-white md:bg-inherit md:backdrop-blur-md z-30">
         <div className="w-full h-full py-2 flex justify-between items-center">
           <div className="flex items-center  md:space-x-4">
-            <Link href={"/"} className="rounded-s-lg">
+            <Link href={"/"} className="rounded-lg md:block hidden">
               <Image
                 src="/logo.webp"
                 alt="Logo"
@@ -32,13 +34,17 @@ const Header = () => {
               <Link href={"/newProduct"}>
                 <span>신상품</span>
               </Link>
-              <Link href={"/bestProduct"}>
+              {/* <Link href={"/bestProduct"}>
                 <span>베스트</span>
-              </Link>
+              </Link> */}
             </nav>
 
             <nav className={clsx("md:hidden")}>
-              <MenuIcon onClick={() => setIsOpen(!isOpen)} />
+              <MenuIcon
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-10 h-10"
+                fill={"#BD76FF"}
+              />
             </nav>
           </div>
 
@@ -71,7 +77,7 @@ const Header = () => {
 
       <div
         className={clsx(
-          "fixed top-12 left-0 right-0 h-1/2 bg-white z-30 origin-top transition-transform duration-500 ease-out transform",
+          "fixed top-20 left-0 right-0 h-1/2 max-w-[1360px] md:hidden mx-auto bg-white z-30 origin-top transition-transform duration-500 ease-out transform",
           {
             "scale-y-0 ": !isOpen,
             "scale-y-100": isOpen,
@@ -79,13 +85,11 @@ const Header = () => {
         )}
       >
         {isOpen && (
-          <nav className="flex flex-col px-8 h-full space-y-6 text-lg">
-            <Link href={"/"} className="text-black hover:text-gray-700">
-              신상품
-            </Link>
-            <Link href={"/"} className="text-black hover:text-gray-700">
+          <nav className="flex flex-col h-full space-y-6 font-bold text-2xl text-[#BD76FF]">
+            <Link href={"/"}>신상품</Link>
+            {/* <Link href={"/"} className="text-black hover:text-gray-700">
               베스트
-            </Link>
+            </Link> */}
           </nav>
         )}
       </div>

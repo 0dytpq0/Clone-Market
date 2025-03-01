@@ -31,6 +31,8 @@ function BucketPage() {
 
   const bucketData: BucketContentType[] = getBucketPageData.data!;
 
+
+  
   return (
     <main className="flex items-center justify-center min-w-[800px]">
       <div className="flex flex-col w-full bg-white shadow-lg rounded-xl">
