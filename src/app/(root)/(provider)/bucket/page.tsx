@@ -31,20 +31,20 @@ function BucketPage() {
 
   const bucketData: BucketContentType[] = getBucketPageData.data!;
 
-
-  
   return (
     <main className="flex items-center justify-center min-w-[800px]">
       <div className="flex flex-col w-full bg-white shadow-lg rounded-xl">
-        {/* 헤더 */}
         <header className="w-full h-20 flex items-center justify-center text-3xl font-semibold text-white bg-[#BD76FF]">
           장바구니
         </header>
 
-        {/* 장바구니 컨텐츠 */}
-        <section className="p-6 flex flex-col gap-4 flex-1">
-          {/* 전체 선택 & 삭제 버튼 */}
+        <section className="relative p-6 flex flex-col gap-4 flex-1">
           <div className="flex items-center justify-between w-full rounded-lg px-4 py-4 bg-[#EADFFC]">
+          <div className="absolute right-10 bottom-10 max-w-32">
+              <Button variant={"outline"} size={"lg"}>
+                결제
+              </Button>
+            </div>
             <div className="flex items-center space-x-2">
               <Checkbox
                 checked={ids.length === bucketData.length}
@@ -55,25 +55,33 @@ function BucketPage() {
                 전체선택 {ids.length}/{bucketData?.length}
               </span>
             </div>
-            <Button
-              onClick={() => {
-                remove.mutate(ids);
-                setIds([]);
-              }}
-              intent="secondary"
-              variant="outline"
-              className="border-[#BD76FF] text-[#BD76FF] hover:bg-[#BD76FF] hover:text-white transition"
-            >
-              선택삭제
-            </Button>
+            <div className="max-w-32">
+              <Button
+                onClick={() => {
+                  remove.mutate(ids);
+                  setIds([]);
+                }}
+                intent="primary"
+                variant="outline"
+                size={"md"}
+              >
+                선택삭제
+              </Button>
+            </div>
           </div>
 
           {/* 상품 목록 */}
           <div className="overflow-y-auto min-h-[60vh] max-h-[70vh] rounded-lg bg-white px-4 py-4 shadow-md border border-[#EADFFC] custom-scrollbar">
+            
             <div className="flex items-center justify-between w-full pb-2 border-b border-[#EADFFC]">
               <span className="text-lg font-semibold text-[#5A3E91]">
                 상품 목록
               </span>
+              <div className="max-w-32">
+                <Button variant={"outline"} size={"md"}>
+                  결제
+                </Button>
+              </div>
             </div>
 
             {bucketData.length > 0 ? (
