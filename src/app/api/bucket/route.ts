@@ -1,4 +1,5 @@
 import MESSAGE from "@/constants/message";
+import { BucketContentType, DefaultContentType } from "@/types/Content.types";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest, res: NextResponse) {
@@ -57,8 +58,18 @@ export async function GET(req: NextRequest, res: NextResponse) {
         "Content-Type": "application/json",
       },
     }).then((res) => res.json());
+    console.log("response", response);
 
-    return NextResponse.json(response);
+    const totalPrice = response.reduce(
+      (sum: number, item: BucketContentType) => {
+        const price =
+          parseInt(item.spanTexts?.[6].replace(",", "") ?? "0", 10) *
+          item.order;
+        return sum + (isNaN(price) ? 0 : price);
+      },
+      0
+    );
+    return NextResponse.json({ bucket: response, totalPrice });
   } catch (e) {
     throw new Error("장바구니 데이터 페치 실패");
   }
@@ -114,7 +125,6 @@ export async function DELETE(req: NextRequest) {
 export async function PATCH(req: NextRequest, res: NextResponse) {
   try {
     const { data } = await req.json();
-    console.log("data", data);
 
     const response = await fetch(`http://localhost:5000/bucket/${data.id}`, {
       method: "PATCH",

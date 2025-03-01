@@ -5,22 +5,26 @@ import BucketContentCard from "@/components/molecules/BucketContentCard";
 import { useBucket } from "@/hooks/useBucket";
 import { useGetData } from "@/hooks/useGetData";
 import { BucketContentType } from "@/types/Content.types";
-import { Checkbox } from "@headlessui/react";
 import { useState } from "react";
+import { CheckoutPage } from "./_component/Checkout";
+import { Checkbox } from "@headlessui/react";
+const widgetClientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
+const customerKey = "E0DNxcxzkOagejxMHMDlT";
 
 function BucketPage() {
   const { getBucketPageData } = useGetData();
+  const { data: bucketData, isLoading } = getBucketPageData;
   const { remove } = useBucket();
   const [ids, setIds] = useState<string[]>([]);
-
-  if (getBucketPageData.isLoading) {
+  console.log("getBucketPageData", getBucketPageData);
+  if (isLoading) {
     return <Loading />;
   }
 
   const handleSelectAllIds = () => {
     const bucketDataIds: string[] = [];
     if (ids.length === 0) {
-      bucketData.forEach((content) => {
+      bucketData?.bucket.forEach((content) => {
         bucketDataIds.push(content.id);
       });
       setIds(bucketDataIds);
@@ -28,8 +32,6 @@ function BucketPage() {
       setIds([]);
     }
   };
-
-  const bucketData: BucketContentType[] = getBucketPageData.data!;
 
   return (
     <main className="flex items-center justify-center min-w-[800px]">
@@ -47,12 +49,12 @@ function BucketPage() {
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox
-                checked={ids.length === bucketData.length}
+                checked={ids.length === bucketData?.bucket.length}
                 onChange={handleSelectAllIds}
                 className="group block size-6 rounded border-2 border-[#BD76FF] bg-white data-[checked]:bg-[#BD76FF] transform duration-200 hover:cursor-pointer"
               />
               <span className="text-lg text-[#5A3E91] font-medium">
-                전체선택 {ids.length}/{bucketData?.length}
+                전체선택 {ids.length}/{bucketData?.bucket.length}
               </span>
             </div>
             <div className="max-w-32">
@@ -78,9 +80,9 @@ function BucketPage() {
               </span>
             </div>
 
-            {bucketData.length > 0 ? (
+            {bucketData?.bucket.length! > 0 ? (
               <div className="py-4">
-                {bucketData.map((content) => (
+                {bucketData?.bucket.map((content) => (
                   <BucketContentCard
                     key={content.id}
                     content={content}
@@ -97,6 +99,7 @@ function BucketPage() {
           </div>
         </section>
       </div>
+      <CheckoutPage />
     </main>
   );
 }

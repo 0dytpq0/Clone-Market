@@ -8,7 +8,6 @@ const REFRESH_SECRET_KEY = new TextEncoder().encode(
 export async function middleware(req: NextRequest) {
   const accessToken = req.cookies.get("accessToken");
   const refreshToken = req.cookies.get("refreshToken");
-  console.log("accessToken, refreshToken", accessToken, refreshToken);
   if (!accessToken && !refreshToken) {
     if (req.nextUrl.pathname !== "/user/login") {
       return NextResponse.redirect(new URL("/user/login", req.url), {

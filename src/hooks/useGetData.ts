@@ -1,5 +1,5 @@
 import { dataQueryOptions } from "@/queries/queryOptions";
-import { BucketContentType, DefaultContentType } from "@/types/Content.types";
+import { Bucket, BucketContentType, DefaultContentType } from "@/types/Content.types";
 import { HomePageData } from "@/types/Data.types";
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 
@@ -14,7 +14,7 @@ export const useGetData = () => {
   >({
     ...dataQueryOptions.fetchNewProductPageData(),
   });
-  const getBucketPageData = useQuery<BucketContentType[]>(
+  const getBucketPageData = useQuery<Bucket>(
     dataQueryOptions.fetchBucketPageData()
   );
 

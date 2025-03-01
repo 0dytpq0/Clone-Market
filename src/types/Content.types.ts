@@ -9,3 +9,8 @@ export type DefaultContentType = {
 };
 
 export type BucketContentType = DefaultContentType & { order: number };
+
+export type Bucket = {
+  bucket: BucketContentType[];
+  totalPrice: number;
+};

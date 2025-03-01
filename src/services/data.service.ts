@@ -19,7 +19,9 @@ export const fetchHomePageData = async () => {
   return { banners, beauty, best };
 };
 
-export const fetchNewProductPageData = async (pageParam: number): Promise<{
+export const fetchNewProductPageData = async (
+  pageParam: number
+): Promise<{
   data: DefaultContentType[];
   totalPages: number;
   hasNextPage: boolean;
@@ -37,7 +39,7 @@ export const fetchNewProductPageData = async (pageParam: number): Promise<{
 
   return response; // 반드시 `{ data, totalPages, hasNextPage }` 형태 반환
 };
-export const appendBucketService = async (data: DefaultContentType) => {
+export const appendBucket = async (data: DefaultContentType) => {
   const response = await apiFetch("/api/bucket", {
     method: "POST",
     headers: {
@@ -59,7 +61,7 @@ export const fetchBucketpageData = async () => {
   return response;
 };
 
-export const removeBucketService = async (ids: string[]) => {
+export const removeBucket = async (ids: string[]) => {
   const response = await apiFetch("/api/bucket", {
     method: "DELETE",
     headers: {
@@ -70,8 +72,7 @@ export const removeBucketService = async (ids: string[]) => {
   return response;
 };
 
-export const patchBucketService = async (data: BucketContentType) => {
-  console.log("data", data);
+export const patchBucket = async (data: BucketContentType) => {
   const response = await apiFetch("/api/bucket", {
     method: "PATCH",
     headers: {

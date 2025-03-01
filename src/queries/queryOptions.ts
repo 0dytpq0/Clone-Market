@@ -1,11 +1,11 @@
 import { getUserInfo, login, logout, signup } from "@/services/auth.service";
 import {
-  appendBucketService,
+  appendBucket,
   fetchBucketpageData,
   fetchHomePageData,
   fetchNewProductPageData,
-  patchBucketService,
-  removeBucketService,
+  patchBucket,
+  removeBucket,
 } from "@/services/data.service";
 import { authKeys, dataKeys } from "./queryKeys";
 import { DefaultContentType } from "@/types/Content.types";
@@ -58,20 +58,24 @@ export const dataQueryOptions = {
 
     initialPageParam: 1,
   }),
-  appendBucketData: () => ({
-    mutationKey: dataKeys.bucket,
-    mutationFn: appendBucketService,
-  }),
   fetchBucketPageData: () => ({
     queryKey: dataKeys.bucket,
     queryFn: fetchBucketpageData,
   }),
+};
+
+export const dataMutationOptions = {
+  appendBucketData: () => ({
+    mutationKey: dataKeys.bucket,
+    mutationFn: appendBucket,
+  }),
+
   removeBucketData: () => ({
     mutationKey: dataKeys.bucket,
-    mutationFn: removeBucketService,
+    mutationFn: removeBucket,
   }),
   patchBucketData: () => ({
     mutationKey: dataKeys.bucket,
-    mutationFn: patchBucketService,
+    mutationFn: patchBucket,
   }),
-};
+}

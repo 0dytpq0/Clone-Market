@@ -1,22 +1,22 @@
 import { dataKeys } from "@/queries/queryKeys";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { dataQueryOptions } from "../queries/queryOptions";
+import { dataMutationOptions } from "../queries/queryOptions";
 
 export const useBucket = () => {
   const queryClient = useQueryClient();
   const append = useMutation({
-    mutationFn: dataQueryOptions.appendBucketData().mutationFn,
+    ...dataMutationOptions.appendBucketData(),
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: dataKeys.bucket }),
   });
   const remove = useMutation({
-    mutationFn: dataQueryOptions.removeBucketData().mutationFn,
+    ...dataMutationOptions.removeBucketData(),
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: dataKeys.bucket }),
   });
 
   const patch = useMutation({
-    mutationFn: dataQueryOptions.patchBucketData().mutationFn,
+    ...dataMutationOptions.patchBucketData(),
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: dataKeys.bucket }),
   });
