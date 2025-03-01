@@ -43,7 +43,7 @@ function BucketContentCard({ content, setIds, ids }: BucketContentCardProps) {
           <Checkbox
             checked={ids.includes(content.id)}
             onChange={handleCheckboxChange}
-            className="group block size-5 rounded border-2 bg-white data-[checked]:bg-black transform duration-200 hover:cursor-pointer"
+            className="group block size-5 rounded border-2 bg-white data-[checked]:bg-[#BD76FF] transform duration-200 hover:cursor-pointer"
           />
           <span>{content.h3Texts[0]}</span>
         </div>
