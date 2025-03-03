@@ -64,6 +64,7 @@ export const dataQueryOptions = {
   }),
 };
 
+
 export const dataMutationOptions = {
   appendBucketData: () => ({
     mutationKey: dataKeys.bucket,

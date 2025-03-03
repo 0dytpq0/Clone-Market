@@ -4,19 +4,18 @@ import Loading from "@/components/atom/Loading";
 import BucketContentCard from "@/components/molecules/BucketContentCard";
 import { useBucket } from "@/hooks/useBucket";
 import { useGetData } from "@/hooks/useGetData";
-import { BucketContentType } from "@/types/Content.types";
 import { useState } from "react";
-import { CheckoutPage } from "./_component/Checkout";
 import { Checkbox } from "@headlessui/react";
-const widgetClientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
-const customerKey = "E0DNxcxzkOagejxMHMDlT";
+import CheckoutPage from "./_component/Checkout";
 
 function BucketPage() {
   const { getBucketPageData } = useGetData();
   const { data: bucketData, isLoading } = getBucketPageData;
   const { remove } = useBucket();
   const [ids, setIds] = useState<string[]>([]);
+  const [step, setStep] = useState<string>("product");
   console.log("getBucketPageData", getBucketPageData);
+  // customerKey, oderName, customerName, customerEmail, customerMobilePhone, SuccessUrl, failUrl
   if (isLoading) {
     return <Loading />;
   }
@@ -41,65 +40,76 @@ function BucketPage() {
         </header>
 
         <section className="relative p-6 flex flex-col gap-4 flex-1">
-          <div className="flex items-center justify-between w-full rounded-lg px-4 py-4 bg-[#EADFFC]">
-            <div className="absolute right-10 bottom-10 max-w-32">
-              <Button variant={"outline"} size={"lg"}>
-                결제
-              </Button>
-            </div>
-            <div className="flex items-center space-x-2">
-              <Checkbox
-                checked={ids.length === bucketData?.bucket.length}
-                onChange={handleSelectAllIds}
-                className="group block size-6 rounded border-2 border-[#BD76FF] bg-white data-[checked]:bg-[#BD76FF] transform duration-200 hover:cursor-pointer"
-              />
-              <span className="text-lg text-[#5A3E91] font-medium">
-                전체선택 {ids.length}/{bucketData?.bucket.length}
-              </span>
-            </div>
-            <div className="max-w-32">
-              <Button
-                onClick={() => {
-                  remove.mutate(ids);
-                  setIds([]);
-                }}
-                intent="primary"
-                variant="outline"
-                size={"md"}
-              >
-                선택삭제
-              </Button>
-            </div>
-          </div>
-
-          {/* 상품 목록 */}
-          <div className="overflow-y-auto min-h-[60vh] max-h-[70vh] rounded-lg bg-white px-4 py-4 shadow-md border border-[#EADFFC] custom-scrollbar">
-            <div className="flex items-center justify-between w-full pb-2 border-b border-[#EADFFC]">
-              <span className="text-lg font-semibold text-[#5A3E91]">
-                상품 목록
-              </span>
-            </div>
-
-            {bucketData?.bucket.length! > 0 ? (
-              <div className="py-4">
-                {bucketData?.bucket.map((content) => (
-                  <BucketContentCard
-                    key={content.id}
-                    content={content}
-                    setIds={setIds}
-                    ids={ids}
+          {step === "product" && (
+            <>
+              <div className="flex items-center justify-between w-full rounded-lg px-4 py-4 bg-[#EADFFC]">
+                <div className="absolute right-10 bottom-10 max-w-32">
+                  <Button
+                    onClick={() => setStep("checkout")}
+                    variant={"outline"}
+                    size={"lg"}
+                  >
+                    결제
+                  </Button>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Checkbox
+                    checked={ids.length === bucketData?.bucket.length}
+                    onChange={handleSelectAllIds}
+                    className="group block size-6 rounded border-2 border-[#BD76FF] bg-white data-[checked]:bg-[#BD76FF] transform duration-200 hover:cursor-pointer"
                   />
-                ))}
+                  <span className="text-lg text-[#5A3E91] font-medium">
+                    전체선택 {ids.length}/{bucketData?.bucket.length}
+                  </span>
+                </div>
+                <div className="max-w-32">
+                  <Button
+                    onClick={() => {
+                      remove.mutate(ids);
+                      setIds([]);
+                    }}
+                    intent="primary"
+                    variant="outline"
+                    size={"md"}
+                  >
+                    선택삭제
+                  </Button>
+                </div>
               </div>
-            ) : (
-              <span className="flex justify-center pt-20 text-center text-gray-500 text-3xl">
-                장바구니가 비어 있습니다.
-              </span>
-            )}
-          </div>
+
+              <div className="overflow-y-auto min-h-[60vh] max-h-[70vh] rounded-lg bg-white px-4 py-4 shadow-md border border-[#EADFFC] custom-scrollbar">
+                <div className="flex items-center justify-between w-full pb-2 border-b border-[#EADFFC]">
+                  <span className="text-lg font-semibold text-[#5A3E91]">
+                    상품 목록
+                  </span>
+                  <span className="text-lg font-semibold text-[#5A3E91]">
+                    총 금액 : {bucketData?.totalPrice}
+                  </span>
+                </div>
+
+                {bucketData?.bucket.length! > 0 ? (
+                  <div className="py-4">
+                    {bucketData?.bucket.map((content) => (
+                      <BucketContentCard
+                        key={content.id}
+                        content={content}
+                        setIds={setIds}
+                        ids={ids}
+                      />
+                    ))}
+                  </div>
+                ) : (
+                  <span className="flex justify-center pt-20 text-center text-gray-500 text-3xl">
+                    장바구니가 비어 있습니다.
+                  </span>
+                )}
+              </div>
+            </>
+          )}
+
+          {step === "checkout" && <CheckoutPage />}
         </section>
       </div>
-      <CheckoutPage />
     </main>
   );
 }

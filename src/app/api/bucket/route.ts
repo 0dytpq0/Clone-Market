@@ -58,7 +58,6 @@ export async function GET(req: NextRequest, res: NextResponse) {
         "Content-Type": "application/json",
       },
     }).then((res) => res.json());
-    console.log("response", response);
 
     const totalPrice = response.reduce(
       (sum: number, item: BucketContentType) => {
