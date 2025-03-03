@@ -5,6 +5,7 @@ import { authKeys } from "@/queries/queryKeys";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/contexts/modal.context";
 import MESSAGE from "@/constants/message";
+import { User } from "@/types/User.types";
 
 export const useAuth = () => {
   const queryClient = useQueryClient();
@@ -33,7 +34,7 @@ export const useAuth = () => {
       modal.open({ title: MESSAGE.ERROR_MESSAGE.logout });
     },
   });
-  const getUserInfo = useQuery({
+  const getUserInfo = useQuery<User>({
     ...authQueryOptions.getUserInfo(),
     retry: 0,
   });

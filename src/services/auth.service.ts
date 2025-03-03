@@ -1,5 +1,6 @@
 // services/authService.ts
 
+import { User } from "@/types/User.types";
 import { apiFetch } from "@/utils/apiFetch";
 
 export const signup = async (data: FormData) => {
@@ -46,7 +47,7 @@ export const logout = async () => {
   }
 };
 
-export const getUserInfo = async () => {
+export const getUserInfo = async (): Promise<User> => {
   try {
     const response = await apiFetch("/api/auth/userInfo", {
       method: "GET",

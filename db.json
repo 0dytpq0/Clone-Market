@@ -5,7 +5,7 @@
       "userId": "rkfnahs12",
       "userPassword": "qkrtkfkd2.",
       "verifyPassword": "qkrtkfkd2.",
-      "username": "박요셉",
+      "userName": "박요셉",
       "birthDate": "19980316",
       "email": "rkfnahs12e@gmail.com",
       "address": "광주 광산구 신창동 1204-10 302호",
@@ -16,7 +16,7 @@
       "userId": "seonjuBabo",
       "userPassword": "rkfnahs12",
       "verifyPassword": "rkfnahs12",
-      "username": "선주바보",
+      "userName": "선주바보",
       "birthDate": "19980317",
       "email": "rkfnahs12e@gmail.com",
       "address": "광주 광산구 신창동 1204-10",
@@ -44,9 +44,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[네이처빌] 국내산 쌀 97% 한끼든든쌀국수 소컵 3종"
-      ],
+      "h3Texts": ["[네이처빌] 국내산 쌀 97% 한끼든든쌀국수 소컵 3종"],
       "order": 3
     },
     {
@@ -55,9 +53,7 @@
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/0e09613b-fba9-4615-b6db-d4376645cfaf.jpg",
         "https://product-image.kurly.com/sticker/image/1b8cf52a-11f7-4458-a683-fe467f0be422.png"
       ],
-      "pTexts": [
-        "+10%쿠폰"
-      ],
+      "pTexts": ["+10%쿠폰"],
       "spanTexts": [
         "",
         "",
@@ -72,9 +68,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[KF365] 에어프라이어용 통 닭가슴살 치킨까스 120g*5pk"
-      ],
+      "h3Texts": ["[KF365] 에어프라이어용 통 닭가슴살 치킨까스 120g*5pk"],
       "order": 1
     },
     {
@@ -98,9 +92,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[추천특가][헤드스파7] 비오틴 모근 강화 샴트리 샴푸 740g"
-      ],
+      "h3Texts": ["[추천특가][헤드스파7] 비오틴 모근 강화 샴트리 샴푸 740g"],
       "order": 1
     },
     {
@@ -108,9 +100,7 @@
       "images": [
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/bde56b04-61ad-4391-bc35-44d198455208.jpeg"
       ],
-      "pTexts": [
-        "+7%쿠폰"
-      ],
+      "pTexts": ["+7%쿠폰"],
       "spanTexts": [
         "",
         "최대 혜택가 34,680원",
@@ -125,9 +115,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[바비 브라운] 엑스트라 립 틴트 9종(택1)"
-      ],
+      "h3Texts": ["[바비 브라운] 엑스트라 립 틴트 9종(택1)"],
       "order": 1
     }
   ],
@@ -159,9 +147,7 @@
         "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/46efd25d-695c-4294-8b2f-3595173828d8.jpg"
       ],
       "pTexts": [],
-      "spanTexts": [
-        ""
-      ],
+      "spanTexts": [""],
       "h1Texts": [],
       "h2Texts": [],
       "h3Texts": [],
@@ -172,9 +158,7 @@
         "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/11f9baec-d24b-4746-96f9-583a7da0c602.png"
       ],
       "pTexts": [],
-      "spanTexts": [
-        ""
-      ],
+      "spanTexts": [""],
       "h1Texts": [],
       "h2Texts": [],
       "h3Texts": [],
@@ -185,9 +169,7 @@
         "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/3f26e497-3806-4930-a3b5-bde50498a364.jpg"
       ],
       "pTexts": [],
-      "spanTexts": [
-        ""
-      ],
+      "spanTexts": [""],
       "h1Texts": [],
       "h2Texts": [],
       "h3Texts": [],
@@ -198,9 +180,7 @@
         "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/46efd25d-695c-4294-8b2f-3595173828d8.jpg"
       ],
       "pTexts": [],
-      "spanTexts": [
-        ""
-      ],
+      "spanTexts": [""],
       "h1Texts": [],
       "h2Texts": [],
       "h3Texts": [],
@@ -211,9 +191,7 @@
         "https://product-image.kurly.com/hdims/resize/%3E1900x%3E370/quality/85/src/banner/main/pc/img/11f9baec-d24b-4746-96f9-583a7da0c602.png"
       ],
       "pTexts": [],
-      "spanTexts": [
-        ""
-      ],
+      "spanTexts": [""],
       "h1Texts": [],
       "h2Texts": [],
       "h3Texts": [],
@@ -225,9 +203,7 @@
         "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png",
         "https://product-image.kurly.com/sticker/image/537db277-41e1-4d4a-abb5-b37eb0a7c216.png"
       ],
-      "pTexts": [
-        "15%쿠폰+증정"
-      ],
+      "pTexts": ["15%쿠폰+증정"],
       "spanTexts": [
         "",
         "",
@@ -253,9 +229,7 @@
         "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png",
         "https://product-image.kurly.com/sticker/image/537db277-41e1-4d4a-abb5-b37eb0a7c216.png"
       ],
-      "pTexts": [
-        "+최대2만원쿠폰"
-      ],
+      "pTexts": ["+최대2만원쿠폰"],
       "spanTexts": [
         "",
         "",
@@ -279,9 +253,7 @@
       "images": [
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/07a9c80a-246e-4d59-99c3-8ce7eca35a17.jpg"
       ],
-      "pTexts": [
-        "15%쿠폰+증정"
-      ],
+      "pTexts": ["15%쿠폰+증정"],
       "spanTexts": [
         "",
         "최대헤택가 65,748원~",
@@ -305,9 +277,7 @@
       "images": [
         "https://3p-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/files/cc04c177-c8a3-4553-b9be-66e8403c4908/cd8c352c-7c06-4f28-8aa1-b1d5c72609a0.jpg"
       ],
-      "pTexts": [
-        "+7%쿠폰"
-      ],
+      "pTexts": ["+7%쿠폰"],
       "spanTexts": [
         "",
         "최대 혜택가 51,336원",
@@ -331,9 +301,7 @@
       "images": [
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/bde56b04-61ad-4391-bc35-44d198455208.jpeg"
       ],
-      "pTexts": [
-        "+7%쿠폰"
-      ],
+      "pTexts": ["+7%쿠폰"],
       "spanTexts": [
         "",
         "최대 혜택가 34,680원",
@@ -348,9 +316,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[바비 브라운] 엑스트라 립 틴트 9종(택1)"
-      ],
+      "h3Texts": ["[바비 브라운] 엑스트라 립 틴트 9종(택1)"],
       "id": "37f0"
     },
     {
@@ -373,35 +339,18 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[추천특가][헤드스파7] 비오틴 모근 강화 샴트리 샴푸 740g"
-      ],
+      "h3Texts": ["[추천특가][헤드스파7] 비오틴 모근 강화 샴트리 샴푸 740g"],
       "id": "778d"
     },
     {
       "images": [
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/0cad18a6-a98e-4a18-b492-e613f7df24fd.jpg"
       ],
-      "pTexts": [
-        ""
-      ],
-      "spanTexts": [
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        "",
-        ""
-      ],
+      "pTexts": [""],
+      "spanTexts": ["", "", "", "", "", "", "", "", "", ""],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        ""
-      ],
+      "h3Texts": [""],
       "id": "e50d"
     },
     {
@@ -409,9 +358,7 @@
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/a0fb8428-05f3-49fd-9f67-6f5da2b5dbc2.jpg",
         "https://product-image.kurly.com/sticker/image/f0f5a433-6b18-4e90-8f99-1d1f68ff7c22.png"
       ],
-      "pTexts": [
-        "+7%쿠폰"
-      ],
+      "pTexts": ["+7%쿠폰"],
       "spanTexts": [
         "",
         "",
@@ -426,9 +373,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "빙그레 모짜렐라 피자치즈 2종(택1)"
-      ],
+      "h3Texts": ["빙그레 모짜렐라 피자치즈 2종(택1)"],
       "id": "719f"
     },
     {
@@ -436,9 +381,7 @@
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/6630c8ae-d0c0-4ec9-b0c3-63477818ffd2.jpeg",
         "https://product-image.kurly.com/sticker/image/e79c098a-e620-46a1-94de-f7d2de6f1025.png"
       ],
-      "pTexts": [
-        "+컬리카드쿠폰"
-      ],
+      "pTexts": ["+컬리카드쿠폰"],
       "spanTexts": [
         "",
         "",
@@ -453,9 +396,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[마더푸드] 오리지널 쪽갈비"
-      ],
+      "h3Texts": ["[마더푸드] 오리지널 쪽갈비"],
       "id": "9986"
     },
     {
@@ -463,9 +404,7 @@
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/891de406-834f-4c33-8a8c-0c280ffbf58f.jpg",
         "https://product-image.kurly.com/sticker/image/a5182a2c-1d04-4361-ae6d-19fdfb67f457.png"
       ],
-      "pTexts": [
-        "+컬리카드쿠폰"
-      ],
+      "pTexts": ["+컬리카드쿠폰"],
       "spanTexts": [
         "",
         "",
@@ -480,9 +419,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[애플하우스] 즉석 떡볶기"
-      ],
+      "h3Texts": ["[애플하우스] 즉석 떡볶기"],
       "id": "c572"
     },
     {
@@ -490,9 +427,7 @@
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/0bdb4032-9df4-4037-8a25-a96a2ceec3d8.jpg",
         "https://product-image.kurly.com/sticker/image/c9b321df-2c43-48fa-a706-e488e1cb6d56.png"
       ],
-      "pTexts": [
-        "+컬리카드쿠폰"
-      ],
+      "pTexts": ["+컬리카드쿠폰"],
       "spanTexts": [
         "",
         "",
@@ -507,9 +442,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[Sea to Table] 손질 생새우살 200g (냉동) (26/30 사이즈)"
-      ],
+      "h3Texts": ["[Sea to Table] 손질 생새우살 200g (냉동) (26/30 사이즈)"],
       "id": "14a5"
     },
     {
@@ -517,9 +450,7 @@
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/23a32590-9613-4fe4-b563-f2d5d9a59b25.jpg",
         "https://product-image.kurly.com/sticker/image/da1c96ef-03bf-48ea-aa3d-e38df36307ab.png"
       ],
-      "pTexts": [
-        ""
-      ],
+      "pTexts": [""],
       "spanTexts": [
         "",
         "",
@@ -534,18 +465,14 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[KF365] 훈제오리 2종 (2입)"
-      ],
+      "h3Texts": ["[KF365] 훈제오리 2종 (2입)"],
       "id": "3f3d"
     },
     {
       "images": [
         "https://3p-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/files/92cf8f0f-35fb-4538-aed8-9032f89b90fc/f0e02c04-edbf-478a-91c4-f905c5016eaf.jpg"
       ],
-      "pTexts": [
-        ""
-      ],
+      "pTexts": [""],
       "spanTexts": [
         "",
         "",
@@ -560,9 +487,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[실리만] 실리콘 사각찜기 퍼플"
-      ],
+      "h3Texts": ["[실리만] 실리콘 사각찜기 퍼플"],
       "id": "0f28"
     },
     {
@@ -570,9 +495,7 @@
         "https://product-image.kurly.com/hdims/resize/%3E1050x%3E140/quality/85/src/banner/random-band/pc/img/982a22ba-f71d-48ae-970f-28708cdaaee1.jpg"
       ],
       "pTexts": [],
-      "spanTexts": [
-        ""
-      ],
+      "spanTexts": [""],
       "h1Texts": [],
       "h2Texts": [],
       "h3Texts": [],
@@ -582,9 +505,7 @@
       "images": [
         "https://product-image.kurly.com/hdims/resize/%5E%3E800x%3E400/cropcenter/800x400/quality/85/src/product/image/58070986-6d3c-4e4a-90b8-5d029e050a96.jpg"
       ],
-      "pTexts": [
-        "일일특가"
-      ],
+      "pTexts": ["일일특가"],
       "spanTexts": [
         "",
         "",
@@ -599,9 +520,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[KF365] 유명산지 샤인머스캣500g"
-      ],
+      "h3Texts": ["[KF365] 유명산지 샤인머스캣500g"],
       "id": "63c1"
     },
     {
@@ -610,9 +529,7 @@
         "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png",
         "https://product-image.kurly.com/sticker/image/537db277-41e1-4d4a-abb5-b37eb0a7c216.png"
       ],
-      "pTexts": [
-        "15%쿠폰+증정"
-      ],
+      "pTexts": ["15%쿠폰+증정"],
       "spanTexts": [
         "",
         "",
@@ -652,9 +569,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[헤드스파7] 비오틴 모근강화 샴트리 샴푸 740g"
-      ],
+      "h3Texts": ["[헤드스파7] 비오틴 모근강화 샴트리 샴푸 740g"],
       "id": "1e16"
     }
   ],
@@ -665,9 +580,7 @@
         "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png",
         "https://product-image.kurly.com/sticker/image/537db277-41e1-4d4a-abb5-b37eb0a7c216.png"
       ],
-      "pTexts": [
-        "15%쿠폰+증정"
-      ],
+      "pTexts": ["15%쿠폰+증정"],
       "spanTexts": [
         "",
         "",
@@ -693,9 +606,7 @@
         "https://product-image.kurly.com/sticker/image/ac7ed329-3dc7-4aa7-b7cb-58eebac02199.png",
         "https://product-image.kurly.com/sticker/image/537db277-41e1-4d4a-abb5-b37eb0a7c216.png"
       ],
-      "pTexts": [
-        "+최대2만원쿠폰"
-      ],
+      "pTexts": ["+최대2만원쿠폰"],
       "spanTexts": [
         "",
         "",
@@ -719,9 +630,7 @@
       "images": [
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/07a9c80a-246e-4d59-99c3-8ce7eca35a17.jpg"
       ],
-      "pTexts": [
-        "15%쿠폰+증정"
-      ],
+      "pTexts": ["15%쿠폰+증정"],
       "spanTexts": [
         "",
         "최대헤택가 65,748원~",
@@ -745,9 +654,7 @@
       "images": [
         "https://3p-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/files/cc04c177-c8a3-4553-b9be-66e8403c4908/cd8c352c-7c06-4f28-8aa1-b1d5c72609a0.jpg"
       ],
-      "pTexts": [
-        "+7%쿠폰"
-      ],
+      "pTexts": ["+7%쿠폰"],
       "spanTexts": [
         "",
         "최대 혜택가 51,336원",
@@ -771,9 +678,7 @@
       "images": [
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/bde56b04-61ad-4391-bc35-44d198455208.jpeg"
       ],
-      "pTexts": [
-        "+7%쿠폰"
-      ],
+      "pTexts": ["+7%쿠폰"],
       "spanTexts": [
         "",
         "최대 혜택가 34,680원",
@@ -788,9 +693,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[바비 브라운] 엑스트라 립 틴트 9종(택1)"
-      ],
+      "h3Texts": ["[바비 브라운] 엑스트라 립 틴트 9종(택1)"],
       "id": "37f0"
     },
     {
@@ -813,9 +716,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[추천특가][헤드스파7] 비오틴 모근 강화 샴트리 샴푸 740g"
-      ],
+      "h3Texts": ["[추천특가][헤드스파7] 비오틴 모근 강화 샴트리 샴푸 740g"],
       "id": "778d"
     },
     {
@@ -823,9 +724,7 @@
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/0e09613b-fba9-4615-b6db-d4376645cfaf.jpg",
         "https://product-image.kurly.com/sticker/image/1b8cf52a-11f7-4458-a683-fe467f0be422.png"
       ],
-      "pTexts": [
-        "+10%쿠폰"
-      ],
+      "pTexts": ["+10%쿠폰"],
       "spanTexts": [
         "",
         "",
@@ -840,9 +739,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[KF365] 에어프라이어용 통 닭가슴살 치킨까스 120g*5pk"
-      ],
+      "h3Texts": ["[KF365] 에어프라이어용 통 닭가슴살 치킨까스 120g*5pk"],
       "id": "60db"
     },
     {
@@ -864,9 +761,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[네이처빌] 국내산 쌀 97% 한끼든든쌀국수 소컵 3종"
-      ],
+      "h3Texts": ["[네이처빌] 국내산 쌀 97% 한끼든든쌀국수 소컵 3종"],
       "id": "d321"
     },
     {
@@ -888,9 +783,7 @@
       ],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "미니 티슈 브레드 (40g X 4개입)"
-      ],
+      "h3Texts": ["미니 티슈 브레드 (40g X 4개입)"],
       "id": "e8a6"
     },
     {
@@ -898,23 +791,10 @@
         "https://product-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/product/image/3ebaa9ca-23d6-43b8-bb8a-cb7efd593404.jpg"
       ],
       "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "9,800원",
-        "",
-        "",
-        "",
-        "9,800원",
-        "",
-        "",
-        ""
-      ],
+      "spanTexts": ["", "", "9,800원", "", "", "", "9,800원", "", "", ""],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "대용량 트러플 카사바칩 500g"
-      ],
+      "h3Texts": ["대용량 트러플 카사바칩 500g"],
       "id": "a19d"
     },
     {
@@ -923,32 +803,17 @@
         "https://product-image.kurly.com/sticker/image/cf07c518-c2aa-4300-8ded-78e37eb8b582.png"
       ],
       "pTexts": [],
-      "spanTexts": [
-        "",
-        "",
-        "7,900원",
-        "",
-        "",
-        "10%",
-        "7,110원",
-        "",
-        "",
-        ""
-      ],
+      "spanTexts": ["", "", "7,900원", "", "", "10%", "7,110원", "", "", ""],
       "h1Texts": [],
       "h2Texts": [],
-      "h3Texts": [
-        "[구포국수] 오색국수세트 (310g*5개입)"
-      ],
+      "h3Texts": ["[구포국수] 오색국수세트 (310g*5개입)"],
       "id": "6a96"
     },
     {
       "images": [
         "https://3p-image.kurly.com/hdims/resize/%5E%3E360x%3E468/cropcenter/360x468/quality/85/src/files/20240829/9fd7fa8e-2fff-46cf-9469-2d6a4b2671ed.jpg"
       ],
-      "pTexts": [
-        "+7%쿠폰"
-      ],
+      "pTexts": ["+7%쿠폰"],
       "spanTexts": [
         "",
         "",

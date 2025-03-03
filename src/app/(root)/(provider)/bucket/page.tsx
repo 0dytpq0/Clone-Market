@@ -8,20 +8,20 @@ import { useState } from "react";
 import { Checkbox } from "@headlessui/react";
 import CheckoutPage from "./_component/Checkout";
 import { useAuth } from "@/hooks/useAuth";
-import { Payment } from "@/types/Payment.types";
+import { Customer, Payment } from "@/types/Payment.types";
 import { nanoid } from "nanoid";
+import { User } from "@/types/User.types";
 
 function BucketPage() {
   const { getBucketPageData } = useGetData();
-  const { data: bucketData, isLoading } = getBucketPageData;
+  const { data: bucketData, isLoading: bucketLoading } = getBucketPageData;
 
   const { remove } = useBucket();
   const [ids, setIds] = useState<string[]>([]);
   const [step, setStep] = useState<string>("product");
   const { getUserInfo } = useAuth();
-  const { data } = getUserInfo;
+  const { data: userInfo , isLoading : userLoading } = getUserInfo;
   console.log("getBucketPageData", bucketData);
-  console.log("data", data);
   // customerKey, oderName, customerName, customerEmail, customerMobilePhone, SuccessUrl, failUrl
   const genOrderName = () => {
     return (
@@ -31,10 +31,9 @@ function BucketPage() {
   const getCurrentISODtate = (): string => {
     return new Date().toISOString();
   };
-  console.log(genOrderName());
-  console.log("getCurrentISODtate()", getCurrentISODtate());
+  console.log("userInfo", userInfo);
 
-  if (isLoading) {
+  if (bucketLoading && userLoading) {
     return <Loading />;
   }
   const checkoutData: Payment = {
@@ -48,6 +47,11 @@ function BucketPage() {
     paymentKey: nanoid(),
     totalAmount: bucketData?.totalPrice ?? 0,
   };
+  const customerData : Customer = {
+    customerName : userInfo?.userName!,
+    customerEmail : userInfo?.email!,
+    customerMobilePhone : userInfo?.phoneNumber!,
+  }
 
   const handleSelectAllIds = () => {
     const bucketDataIds: string[] = [];
@@ -136,7 +140,7 @@ function BucketPage() {
             </>
           )}
 
-          {step === "checkout" && <CheckoutPage paymentInfo={checkoutData} />}
+          {step === "checkout" && <CheckoutPage paymentInfo={checkoutData} customerInfo={customerData} />}
         </section>
       </div>
     </main>

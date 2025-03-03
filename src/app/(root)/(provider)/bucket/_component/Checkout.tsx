@@ -6,7 +6,7 @@ import {
 } from "@tosspayments/payment-widget-sdk";
 import { nanoid } from "nanoid";
 import { useQuery } from "@tanstack/react-query";
-import { Payment } from "@/types/Payment.types";
+import { Customer, Payment } from "@/types/Payment.types";
 
 // TODO: clientKey는 개발자센터의 결제위젯 연동 키 > 클라이언트 키로 바꾸세요.
 // TODO: customerKey는 구매자와 1:1 관계로 무작위한 고유값을 생성하세요.
@@ -15,11 +15,17 @@ const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
 const customerKey = nanoid();
 interface CheckoutPageProps {
   paymentInfo: Payment;
+  customerInfo: Customer;
 }
 
-export default function CheckoutPage({ paymentInfo }: CheckoutPageProps) {
+export default function CheckoutPage({
+  paymentInfo,
+  customerInfo,
+}: CheckoutPageProps) {
   console.log("paymentInfo", paymentInfo);
   const { data: paymentWidget } = usePaymentWidget(clientKey, customerKey);
+  const { customerEmail, customerMobilePhone, customerName } = customerInfo;
+  const { orderName, totalAmount } = paymentInfo;
   // const { data: paymentWidget } = usePaymentWidget(clientKey, ANONYMOUS); // 비회원 결제
   const paymentMethodsWidgetRef = useRef<ReturnType<
     PaymentWidgetInstance["renderPaymentMethods"]
@@ -27,7 +33,7 @@ export default function CheckoutPage({ paymentInfo }: CheckoutPageProps) {
   const agreementsWidgetRef = useRef<ReturnType<
     PaymentWidgetInstance["renderAgreement"]
   > | null>(null);
-  const [price, setPrice] = useState(50_000);
+  const [price, setPrice] = useState(totalAmount ?? 0);
   const [paymentMethodsWidgetReady, isPaymentMethodsWidgetReady] =
     useState(false);
 
@@ -107,10 +113,10 @@ export default function CheckoutPage({ paymentInfo }: CheckoutPageProps) {
                 // @docs https://docs.tosspayments.com/reference/widget-sdk#requestpayment결제-정보
                 await paymentWidget?.requestPayment({
                   orderId: nanoid(),
-                  orderName: "토스 티셔츠 외 2건",
-                  customerName: "김토스",
-                  customerEmail: "customer123@gmail.com",
-                  customerMobilePhone: "01012341234",
+                  orderName: orderName,
+                  customerName: customerName,
+                  customerEmail: customerEmail,
+                  customerMobilePhone: customerMobilePhone,
                   successUrl: `${window.location.href}/success`,
                   failUrl: `${window.location.href}/fail`,
                 });

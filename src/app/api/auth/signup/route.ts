@@ -6,7 +6,7 @@ export async function POST(req: NextRequest) {
     userId: formData.get("userId"),
     userPassword: formData.get("userPassword"),
     verifyPassword: formData.get("verifyPassword"),
-    username: formData.get("userName"),
+    userName: formData.get("userName"),
     birthDate: formData.get("birthDate"),
     email: formData.get("email"),
     address: formData.get("address"),
