@@ -7,18 +7,47 @@ import { useGetData } from "@/hooks/useGetData";
 import { useState } from "react";
 import { Checkbox } from "@headlessui/react";
 import CheckoutPage from "./_component/Checkout";
+import { useAuth } from "@/hooks/useAuth";
+import { Payment } from "@/types/Payment.types";
+import { nanoid } from "nanoid";
 
 function BucketPage() {
   const { getBucketPageData } = useGetData();
   const { data: bucketData, isLoading } = getBucketPageData;
+
   const { remove } = useBucket();
   const [ids, setIds] = useState<string[]>([]);
   const [step, setStep] = useState<string>("product");
-  console.log("getBucketPageData", getBucketPageData);
+  const { getUserInfo } = useAuth();
+  const { data } = getUserInfo;
+  console.log("getBucketPageData", bucketData);
+  console.log("data", data);
   // customerKey, oderName, customerName, customerEmail, customerMobilePhone, SuccessUrl, failUrl
+  const genOrderName = () => {
+    return (
+      bucketData?.bucket[0].h3Texts[0] + ` 외 ${bucketData?.bucket.length}개`
+    );
+  };
+  const getCurrentISODtate = (): string => {
+    return new Date().toISOString();
+  };
+  console.log(genOrderName());
+  console.log("getCurrentISODtate()", getCurrentISODtate());
+
   if (isLoading) {
     return <Loading />;
   }
+  const checkoutData: Payment = {
+    orderName: genOrderName(),
+    approvedAt: getCurrentISODtate(),
+    receipt: {
+      url: "none",
+    },
+    method: "가상계좌",
+    orderId: nanoid(),
+    paymentKey: nanoid(),
+    totalAmount: bucketData?.totalPrice ?? 0,
+  };
 
   const handleSelectAllIds = () => {
     const bucketDataIds: string[] = [];
@@ -107,7 +136,7 @@ function BucketPage() {
             </>
           )}
 
-          {step === "checkout" && <CheckoutPage />}
+          {step === "checkout" && <CheckoutPage paymentInfo={checkoutData} />}
         </section>
       </div>
     </main>

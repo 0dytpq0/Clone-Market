@@ -1,4 +1,5 @@
-import { GetServerSideProps } from "next";
+'use client'
+import Loading from "@/components/atom/Loading";
 import Link from "next/link";
 
 // ------ Payment 객체 ------
@@ -15,62 +16,47 @@ interface Payment {
   orderId: string;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const {
-    query: { paymentKey, orderId, amount },
-  } = context;
-
-  try {
-    // ------  결제 승인 ------
-    // @docs https://docs.tosspayments.com/guides/payment-widget/integration#3-결제-승인하기
-    const payment = await fetch(
-      "https://api.tosspayments.com/v1/payments/confirm",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Basic ${Buffer.from(
-            `${process.env.TOSS_PAYMENTS_SECRET_KEY}:`
-          ).toString("base64")}`,
-        },
-        body: JSON.stringify({
-          paymentKey,
-          orderId,
-          amount,
-        }),
-      }
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`결제 확인 실패: ${response.statusText}`);
-        }
-        return response.json();
-      })
-      .then((data) => data as Payment);
-
-    console.log(payment);
-    return {
-      props: { payment },
-    };
-  } catch (err: any) {
-    console.error("err", err.response.data);
-
-    return {
-      redirect: {
-        destination: `/fail?code=${
-          err.response.data.code
-        }&message=${encodeURIComponent(err.response.data.message)}`,
-        permanent: false,
-      },
-    };
+async function getPaymentData(searchParams: Payment) {
+  if (
+    !searchParams.paymentKey ||
+    !searchParams.orderId ||
+    !searchParams.totalAmount
+  ) {
+    return null;
   }
-};
 
-interface Props {
-  payment: Payment;
+  const response = await fetch(
+    "https://api.tosspayments.com/v1/payments/confirm",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Basic ${Buffer.from(
+          `${process.env.TOSS_PAYMENTS_SECRET_KEY}:`
+        ).toString("base64")}`,
+      },
+      body: JSON.stringify({
+        paymentKey: searchParams.paymentKey,
+        orderId: searchParams.orderId,
+        totalAmount: Number(searchParams.totalAmount),
+      }),
+    }
+  );
+
+  if (!response.ok) {
+    return null;
+  }
+
+  return response.json() as Promise<Payment>;
 }
 
-export default function SuccessPage({ payment }: Props) {
+export default function SuccessPage(searchParams: Payment) {
+  const payment = getPaymentData(searchParams);
+  
+
+  if (!payment) {
+    return <Loading />;
+  }
   return (
     <main>
       <div className="box_section" style={{ width: "600px" }}>

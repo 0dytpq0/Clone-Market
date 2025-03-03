@@ -6,13 +6,19 @@ import {
 } from "@tosspayments/payment-widget-sdk";
 import { nanoid } from "nanoid";
 import { useQuery } from "@tanstack/react-query";
+import { Payment } from "@/types/Payment.types";
 
 // TODO: clientKey는 개발자센터의 결제위젯 연동 키 > 클라이언트 키로 바꾸세요.
 // TODO: customerKey는 구매자와 1:1 관계로 무작위한 고유값을 생성하세요.
 // @docs https://docs.tosspayments.com/reference/using-api/api-keys
 const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
 const customerKey = nanoid();
-export default function CheckoutPage() {
+interface CheckoutPageProps {
+  paymentInfo: Payment;
+}
+
+export default function CheckoutPage({ paymentInfo }: CheckoutPageProps) {
+  console.log("paymentInfo", paymentInfo);
   const { data: paymentWidget } = usePaymentWidget(clientKey, customerKey);
   // const { data: paymentWidget } = usePaymentWidget(clientKey, ANONYMOUS); // 비회원 결제
   const paymentMethodsWidgetRef = useRef<ReturnType<
@@ -62,7 +68,6 @@ export default function CheckoutPage() {
     // @docs https://docs.tosspayments.com/reference/widget-sdk#updateamount결제-금액
     paymentMethodsWidget.updateAmount(price);
   }, [price]);
-console.log('window.location', window.location)
   return (
     <main>
       <div className="wrapper">
