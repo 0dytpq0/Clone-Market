@@ -4,24 +4,44 @@ import Loading from "@/components/atom/Loading";
 import BucketContentCard from "@/components/molecules/BucketContentCard";
 import { useBucket } from "@/hooks/useBucket";
 import { useGetData } from "@/hooks/useGetData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Checkbox } from "@headlessui/react";
 import CheckoutPage from "./_component/Checkout";
 import { useAuth } from "@/hooks/useAuth";
 import { Customer, Payment } from "@/types/Payment.types";
 import { nanoid } from "nanoid";
 import { User } from "@/types/User.types";
+import { useBucketContext } from "@/contexts/bucket.context";
 
 function BucketPage() {
   const { getBucketPageData } = useGetData();
   const { data: bucketData, isLoading: bucketLoading } = getBucketPageData;
-
+  const { setCustomer, setCheckoutData } = useBucketContext();
   const { remove } = useBucket();
   const [ids, setIds] = useState<string[]>([]);
   const [step, setStep] = useState<string>("product");
   const { getUserInfo } = useAuth();
-  const { data: userInfo , isLoading : userLoading } = getUserInfo;
-  console.log("getBucketPageData", bucketData);
+  const { data: userInfo, isLoading: userLoading } = getUserInfo;
+  useEffect(() => {
+    if (userInfo) {
+      setCustomer({
+        customerName: userInfo.userName,
+        customerEmail: userInfo.email,
+        customerMobilePhone: userInfo.phoneNumber,
+      });
+    }
+    if (bucketData) {
+      setCheckoutData({
+        orderName: genOrderName(),
+        approvedAt: getCurrentISODtate(),
+        receipt: { url: "none" },
+        method: "가상계좌",
+        orderId: nanoid(),
+        paymentKey: nanoid(),
+        totalAmount: bucketData.totalPrice ?? 0,
+      });
+    }
+  }, [userInfo, bucketData, setCustomer, setCheckoutData]);
   // customerKey, oderName, customerName, customerEmail, customerMobilePhone, SuccessUrl, failUrl
   const genOrderName = () => {
     return (
@@ -31,7 +51,6 @@ function BucketPage() {
   const getCurrentISODtate = (): string => {
     return new Date().toISOString();
   };
-  console.log("userInfo", userInfo);
 
   if (bucketLoading && userLoading) {
     return <Loading />;
@@ -47,11 +66,11 @@ function BucketPage() {
     paymentKey: nanoid(),
     totalAmount: bucketData?.totalPrice ?? 0,
   };
-  const customerData : Customer = {
-    customerName : userInfo?.userName!,
-    customerEmail : userInfo?.email!,
-    customerMobilePhone : userInfo?.phoneNumber!,
-  }
+  const customerData: Customer = {
+    customerName: userInfo?.userName!,
+    customerEmail: userInfo?.email!,
+    customerMobilePhone: userInfo?.phoneNumber!,
+  };
 
   const handleSelectAllIds = () => {
     const bucketDataIds: string[] = [];
@@ -140,7 +159,7 @@ function BucketPage() {
             </>
           )}
 
-          {step === "checkout" && <CheckoutPage paymentInfo={checkoutData} customerInfo={customerData} />}
+          {step === "checkout" && <CheckoutPage />}
         </section>
       </div>
     </main>
