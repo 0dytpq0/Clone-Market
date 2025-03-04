@@ -12,6 +12,8 @@ import { Customer, Payment } from "@/types/Payment.types";
 import { nanoid } from "nanoid";
 import { User } from "@/types/User.types";
 import { useBucketContext } from "@/contexts/bucket.context";
+import { genOrderName } from "@/utils/genOrderName";
+import { getCurrentISODtate } from "@/utils/getCurrentISODate";
 
 function BucketPage() {
   const { getBucketPageData } = useGetData();
@@ -32,7 +34,7 @@ function BucketPage() {
     }
     if (bucketData) {
       setCheckoutData({
-        orderName: genOrderName(),
+        orderName: genOrderName(bucketData),
         approvedAt: getCurrentISODtate(),
         receipt: { url: "none" },
         method: "가상계좌",
@@ -43,20 +45,12 @@ function BucketPage() {
     }
   }, [userInfo, bucketData, setCustomer, setCheckoutData]);
   // customerKey, oderName, customerName, customerEmail, customerMobilePhone, SuccessUrl, failUrl
-  const genOrderName = () => {
-    return (
-      bucketData?.bucket[0].h3Texts[0] + ` 외 ${bucketData?.bucket.length}개`
-    );
-  };
-  const getCurrentISODtate = (): string => {
-    return new Date().toISOString();
-  };
 
   if (bucketLoading && userLoading) {
     return <Loading />;
   }
   const checkoutData: Payment = {
-    orderName: genOrderName(),
+    orderName: genOrderName(bucketData!),
     approvedAt: getCurrentISODtate(),
     receipt: {
       url: "none",
