@@ -54,16 +54,17 @@ export async function GET(req: NextRequest, res: NextResponse) {
   try {
     const { searchParams } = new URL(req.url);
     const userId = searchParams.get("id");
-    console.log("userId", userId);
-    console.log("searchParams", searchParams);
-    const response = await fetch(`http://localhost:5000/bucket?id=${userId}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((res) => res.json());
+    const response = await fetch(
+      `http://localhost:5000/bucket?userId=${userId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    ).then((res) => res.json());
 
-    if (response.length === 0) return;
+    if (response.length === 0) return new Error("장바구니 데이터가 없습니다.");
 
     const totalPrice = response.reduce(
       (sum: number, item: BucketContentType) => {

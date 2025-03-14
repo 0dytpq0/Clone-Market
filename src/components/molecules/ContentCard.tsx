@@ -14,7 +14,6 @@ interface ContentCardProps {
 function ContentCard({ content, userId = "" }: ContentCardProps) {
   const { append } = useBucket();
   const contentData = { ...content, userId };
-  console.log("contentData", contentData);
   return (
     <>
       <div className="w-full h-full relative aspect-auto max-h-[320px]">

@@ -1,6 +1,10 @@
 // services/dataService.ts
 
-import { AppendContentType, BucketContentType, DefaultContentType } from "@/types/Content.types";
+import {
+  AppendContentType,
+  BucketContentType,
+  DefaultContentType,
+} from "@/types/Content.types";
 import { Customer, Payment, PaymentWithCustomer } from "@/types/Payment.types";
 import { User } from "@/types/User.types";
 import { apiFetch } from "@/utils/apiFetch";
@@ -61,7 +65,6 @@ export const fetchBucketPageData = async (data: User) => {
       "Content-Type": "application/json",
     },
   });
-  console.log("response", response);
   return response;
 };
 
