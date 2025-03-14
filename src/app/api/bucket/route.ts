@@ -52,12 +52,18 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
 export async function GET(req: NextRequest, res: NextResponse) {
   try {
-    const response = await fetch("http://localhost:5000/bucket", {
+    const { searchParams } = new URL(req.url);
+    const userId = searchParams.get("id");
+    console.log("userId", userId);
+    console.log("searchParams", searchParams);
+    const response = await fetch(`http://localhost:5000/bucket?id=${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
       },
     }).then((res) => res.json());
+
+    if (response.length === 0) return;
 
     const totalPrice = response.reduce(
       (sum: number, item: BucketContentType) => {

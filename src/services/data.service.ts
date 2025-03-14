@@ -2,6 +2,7 @@
 
 import { BucketContentType, DefaultContentType } from "@/types/Content.types";
 import { Customer, Payment, PaymentWithCustomer } from "@/types/Payment.types";
+import { User } from "@/types/User.types";
 import { apiFetch } from "@/utils/apiFetch";
 import { QueryFunctionContext } from "@tanstack/react-query";
 
@@ -51,14 +52,16 @@ export const appendBucket = async (data: DefaultContentType) => {
   return response;
 };
 
-export const fetchBucketpageData = async () => {
-  const response = await apiFetch("/api/bucket", {
+export const fetchBucketPageData = async (data: User) => {
+  const queryParams = new URLSearchParams(data as any).toString();
+
+  const response = await apiFetch(`/api/bucket?${queryParams}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   });
-
+  console.log("response", response);
   return response;
 };
 

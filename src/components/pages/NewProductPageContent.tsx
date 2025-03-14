@@ -9,7 +9,7 @@ import SortTagMenu from "../molecules/SortTagMenu";
 
 function NewProductPageContent() {
   const [sortStandard, setSortStandard] = useState<"asc" | "desc">("asc");
-  const { getNewProductPageData } = useGetData();
+  const { getNewProductPageData } = useGetData(null);
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     getNewProductPageData;
 

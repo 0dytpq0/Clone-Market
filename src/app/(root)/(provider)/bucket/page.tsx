@@ -16,8 +16,6 @@ import { getCurrentISODtate } from "@/utils/getCurrentISODate";
 import { usePayment } from "@/hooks/usePayment";
 
 function BucketPage() {
-  const { getBucketPageData } = useGetData();
-  const { data: bucketData, isLoading: bucketLoading } = getBucketPageData;
   const { setCustomer, setPayment, payment } = useBucketContext();
   const { remove } = useBucket();
   const { append } = usePayment();
@@ -25,6 +23,8 @@ function BucketPage() {
   const [step, setStep] = useState<"product" | "payment">("product");
   const { getUserInfo } = useAuth();
   const { data: userInfo, isLoading: userLoading } = getUserInfo;
+  const { getBucketPageData } = useGetData(userInfo!);
+  const { data: bucketData, isLoading: bucketLoading } = getBucketPageData;
   useEffect(() => {
     if (userInfo && bucketData) {
       setCustomer({

@@ -6,7 +6,7 @@ import Loading from "../atom/Loading";
 import { useAuth } from "@/hooks/useAuth";
 
 const HomePageContent = () => {
-  const { getHomePageData } = useGetData();
+  const { getHomePageData } = useGetData(null);
 
   if (getHomePageData.isLoading) {
     return <Loading />;

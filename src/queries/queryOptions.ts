@@ -1,7 +1,7 @@
 import { getUserInfo, login, logout, signup } from "@/services/auth.service";
 import {
   appendBucket,
-  fetchBucketpageData,
+  fetchBucketPageData,
   fetchHomePageData,
   fetchNewProductPageData,
   patchBucket,
@@ -11,6 +11,7 @@ import {
 import { authKeys, dataKeys, paymentKeys } from "./queryKeys";
 import { DefaultContentType } from "@/types/Content.types";
 import { QueryFunctionContext } from "@tanstack/react-query";
+import { User } from "@/types/User.types";
 
 export const authMutationOptions = {
   signup: () => ({
@@ -59,9 +60,10 @@ export const dataQueryOptions = {
 
     initialPageParam: 1,
   }),
-  fetchBucketPageData: () => ({
-    queryKey: dataKeys.bucket,
-    queryFn: fetchBucketpageData,
+  fetchBucketPageData: (user: User) => ({
+    queryKey: [dataKeys.bucket, user],
+    queryFn: () => fetchBucketPageData(user),
+    retry: 3,
   }),
 };
 export const dataMutationOptions = {
