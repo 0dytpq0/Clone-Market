@@ -1,4 +1,4 @@
-"use client"; // ✅ 클라이언트 컴포넌트로 지정
+"use client";
 
 import { useGetData } from "@/hooks/useGetData";
 import { useState, useRef, useCallback, useMemo } from "react";
@@ -6,9 +6,12 @@ import sortByPrice from "@/utils/sortByPrice";
 import Loading from "../atom/Loading";
 import ContentCard from "../molecules/ContentCard";
 import SortTagMenu from "../molecules/SortTagMenu";
+import { useAuth } from "@/hooks/useAuth";
 
 function NewProductPageContent() {
   const [sortStandard, setSortStandard] = useState<"asc" | "desc">("asc");
+  const { getUserInfo } = useAuth();
+  const { data: userInfo } = getUserInfo;
   const { getNewProductPageData } = useGetData(null);
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     getNewProductPageData;
@@ -17,7 +20,10 @@ function NewProductPageContent() {
 
   const sortedData = useMemo(() => {
     if (!data) return [];
-    return data.pages.flatMap((page) => sortByPrice(page.data, sortStandard));
+    return data.pages.flatMap((page) => {
+      console.log("page", page);
+      return sortByPrice(page.data, sortStandard);
+    });
   }, [data, sortStandard]);
 
   const lastElementRef = useCallback(
@@ -56,7 +62,7 @@ function NewProductPageContent() {
               className="relative w-full h-[500px]"
               ref={isLast ? lastElementRef : null}
             >
-              <ContentCard content={content} />
+              <ContentCard content={content} userId={userInfo?.id || ""} />
             </div>
           );
         })}

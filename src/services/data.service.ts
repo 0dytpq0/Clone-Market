@@ -1,6 +1,6 @@
 // services/dataService.ts
 
-import { BucketContentType, DefaultContentType } from "@/types/Content.types";
+import { AppendContentType, BucketContentType, DefaultContentType } from "@/types/Content.types";
 import { Customer, Payment, PaymentWithCustomer } from "@/types/Payment.types";
 import { User } from "@/types/User.types";
 import { apiFetch } from "@/utils/apiFetch";
@@ -41,7 +41,7 @@ export const fetchNewProductPageData = async (
 
   return response; // 반드시 `{ data, totalPages, hasNextPage }` 형태 반환
 };
-export const appendBucket = async (data: DefaultContentType) => {
+export const appendBucket = async (data: AppendContentType) => {
   const response = await apiFetch("/api/bucket", {
     method: "POST",
     headers: {

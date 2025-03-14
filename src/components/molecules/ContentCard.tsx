@@ -6,9 +6,15 @@ import { DefaultContentType } from "@/types/Content.types";
 import Image from "next/image";
 import Button from "../atom/Button";
 
-function ContentCard({ content }: { content: DefaultContentType }) {
-  const { append } = useBucket();
+interface ContentCardProps {
+  content: DefaultContentType;
+  userId: string;
+}
 
+function ContentCard({ content, userId = "" }: ContentCardProps) {
+  const { append } = useBucket();
+  const contentData = { ...content, userId };
+  console.log("contentData", contentData);
   return (
     <>
       <div className="w-full h-full relative aspect-auto max-h-[320px]">
@@ -26,7 +32,7 @@ function ContentCard({ content }: { content: DefaultContentType }) {
       </div>
       <div className="w-full h-9 mt-[6px]">
         <Button
-          onClick={() => append.mutate(content)}
+          onClick={() => append.mutate(contentData)}
           intent={"secondary"}
           size={"lg"}
           variant={"outline"}

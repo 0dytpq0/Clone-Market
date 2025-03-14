@@ -8,6 +8,10 @@ export type DefaultContentType = {
   spanTexts: string[];
 };
 
+export type AppendContentType = {
+ userId : string 
+} & DefaultContentType
+
 export type BucketContentType = DefaultContentType & { order: number };
 
 export type Bucket = {

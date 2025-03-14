@@ -4,7 +4,12 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ContentCard from "./ContentCard";
 
-function CardSlider({ content }: { content: DefaultContentType[] }) {
+interface CardSliderProps {
+content : DefaultContentType[],
+userId : string
+}
+
+function CardSlider({ content ,userId = ''}: CardSliderProps) {
   return (
     <Swiper
       slidesPerView={4}
@@ -17,7 +22,7 @@ function CardSlider({ content }: { content: DefaultContentType[] }) {
         if (!content.h3Texts[0]) return;
         return (
           <SwiperSlide key={content.id} className="relative min-w-[260px]">
-            <ContentCard content={content} />
+            <ContentCard content={content} userId={userId} />
           </SwiperSlide>
         );
       })}

@@ -6,7 +6,9 @@ import Loading from "../atom/Loading";
 import { useAuth } from "@/hooks/useAuth";
 
 const HomePageContent = () => {
-  const { getHomePageData } = useGetData(null);
+  const { getUserInfo } = useAuth();
+  const { data: userInfo } = getUserInfo;
+  const { getHomePageData } = useGetData(userInfo || null);
 
   if (getHomePageData.isLoading) {
     return <Loading />;
@@ -18,10 +20,18 @@ const HomePageContent = () => {
     <div>
       {data?.banners && <BannerSlider banners={data.banners} />}
       {data?.beauty && (
-        <ContentSection content={data.beauty} header="따끈따끈한 신상품!!" />
+        <ContentSection
+          content={data.beauty}
+          header="따끈따끈한 신상품!!"
+          userId={userInfo?.id || ""}
+        />
       )}
       {data?.best && (
-        <ContentSection content={data.best} header="모두가 찾는 베스트 셀러!" />
+        <ContentSection
+          content={data.best}
+          header="모두가 찾는 베스트 셀러!"
+          userId={userInfo?.id || ""}
+        />
       )}
     </div>
   );
