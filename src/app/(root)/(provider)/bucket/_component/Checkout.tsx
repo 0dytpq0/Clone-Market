@@ -18,7 +18,7 @@ const customerKey = nanoid();
 
 export default function CheckoutPage() {
   const { data: paymentWidget } = usePaymentWidget(clientKey, customerKey);
-  const { customerData, checkoutData } = useBucketContext();
+  const { customer: customerData, payment: checkoutData } = useBucketContext();
   const { customerEmail, customerMobilePhone, customerName } = customerData!;
   const { orderName, totalAmount } = checkoutData!;
   // const { data: paymentWidget } = usePaymentWidget(clientKey, ANONYMOUS); // 비회원 결제

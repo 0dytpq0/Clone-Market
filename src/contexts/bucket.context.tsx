@@ -3,10 +3,10 @@ import { createContext, useContext, useState, ReactNode } from "react";
 import { Customer, Payment } from "@/types/Payment.types";
 
 interface BucketContextType {
-  customerData: Customer | null;
-  checkoutData: Payment | null;
+  customer: Customer | null;
+  payment: Payment | null;
   setCustomer: (customer: Customer) => void;
-  setCheckoutData: (data: Payment) => void;
+  setPayment: (data: Payment) => void;
 }
 
 const BucketContext = createContext<BucketContextType | undefined>(undefined);
@@ -20,12 +20,17 @@ export const useBucketContext = () => {
 };
 
 export const BucketProvider = ({ children }: { children: ReactNode }) => {
-  const [customerData, setCustomer] = useState<Customer | null>(null);
-  const [checkoutData, setCheckoutData] = useState<Payment | null>(null);
+  const [customer, setCustomer] = useState<Customer | null>(null);
+  const [payment, setPayment] = useState<Payment>(null);
 
   return (
     <BucketContext.Provider
-      value={{ customerData, checkoutData, setCustomer, setCheckoutData }}
+      value={{
+        customer,
+        payment,
+        setCustomer,
+        setPayment,
+      }}
     >
       {children}
     </BucketContext.Provider>

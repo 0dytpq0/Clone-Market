@@ -18,7 +18,12 @@ import { usePayment } from "@/hooks/usePayment";
 function BucketPage() {
   const { getBucketPageData } = useGetData();
   const { data: bucketData, isLoading: bucketLoading } = getBucketPageData;
-  const { setCustomer, setCheckoutData } = useBucketContext();
+  const {
+    setCustomer,
+    setPayment,
+    payment,
+    customer: customerData,
+  } = useBucketContext();
   const { remove } = useBucket();
   const { append } = usePayment();
   const [ids, setIds] = useState<string[]>([]);
@@ -26,15 +31,13 @@ function BucketPage() {
   const { getUserInfo } = useAuth();
   const { data: userInfo, isLoading: userLoading } = getUserInfo;
   useEffect(() => {
-    if (userInfo) {
+    if (userInfo && bucketData) {
       setCustomer({
         customerName: userInfo.userName,
         customerEmail: userInfo.email,
         customerMobilePhone: userInfo.phoneNumber,
       });
-    }
-    if (bucketData) {
-      setCheckoutData({
+      setPayment({
         orderName: genOrderName(bucketData),
         approvedAt: getCurrentISODtate(),
         receipt: { url: "none" },
@@ -42,32 +45,20 @@ function BucketPage() {
         orderId: nanoid(),
         paymentKey: nanoid(),
         totalAmount: bucketData.totalPrice ?? 0,
+        customerName: userInfo.userName,
+        customerEmail: userInfo.email,
+        customerMobilePhone: userInfo.phoneNumber,
       });
     }
-  }, [userInfo, bucketData, setCustomer, setCheckoutData]);
+  }, [userInfo, bucketData, setCustomer, setPayment]);
   // customerKey, oderName, customerName, customerEmail, customerMobilePhone, SuccessUrl, failUrl
 
   if (bucketLoading && userLoading) {
     return <Loading />;
   }
-  const paymentData: Payment = {
-    orderName: genOrderName(bucketData!),
-    approvedAt: getCurrentISODtate(),
-    receipt: {
-      url: "none",
-    },
-    method: "가상계좌",
-    orderId: nanoid(),
-    paymentKey: nanoid(),
-    totalAmount: bucketData?.totalPrice ?? 0,
-  };
-  const customerData: Customer = {
-    customerName: userInfo?.userName!,
-    customerEmail: userInfo?.email!,
-    customerMobilePhone: userInfo?.phoneNumber!,
-  };
-  const handlePayment = (paymentData: Payment) => {
-    append.mutate(paymentData);
+
+  const handlePayment = (payment: Payment | null) => {
+    append.mutate(payment);
     // setStep("checkout");
   };
   const handleSelectAllIds = () => {
@@ -95,7 +86,7 @@ function BucketPage() {
               <div className="flex items-center justify-between w-full rounded-lg px-4 py-4 bg-[#EADFFC]">
                 <div className="absolute right-10 bottom-10 max-w-32">
                   <Button
-                    onClick={() => handlePayment(paymentData)}
+                    onClick={() => handlePayment(payment)}
                     variant={"outline"}
                     size={"lg"}
                   >
