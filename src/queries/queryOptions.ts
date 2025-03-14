@@ -5,9 +5,10 @@ import {
   fetchHomePageData,
   fetchNewProductPageData,
   patchBucket,
+  postPayment,
   removeBucket,
 } from "@/services/data.service";
-import { authKeys, dataKeys } from "./queryKeys";
+import { authKeys, dataKeys, paymentKeys } from "./queryKeys";
 import { DefaultContentType } from "@/types/Content.types";
 import { QueryFunctionContext } from "@tanstack/react-query";
 
@@ -63,8 +64,6 @@ export const dataQueryOptions = {
     queryFn: fetchBucketpageData,
   }),
 };
-
-
 export const dataMutationOptions = {
   appendBucketData: () => ({
     mutationKey: dataKeys.bucket,
@@ -79,4 +78,10 @@ export const dataMutationOptions = {
     mutationKey: dataKeys.bucket,
     mutationFn: patchBucket,
   }),
-}
+};
+export const paymentMutationOptions = {
+  appendPayment: () => ({
+    mutationKey: paymentKeys.append,
+    mutationFn: postPayment,
+  }),
+};

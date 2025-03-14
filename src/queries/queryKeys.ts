@@ -10,3 +10,7 @@ export const dataKeys = {
   newProduct: ["data", "newProduct"] as const,
   bucket: ["data", "bucket"] as const,
 };
+
+export const paymentKeys = {
+  append : ['payment','append']
+}

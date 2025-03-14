@@ -10,16 +10,17 @@ import CheckoutPage from "./_component/Checkout";
 import { useAuth } from "@/hooks/useAuth";
 import { Customer, Payment } from "@/types/Payment.types";
 import { nanoid } from "nanoid";
-import { User } from "@/types/User.types";
 import { useBucketContext } from "@/contexts/bucket.context";
 import { genOrderName } from "@/utils/genOrderName";
 import { getCurrentISODtate } from "@/utils/getCurrentISODate";
+import { usePayment } from "@/hooks/usePayment";
 
 function BucketPage() {
   const { getBucketPageData } = useGetData();
   const { data: bucketData, isLoading: bucketLoading } = getBucketPageData;
   const { setCustomer, setCheckoutData } = useBucketContext();
   const { remove } = useBucket();
+  const { append } = usePayment();
   const [ids, setIds] = useState<string[]>([]);
   const [step, setStep] = useState<string>("product");
   const { getUserInfo } = useAuth();
@@ -49,7 +50,7 @@ function BucketPage() {
   if (bucketLoading && userLoading) {
     return <Loading />;
   }
-  const checkoutData: Payment = {
+  const paymentData: Payment = {
     orderName: genOrderName(bucketData!),
     approvedAt: getCurrentISODtate(),
     receipt: {
@@ -65,7 +66,10 @@ function BucketPage() {
     customerEmail: userInfo?.email!,
     customerMobilePhone: userInfo?.phoneNumber!,
   };
-
+  const handlePayment = (paymentData: Payment) => {
+    append.mutate(paymentData);
+    // setStep("checkout");
+  };
   const handleSelectAllIds = () => {
     const bucketDataIds: string[] = [];
     if (ids.length === 0) {
@@ -91,7 +95,7 @@ function BucketPage() {
               <div className="flex items-center justify-between w-full rounded-lg px-4 py-4 bg-[#EADFFC]">
                 <div className="absolute right-10 bottom-10 max-w-32">
                   <Button
-                    onClick={() => setStep("checkout")}
+                    onClick={() => handlePayment(paymentData)}
                     variant={"outline"}
                     size={"lg"}
                   >

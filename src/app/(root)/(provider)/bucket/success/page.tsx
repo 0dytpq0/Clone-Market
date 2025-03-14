@@ -57,7 +57,6 @@ async function getPaymentData(searchParams: Payment) {
 
 export default function SuccessPage(searchParams: Payment) {
   const { checkoutData } = useBucketContext();
-  console.log("checkoutData", checkoutData);
   const {
     data: payment,
     isLoading,

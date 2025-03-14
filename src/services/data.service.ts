@@ -1,6 +1,7 @@
 // services/dataService.ts
 
 import { BucketContentType, DefaultContentType } from "@/types/Content.types";
+import { Payment } from "@/types/Payment.types";
 import { apiFetch } from "@/utils/apiFetch";
 import { QueryFunctionContext } from "@tanstack/react-query";
 
@@ -75,6 +76,18 @@ export const removeBucket = async (ids: string[]) => {
 export const patchBucket = async (data: BucketContentType) => {
   const response = await apiFetch("/api/bucket", {
     method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ data }),
+  });
+
+  return response;
+};
+
+export const postPayment = async (data: Payment) => {
+  const response = await apiFetch("/api/bucket/payment", {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },

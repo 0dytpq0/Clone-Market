@@ -21,7 +21,6 @@ export default function CheckoutPage() {
   const { customerData, checkoutData } = useBucketContext();
   const { customerEmail, customerMobilePhone, customerName } = customerData!;
   const { orderName, totalAmount } = checkoutData!;
-  console.log("checkoutData", checkoutData);
   // const { data: paymentWidget } = usePaymentWidget(clientKey, ANONYMOUS); // 비회원 결제
   const paymentMethodsWidgetRef = useRef<ReturnType<
     PaymentWidgetInstance["renderPaymentMethods"]
