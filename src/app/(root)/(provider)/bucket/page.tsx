@@ -18,16 +18,11 @@ import { usePayment } from "@/hooks/usePayment";
 function BucketPage() {
   const { getBucketPageData } = useGetData();
   const { data: bucketData, isLoading: bucketLoading } = getBucketPageData;
-  const {
-    setCustomer,
-    setPayment,
-    payment,
-    customer: customerData,
-  } = useBucketContext();
+  const { setCustomer, setPayment, payment } = useBucketContext();
   const { remove } = useBucket();
   const { append } = usePayment();
   const [ids, setIds] = useState<string[]>([]);
-  const [step, setStep] = useState<string>("product");
+  const [step, setStep] = useState<"product" | "payment">("product");
   const { getUserInfo } = useAuth();
   const { data: userInfo, isLoading: userLoading } = getUserInfo;
   useEffect(() => {
@@ -51,7 +46,6 @@ function BucketPage() {
       });
     }
   }, [userInfo, bucketData, setCustomer, setPayment]);
-  // customerKey, oderName, customerName, customerEmail, customerMobilePhone, SuccessUrl, failUrl
 
   if (bucketLoading && userLoading) {
     return <Loading />;
@@ -59,7 +53,7 @@ function BucketPage() {
 
   const handlePayment = (payment: Payment | null) => {
     append.mutate(payment);
-    // setStep("checkout");
+    setStep("payment");
   };
   const handleSelectAllIds = () => {
     const bucketDataIds: string[] = [];
@@ -148,7 +142,7 @@ function BucketPage() {
             </>
           )}
 
-          {step === "checkout" && <CheckoutPage />}
+          {step === "payment" && <CheckoutPage />}
         </section>
       </div>
     </main>

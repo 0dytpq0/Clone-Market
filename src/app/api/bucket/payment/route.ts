@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 
+export async function GET(req: NextRequest, res : NextResponse) {
+    const {data} = await req.json()
+    
+}
+
 export async function POST(req: NextRequest, res: NextResponse) {
   try {
     const { data } = await req.json();

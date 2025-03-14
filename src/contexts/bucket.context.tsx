@@ -21,7 +21,7 @@ export const useBucketContext = () => {
 
 export const BucketProvider = ({ children }: { children: ReactNode }) => {
   const [customer, setCustomer] = useState<Customer | null>(null);
-  const [payment, setPayment] = useState<Payment>(null);
+  const [payment, setPayment] = useState<Payment | null>(null);
 
   return (
     <BucketContext.Provider

@@ -971,15 +971,15 @@
   ],
   "payment": [
     {
-      "id": "c9ce",
+      "id": "e77b",
       "orderName": "[네이처빌] 국내산 쌀 97% 한끼든든쌀국수 소컵 3종 외 4개",
-      "approvedAt": "2025-03-14T07:05:52.117Z",
+      "approvedAt": "2025-03-14T07:24:02.212Z",
       "receipt": {
         "url": "none"
       },
       "method": "가상계좌",
-      "orderId": "h4PoyoKKWoIWnDbqRNQNt",
-      "paymentKey": "UIM9XY-vz1_zSZzar60PT",
+      "orderId": "zbuKYXYoIVY96k2lrrp6v",
+      "paymentKey": "dU7yEw0wg8RV5doow1xnX",
       "totalAmount": 109390,
       "customerName": "박요셉",
       "customerEmail": "rkfnahs12e@gmail.com",
