@@ -6,7 +6,7 @@ import { useBucket } from "@/hooks/useBucket";
 import { useGetData } from "@/hooks/useGetData";
 import { useEffect, useState } from "react";
 import { Checkbox } from "@headlessui/react";
-import CheckoutPage from "./_component/Checkout";
+import PaymentPage from "./_component/Payment";
 import { useAuth } from "@/hooks/useAuth";
 import { Customer, Payment } from "@/types/Payment.types";
 import { nanoid } from "nanoid";
@@ -16,22 +16,16 @@ import { getCurrentISODtate } from "@/utils/getCurrentISODate";
 import { usePayment } from "@/hooks/usePayment";
 
 function BucketPage() {
-  const { setCustomer, setPayment, payment } = useBucketContext();
+  const { setPayment, payment, setStep, step } = useBucketContext();
   const { remove } = useBucket();
   const { append } = usePayment();
   const [ids, setIds] = useState<string[]>([]);
-  const [step, setStep] = useState<"product" | "payment">("product");
   const { getUserInfo } = useAuth();
   const { data: userInfo, isLoading: userLoading } = getUserInfo;
   const { getBucketPageData } = useGetData(userInfo!);
   const { data: bucketData, isLoading: bucketLoading } = getBucketPageData;
   useEffect(() => {
     if (userInfo && bucketData) {
-      setCustomer({
-        customerName: userInfo.userName,
-        customerEmail: userInfo.email,
-        customerMobilePhone: userInfo.phoneNumber,
-      });
       setPayment({
         orderName: genOrderName(bucketData),
         approvedAt: getCurrentISODtate(),
@@ -43,9 +37,10 @@ function BucketPage() {
         customerName: userInfo.userName,
         customerEmail: userInfo.email,
         customerMobilePhone: userInfo.phoneNumber,
+        customerId: userInfo.id,
       });
     }
-  }, [userInfo, bucketData, setCustomer, setPayment]);
+  }, [userInfo, bucketData, setPayment]);
 
   if (bucketLoading && userLoading) {
     return <Loading />;
@@ -142,7 +137,7 @@ function BucketPage() {
             </>
           )}
 
-          {step === "payment" && <CheckoutPage />}
+          {step === "payment" && <PaymentPage />}
         </section>
       </div>
     </main>

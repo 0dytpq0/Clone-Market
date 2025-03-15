@@ -10,7 +10,7 @@ export const useGetData = (user: User | null) => {
   });
 
   const getNewProductPageData = useInfiniteQuery<
-    { data: DefaultContentType[]; totalPages: number; hasNextPage: boolean }, // 반환 데이터 타입
+    { data: DefaultContentType[]; totalPages: number; hasNextPage: boolean }, 
     Error
   >({
     ...dataQueryOptions.fetchNewProductPageData(),

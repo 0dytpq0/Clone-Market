@@ -6,7 +6,6 @@ import {
 } from "@tosspayments/payment-widget-sdk";
 import { nanoid } from "nanoid";
 import { useQuery } from "@tanstack/react-query";
-import { Customer, Payment } from "@/types/Payment.types";
 import { useBucketContext } from "@/contexts/bucket.context";
 import Loading from "@/components/atom/Loading";
 
@@ -16,11 +15,17 @@ import Loading from "@/components/atom/Loading";
 const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
 const customerKey = nanoid();
 
-export default function CheckoutPage() {
+export default function PaymentPage() {
+  console.log('first', `${window.location}/success`)
   const { data: paymentWidget } = usePaymentWidget(clientKey, customerKey);
-  const { customer: customerData, payment: checkoutData } = useBucketContext();
-  const { customerEmail, customerMobilePhone, customerName } = customerData!;
-  const { orderName, totalAmount } = checkoutData!;
+  const { payment } = useBucketContext();
+  const {
+    orderName,
+    totalAmount,
+    customerEmail,
+    customerMobilePhone,
+    customerName,
+  } = payment!;
   // const { data: paymentWidget } = usePaymentWidget(clientKey, ANONYMOUS); // 비회원 결제
   const paymentMethodsWidgetRef = useRef<ReturnType<
     PaymentWidgetInstance["renderPaymentMethods"]
@@ -70,7 +75,7 @@ export default function CheckoutPage() {
     paymentMethodsWidget.updateAmount(price);
   }, [price]);
 
-  if (!customerData || !checkoutData) return <Loading />;
+  if (!payment) return <Loading />;
 
   return (
     <main>
@@ -100,32 +105,34 @@ export default function CheckoutPage() {
               </label>
             </div>
           </div>
-
-          <button
-            className="button"
-            style={{ marginTop: "30px" }}
-            disabled={!paymentMethodsWidgetReady}
-            onClick={async () => {
-              try {
-                // ------ '결제하기' 버튼 누르면 결제창 띄우기 ------
-                // @docs https://docs.tosspayments.com/reference/widget-sdk#requestpayment결제-정보
-                await paymentWidget?.requestPayment({
-                  orderId: nanoid(),
-                  orderName: orderName,
-                  customerName: customerName,
-                  customerEmail: customerEmail,
-                  customerMobilePhone: customerMobilePhone,
-                  successUrl: `${window.location.href}/success`,
-                  failUrl: `${window.location.href}/fail`,
-                });
-              } catch (error) {
-                // 에러 처리하기
-                console.error(error);
-              }
-            }}
-          >
-            결제하기
-          </button>
+          <div className="w-full flex items-center justify-between px-[30px]">
+            <button
+              className="button"
+              style={{ marginTop: "30px" }}
+              disabled={!paymentMethodsWidgetReady}
+              onClick={async () => {
+                try {
+                  // ------ '결제하기' 버튼 누르면 결제창 띄우기 ------
+                  // @docs https://docs.tosspayments.com/reference/widget-sdk#requestpayment결제-정보
+                  await paymentWidget?.requestPayment({
+                    orderId: nanoid(),
+                    orderName: orderName,
+                    customerName: customerName,
+                    customerEmail: customerEmail,
+                    customerMobilePhone: customerMobilePhone,
+                    successUrl: `${window.location}/success`,
+                    failUrl: `${window.location}/fail`,
+                  });
+                } catch (error) {
+                  // 에러 처리하기
+                  console.error(error);
+                }
+              }}
+            >
+              결제하기
+            </button>
+            <button>장바구니</button>
+          </div>
         </div>
       </div>
     </main>

@@ -1,31 +1,28 @@
 "use client";
 import Loading from "@/components/atom/Loading";
 import { useBucketContext } from "@/contexts/bucket.context";
+import { Payment } from "@/types/Payment.types";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 const encryptedSecretKey =
   "Basic " +
   Buffer.from("test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm:").toString("base64");
 // ------ Payment 객체 ------
 // @docs https://docs.tosspayments.com/reference#payment-객체
-interface Payment {
-  orderName: string;
-  approvedAt: string;
-  receipt: {
-    url: string;
-  };
-  totalAmount: number;
-  method: "카드" | "가상계좌" | "계좌이체";
+
+interface SuccessDataProps {
   paymentKey: string;
   orderId: string;
+  amount: string;
 }
 
-async function getPaymentData(searchParams: Payment) {
+async function getSuccessData(searchParams: SuccessDataProps) {
   if (
     !searchParams.paymentKey ||
     !searchParams.orderId ||
-    !searchParams.totalAmount
+    !searchParams.amount
   ) {
     return null;
   }
@@ -43,7 +40,7 @@ async function getPaymentData(searchParams: Payment) {
       body: JSON.stringify({
         paymentKey: searchParams.paymentKey,
         orderId: searchParams.orderId,
-        totalAmount: Number(searchParams.totalAmount),
+        totalAmount: Number(searchParams.amount),
       }),
     }
   );
@@ -55,22 +52,22 @@ async function getPaymentData(searchParams: Payment) {
   return response.json() as Promise<Payment>;
 }
 
-export default function SuccessPage(searchParams: Payment) {
-  const { payment: checkoutData } = useBucketContext();
-  const {
-    data: payment,
-    isLoading,
-    isError,
-  } = useQuery({
-    queryKey: ["paymentData", checkoutData?.orderId],
-    queryFn: () => getPaymentData(checkoutData!),
-    enabled: !!checkoutData, // checkoutData가 존재할 때만 실행
+export default function SuccessPage() {
+  const searchParams = useSearchParams();
+  const paymentKey = searchParams.get("paymentKey") || "";
+  const orderId = searchParams.get("orderId") || "";
+  const amount = searchParams.get("amount") || "";
+  const payment: SuccessDataProps = { paymentKey, orderId, amount };
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["paymentData", payment?.orderId],
+    queryFn: () => getSuccessData(payment),
+    enabled: !!payment, // checkoutData가 존재할 때만 실행
     retry: 3, // 실패 시 한 번 재시도
   });
-
+  console.log("payment", payment);
   useEffect(() => {
-    console.log("결제 정보:", payment);
-  }, [payment]);
+    console.log("결제 정보:", data);
+  }, [data]);
   return (
     <main>
       <div
@@ -105,7 +102,7 @@ export default function SuccessPage(searchParams: Payment) {
                 <b>결제금액</b>
               </div>
               <div className="p-grid-col text--right" id="amount">
-                {payment.totalAmount.toLocaleString()}원
+                {payment.amount.toLocaleString()}원
               </div>
             </div>
 

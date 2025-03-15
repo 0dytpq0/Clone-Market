@@ -952,19 +952,20 @@
   ],
   "payment": [
     {
-      "id": "e77b",
-      "orderName": "[네이처빌] 국내산 쌀 97% 한끼든든쌀국수 소컵 3종 외 4개",
-      "approvedAt": "2025-03-14T07:24:02.212Z",
+      "id": "2a1e",
+      "orderName": "[KF365] 에어프라이어용 통 닭가슴살 치킨까스 120g*5pk 외 2개",
+      "approvedAt": "2025-03-15T06:41:58.818Z",
       "receipt": {
         "url": "none"
       },
       "method": "가상계좌",
-      "orderId": "zbuKYXYoIVY96k2lrrp6v",
-      "paymentKey": "dU7yEw0wg8RV5doow1xnX",
-      "totalAmount": 109390,
+      "orderId": "QmhDQ4LwdltJLV0NgiJsv",
+      "paymentKey": "irV69cSyo8dReY9-qtnD8",
+      "totalAmount": 15950,
       "customerName": "박요셉",
       "customerEmail": "rkfnahs12e@gmail.com",
-      "customerMobilePhone": "01031460962"
+      "customerMobilePhone": "01031460962",
+      "customerId": "8798"
     }
   ]
 }
