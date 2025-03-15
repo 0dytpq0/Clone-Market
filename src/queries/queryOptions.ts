@@ -61,7 +61,7 @@ export const dataQueryOptions = {
     initialPageParam: 1,
   }),
   fetchBucketPageData: (user: User) => ({
-    queryKey: [dataKeys.bucket, user],
+    queryKey: [...dataKeys.bucket, user],
     queryFn: () => fetchBucketPageData(user),
     retry: 3,
   }),

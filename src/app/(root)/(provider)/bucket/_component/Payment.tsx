@@ -16,9 +16,9 @@ const clientKey = "test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm";
 const customerKey = nanoid();
 
 export default function PaymentPage() {
-  console.log('first', `${window.location}/success`)
+  console.log("first", `${window.location}/success`);
   const { data: paymentWidget } = usePaymentWidget(clientKey, customerKey);
-  const { payment } = useBucketContext();
+  const { payment, setStep } = useBucketContext();
   const {
     orderName,
     totalAmount,
@@ -131,7 +131,7 @@ export default function PaymentPage() {
             >
               결제하기
             </button>
-            <button>장바구니</button>
+            <button onClick={() => setStep("product")}>장바구니</button>
           </div>
         </div>
       </div>

@@ -54,6 +54,7 @@ function BucketPage() {
     const bucketDataIds: string[] = [];
     if (ids.length === 0) {
       bucketData?.bucket.forEach((content) => {
+        console.log("content", content);
         bucketDataIds.push(content.id);
       });
       setIds(bucketDataIds);
