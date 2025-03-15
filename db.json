@@ -952,15 +952,15 @@
   ],
   "payment": [
     {
-      "id": "2a1e",
+      "id": "dda9",
       "orderName": "[KF365] 에어프라이어용 통 닭가슴살 치킨까스 120g*5pk 외 2개",
-      "approvedAt": "2025-03-15T06:41:58.818Z",
+      "approvedAt": "2025-03-15T07:07:10.714Z",
       "receipt": {
         "url": "none"
       },
       "method": "가상계좌",
-      "orderId": "QmhDQ4LwdltJLV0NgiJsv",
-      "paymentKey": "irV69cSyo8dReY9-qtnD8",
+      "orderId": "lVZM-WDR2Ff2y3OJHe-_w",
+      "paymentKey": "7FhS6B3S5mw7HioE5cYgt",
       "totalAmount": 15950,
       "customerName": "박요셉",
       "customerEmail": "rkfnahs12e@gmail.com",
